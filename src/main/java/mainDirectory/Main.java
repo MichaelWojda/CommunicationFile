@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import mainDirectory.database.dbutils.dbManager;
 
 public class Main extends Application {
 
@@ -20,6 +21,7 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.setTitle("Plik komunikacji");
         primaryStage.show();
+        //dbManager.innitDB();
 
     }
 }
