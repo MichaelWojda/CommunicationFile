@@ -12,13 +12,13 @@ public class MainWindowController {
     @FXML
     private BorderPane mainBorderPane;
 
-
+    @FXML
     private TopMenuButtonsController topMenuButtonsController;
 
     @FXML
     private void initialize(){
         topMenuButtonsController.setMainWindowController(this);
-        System.out.println("co do huja?");
+
 
     }
 

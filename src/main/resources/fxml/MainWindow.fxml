@@ -30,7 +30,7 @@
              </Menu>
            </menus>
          </MenuBar>
-          <fx:include source="TopMenuButtons.fxml" />
+          <fx:include source="TopMenuButtons.fxml" fx:id="topMenuButtons" />
       </VBox>
    </top>
    <bottom>

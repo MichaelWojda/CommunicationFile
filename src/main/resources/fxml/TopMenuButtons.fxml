@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainDirectory.controllers.TopMenuButtonsController">
+   <children>
+      <ToggleButton minHeight="50.0" minWidth="150.0" mnemonicParsing="false" onAction="#enterPlanning" text="Planowanie">
+         <HBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </HBox.margin>
+         <graphic>
+            <ImageView fitHeight="36.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/planning.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <toggleGroup>
+            <ToggleGroup fx:id="toggleGroup1" />
+         </toggleGroup>
+      </ToggleButton>
+      <ToggleButton minHeight="50.0" minWidth="150.0" mnemonicParsing="false" onAction="#enterSCM" text="SCM" toggleGroup="$toggleGroup1">
+         <HBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </HBox.margin>
+         <graphic>
+            <ImageView fitHeight="38.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/scm.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
+      <ToggleButton minHeight="50.0" minWidth="150.0" mnemonicParsing="false" onAction="#enterPUR" text="Zaopatrzenie" toggleGroup="$toggleGroup1">
+         <HBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </HBox.margin>
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/purchasing.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
+      <ToggleButton minHeight="50.0" minWidth="150.0" mnemonicParsing="false" onAction="#enterAdmin" text="Admin" toggleGroup="$toggleGroup1">
+         <HBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </HBox.margin>
+         <graphic>
+            <ImageView fitHeight="41.0" fitWidth="101.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/admin.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </ToggleButton>
+   </children>
+</HBox>

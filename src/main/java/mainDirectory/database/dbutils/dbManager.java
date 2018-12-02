@@ -3,6 +3,7 @@ package mainDirectory.database.dbutils;
 import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
+import mainDirectory.database.model.Person;
 import mainDirectory.database.model.Ticket;
 
 import java.io.IOException;
@@ -22,7 +23,7 @@ public class dbManager {
         }
     }
 
-    public ConnectionSource getConnectionSource(){
+    public static ConnectionSource getConnectionSource(){
         if(connectionSource==null){
             createConnectionSource();
         }
@@ -35,8 +36,10 @@ public class dbManager {
 
     public static void innitDB() throws SQLException, IOException {
         createConnectionSource();
-        //TableUtils.dropTable(connectionSource,Ticket.class, true);
+        TableUtils.dropTable(connectionSource,Ticket.class, true);
+        TableUtils.dropTable(connectionSource, Person.class, true);
         TableUtils.createTableIfNotExists(connectionSource, Ticket.class);
+        TableUtils.createTableIfNotExists(connectionSource, Person.class);
         closeConnection();
     }
 
