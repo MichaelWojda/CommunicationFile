@@ -58,4 +58,14 @@ public class PersonFX {
     public void setDepartament(String departament) {
         this.departament.set(departament);
     }
+
+    @Override
+    public String toString() {
+        return "PersonFX{" +
+                "id=" + id +
+                ", name=" + name +
+                ", surname=" + surname +
+                ", departament=" + departament +
+                '}';
+    }
 }

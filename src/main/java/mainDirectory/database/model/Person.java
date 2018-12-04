@@ -60,4 +60,15 @@ public class Person implements BaseModel {
     public void setTickets(ForeignCollection<Ticket> tickets) {
         this.tickets = tickets;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", departament='" + departament + '\'' +
+                ", tickets=" + tickets +
+                '}';
+    }
 }

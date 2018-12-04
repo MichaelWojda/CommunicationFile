@@ -4,12 +4,14 @@ import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import mainDirectory.modelFX.PersonModel;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class AdminWindowController {
@@ -29,7 +31,6 @@ public class AdminWindowController {
     private PersonModel personModel;
 
     ObservableList<String> departaments;
-    ListProperty<String> list;
 
 
     @FXML
@@ -39,9 +40,9 @@ public class AdminWindowController {
         initComboBox();
 
 
-        this.nameField.textProperty().bind(personModel.getPersonFXSimpleObjectProperty().nameProperty());
-        this.surnameField.textProperty().bind(personModel.getPersonFXSimpleObjectProperty().surnameProperty());
-        this.deptComboBox.itemsProperty().bindBidirectional(list);
+        this.nameField.textProperty().bindBidirectional(personModel.getPersonFXSimpleObjectProperty().nameProperty());
+        this.surnameField.textProperty().bindBidirectional(personModel.getPersonFXSimpleObjectProperty().surnameProperty());
+        this.deptComboBox.getItems().setAll(departaments);
 
 
 
@@ -54,16 +55,22 @@ public class AdminWindowController {
         listOfDepts.add("SCM");
         listOfDepts.add("Planowanie");
         departaments= FXCollections.observableArrayList(listOfDepts);
-        list = new SimpleListProperty<String>();
-        list.set(departaments);
+
     }
 
 
     @FXML
     void addPersonOnClick() {
-        this.personModel.savePersonInDB();
+            try {
+            this.personModel.savePersonInDB();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
     }
 
+    public void onSelection() {
+        this.personModel.getPersonFXSimpleObjectProperty().setDepartament(this.deptComboBox.getSelectionModel().selectedItemProperty().toString());
+    }
 }

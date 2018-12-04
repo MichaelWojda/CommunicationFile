@@ -12,4 +12,13 @@ public class PersonConverter {
         personFX.setDepartament(person.getDepartament());
         return personFX;
     }
+
+    public static Person convertToPerson(PersonFX personFX) {
+        Person person = new Person();
+        person.setId(personFX.getId());
+        person.setName(personFX.getName());
+        person.setSurname(personFX.getSurname());
+        person.setDepartament(personFX.getDepartament());
+        return person;
+    }
 }

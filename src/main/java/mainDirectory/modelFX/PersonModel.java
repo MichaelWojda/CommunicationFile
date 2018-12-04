@@ -6,9 +6,11 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import mainDirectory.Converters.PersonConverter;
 import mainDirectory.database.dao.PersonDao;
+import mainDirectory.database.dbutils.dbManager;
 import mainDirectory.database.model.BaseModel;
 import mainDirectory.database.model.Person;
 
+import java.io.IOException;
 import java.util.List;
 
 public class PersonModel {
@@ -46,10 +48,16 @@ public class PersonModel {
         this.personFXObservableList = personFXObservableList;
     }
 
-    public void savePersonInDB() {
+    public void savePersonInDB() throws IOException {
         PersonDao personDao = new PersonDao();
-
-        personDao.createOrUpdate();
+        Person person = new Person();
+        //person = PersonConverter.convertToPerson(this.getPersonFXSimpleObjectProperty());
+        person.setId(1);
+        person.setName("Michał");
+        person.setSurname("Wojda");
+        person.setDepartament("Zaopatrzenie");
+        personDao.createOrUpdate(person);
+        dbManager.closeConnection();
     }
 }
 
