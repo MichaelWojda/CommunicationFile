@@ -11,12 +11,14 @@ import java.sql.SQLException;
 
 public class dbManager {
 
+    public static final String LAN_DATABASE_ADDRESS = "jdbc:h2:file://pllod-v-dfsprn1.pl.abb.com/pllod_06/06 PLPES/320 Dział Zaopatrzenia/Zaopatrzenie baza/TEST";
+    public static final String RANDOM_DB = "jdbc:h2:~/randomDB";
     static ConnectionSource connectionSource;
 
     public static void createConnectionSource() {
         {
             try {
-                connectionSource = new JdbcConnectionSource("jdbc:h2:file://pllod-v-dfsprn1.pl.abb.com/pllod_06/06 PLPES/320 Dział Zaopatrzenia/Zaopatrzenie baza/TEST", "admin", "pass");
+                connectionSource = new JdbcConnectionSource(RANDOM_DB, "admin", "pass");
             } catch (SQLException e) {
                 e.printStackTrace();
             }

@@ -9,7 +9,7 @@ public class PersonFX {
     SimpleIntegerProperty id = new SimpleIntegerProperty();
     SimpleStringProperty name = new SimpleStringProperty();
     SimpleStringProperty surname = new SimpleStringProperty();
-    SimpleObjectProperty<DepartamentFX> departamentFXProperty = new SimpleObjectProperty<>();
+    SimpleStringProperty departament = new SimpleStringProperty();
 
     public int getId() {
         return id.get();
@@ -47,15 +47,15 @@ public class PersonFX {
         this.surname.set(surname);
     }
 
-    public DepartamentFX getDepartamentFXProperty() {
-        return departamentFXProperty.get();
+    public String getDepartament() {
+        return departament.get();
     }
 
-    public SimpleObjectProperty<DepartamentFX> departamentFXPropertyProperty() {
-        return departamentFXProperty;
+    public SimpleStringProperty departamentProperty() {
+        return departament;
     }
 
-    public void setDepartamentFXProperty(DepartamentFX departamentFXProperty) {
-        this.departamentFXProperty.set(departamentFXProperty);
+    public void setDepartament(String departament) {
+        this.departament.set(departament);
     }
 }

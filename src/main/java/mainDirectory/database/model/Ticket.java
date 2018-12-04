@@ -28,8 +28,8 @@ public class Ticket {
     @DatabaseField(columnName = "PERSON_ID", foreign = true ,foreignAutoCreate = true, foreignAutoRefresh = true, canBeNull = false)
     Person person;
 
-    @DatabaseField(columnName = "DEPARTAMENT_ID", foreign = true ,foreignAutoCreate = true, foreignAutoRefresh = true, canBeNull = false)
-    Departament departament;
+    @DatabaseField(columnName = "DEPARTAMENT_ID", canBeNull = false)
+    String departament;
 
     @DatabaseField(columnName = "AUTHOR")
     String autor;

@@ -15,8 +15,8 @@ public class Person implements BaseModel {
     @DatabaseField(columnName = "SURNAME", canBeNull = false)
     String surname;
 
-    @DatabaseField(columnName = "DEPARTAMENT_ID", foreign = true ,foreignAutoCreate = true, foreignAutoRefresh = true, canBeNull = false)
-    Departament departament;
+    @DatabaseField(columnName = "DEPARTAMENT_ID", canBeNull = false)
+    String departament;
 
     @ForeignCollectionField
     ForeignCollection<Ticket> tickets;
@@ -45,11 +45,19 @@ public class Person implements BaseModel {
         this.surname = surname;
     }
 
-    public Departament getDepartament() {
+    public String getDepartament() {
         return departament;
     }
 
-    public void setDepartament(Departament departament) {
+    public void setDepartament(String departament) {
         this.departament = departament;
+    }
+
+    public ForeignCollection<Ticket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(ForeignCollection<Ticket> tickets) {
+        this.tickets = tickets;
     }
 }
