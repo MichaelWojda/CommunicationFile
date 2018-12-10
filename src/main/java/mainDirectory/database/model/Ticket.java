@@ -1,8 +1,14 @@
 package mainDirectory.database.model;
 
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.table.DatabaseTable;
 
+@DatabaseTable(tableName="Ticket_Table")
 public class Ticket {
+
+    public Ticket(){
+
+    }
 
     @DatabaseField(generatedId = true)
     int id;

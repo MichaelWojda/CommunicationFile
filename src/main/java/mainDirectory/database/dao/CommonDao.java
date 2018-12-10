@@ -4,6 +4,8 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.logger.Logger;
 import com.j256.ormlite.logger.LoggerFactory;
+import com.j256.ormlite.stmt.PreparedQuery;
+import com.j256.ormlite.stmt.QueryBuilder;
 import com.j256.ormlite.support.ConnectionSource;
 import mainDirectory.database.dbutils.dbManager;
 import mainDirectory.database.model.BaseModel;
@@ -72,6 +74,19 @@ public class CommonDao {
         }
         return null;
     }
+    public <T extends BaseModel, I> List<T> queryForDept(Class<T> cls,String dept){
+        Dao<T,I> dao = createDao(cls);
+        QueryBuilder<T, I> queryBuilder = dao.queryBuilder();
+        try {
+            queryBuilder.where().eq("DEPARTAMENT", dept);
+            PreparedQuery<T> prepare = queryBuilder.prepare();
+            return dao.query(prepare);
+        }
+        catch (SQLException e){
+            e.printStackTrace();
+        }
+        return null;
 
+    }
 
 }

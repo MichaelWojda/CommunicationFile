@@ -1,6 +1,7 @@
 package mainDirectory.dialogs;
 
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextInputDialog;
 
 import java.util.Optional;
@@ -24,5 +25,13 @@ public class Dialogs {
         alert.setHeaderText("Błędne hasło");
         alert.setContentText("Wprowadzono błędne hasło");
         alert.showAndWait();
+    }
+    public static Optional<ButtonType> confirmDelete(){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Uwaga");
+        alert.setHeaderText("UWAGA!!!");
+        alert.setContentText("Usunięcie użytkownika spowoduje nieodwaracalne zmiany w systemie, stosuj jedynie w ostateczności, czy napewno chcesz usunąć");
+        Optional<ButtonType> result = alert.showAndWait();
+        return result;
     }
 }

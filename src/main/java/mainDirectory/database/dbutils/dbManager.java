@@ -36,10 +36,11 @@ public class dbManager {
         connectionSource.close();
     }
 
+
     public static void innitDB() throws SQLException, IOException {
         createConnectionSource();
-        TableUtils.dropTable(connectionSource,Ticket.class, true);
-        TableUtils.dropTable(connectionSource, Person.class, true);
+        //TableUtils.dropTable(connectionSource,Ticket.class, true);
+        //TableUtils.dropTable(connectionSource, Person.class, true);
         TableUtils.createTableIfNotExists(connectionSource, Ticket.class);
         TableUtils.createTableIfNotExists(connectionSource, Person.class);
         closeConnection();

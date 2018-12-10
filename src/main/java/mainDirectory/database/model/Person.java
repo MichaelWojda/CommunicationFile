@@ -3,20 +3,26 @@ package mainDirectory.database.model;
 import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.field.ForeignCollectionField;
+import com.j256.ormlite.table.DatabaseTable;
 
+@DatabaseTable(tableName="Person_Table")
 public class Person implements BaseModel {
 
+    public Person(){
+
+    }
+
     @DatabaseField(generatedId = true)
-    int id;
+    private int id;
 
     @DatabaseField(columnName = "NAME", canBeNull = false)
-    String name;
+    private String name;
 
     @DatabaseField(columnName = "SURNAME", canBeNull = false)
-    String surname;
+    private String surname;
 
-    @DatabaseField(columnName = "DEPARTAMENT_ID", canBeNull = false)
-    String departament;
+    @DatabaseField(columnName = "DEPARTAMENT", canBeNull = false)
+    private String departament;
 
     @ForeignCollectionField
     ForeignCollection<Ticket> tickets;

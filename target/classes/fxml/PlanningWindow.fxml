@@ -1,11 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Label layoutX="270.0" layoutY="192.0" text="Planowanie" />
-   </children>
-</Pane>
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainDirectory.controllers.PlanningWindowController">
+  <tabs>
+    <Tab text="Utwórz Ticket">
+         <content>
+            <Pane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="materialNameField" layoutX="36.0" layoutY="86.0" />
+                  <TextField fx:id="materialDescField" layoutX="226.0" layoutY="86.0" />
+                  <TextField fx:id="projectNameField" layoutX="419.0" layoutY="86.0" />
+                  <TextArea fx:id="notesField" layoutX="26.0" layoutY="138.0" prefHeight="95.0" prefWidth="549.0" />
+                  <ComboBox fx:id="scmComboBox" layoutX="224.0" layoutY="260.0" onAction="#scmBoxOnSelection" prefWidth="150.0" />
+                  <ComboBox fx:id="purComboBox" layoutX="26.0" layoutY="260.0" onAction="#purBoxOnSelection" prefWidth="150.0" />
+                  <ComboBox fx:id="statusComboBox" layoutX="418.0" layoutY="260.0" onAction="#statusBoxOnSelection" prefWidth="150.0" />
+                  <ComboBox fx:id="choosePlanAuthorBox" layoutX="226.0" layoutY="33.0" onAction="#onSelectionAuthorBox" prefWidth="150.0" />
+                  <Button layoutX="26.0" layoutY="307.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Wyszukaj materiał">
+                     <graphic>
+                        <ImageView fitHeight="32.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/search.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="224.0" layoutY="307.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Wyczyść dane">
+                     <graphic>
+                        <ImageView fitHeight="35.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/clean.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button layoutX="418.0" layoutY="307.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="150.0" text="Dodaj Ticket">
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/ticket.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Label layoutX="286.0" layoutY="6.0" text="Autor" />
+                  <Label layoutX="87.0" layoutY="58.0" text="Materiał" />
+                  <Label layoutX="287.0" layoutY="58.0" text="Opis" />
+                  <Label layoutX="474.0" layoutY="58.0" text="Projekt" />
+                  <Label layoutX="287.0" layoutY="111.0" text="Notatki" />
+                  <Label layoutX="70.0" layoutY="233.0" text="Zaoptrzenie" />
+                  <Label layoutX="287.0" layoutY="233.0" text="SCM" />
+                  <Label layoutX="481.0" layoutY="233.0" text="Status" />
+               </children>
+            </Pane>
+         </content>
+    </Tab>
+    <Tab text="Moje Tickety">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>

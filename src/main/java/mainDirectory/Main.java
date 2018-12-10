@@ -6,6 +6,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import mainDirectory.database.dbutils.dbManager;
+import mainDirectory.utils.fxmlUtils;
 
 public class Main extends Application {
 
@@ -16,10 +17,7 @@ public class Main extends Application {
     }
     @Override
     public void start(Stage primaryStage) throws Exception {
-
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource(MAIN_WINDOW_FXML));
-        BorderPane borderPane = loader.load();
-        Scene scene = new Scene(borderPane);
+        Scene scene = new Scene(fxmlUtils.loadFXML(MAIN_WINDOW_FXML));
         primaryStage.setScene(scene);
         primaryStage.setTitle("Plik komunikacji");
         primaryStage.show();

@@ -1,5 +1,7 @@
 package mainDirectory.modelFX;
 
+import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.dao.DaoManager;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
@@ -11,6 +13,7 @@ import mainDirectory.database.model.BaseModel;
 import mainDirectory.database.model.Person;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 public class PersonModel {
@@ -18,14 +21,15 @@ public class PersonModel {
     ObservableList<PersonFX> personFXObservableList = FXCollections.observableArrayList();
 
 
-    public void innit() {
+    public void innit() throws IOException {
         PersonDao personDao = new PersonDao();
         List<Person> list = personDao.queryForAll(Person.class);
         personFXObservableList.clear();
         list.forEach(person -> {
-        PersonFX personFX = PersonConverter.convertToPersonFX(person);
-        personFXObservableList.add(personFX);
+            PersonFX personFX = PersonConverter.convertToPersonFX(person);
+            personFXObservableList.add(personFX);
         });
+        dbManager.closeConnection();
     }
 
     public PersonFX getPersonFXSimpleObjectProperty() {
@@ -51,13 +55,20 @@ public class PersonModel {
     public void savePersonInDB() throws IOException {
         PersonDao personDao = new PersonDao();
         Person person = new Person();
-        //person = PersonConverter.convertToPerson(this.getPersonFXSimpleObjectProperty());
-        person.setId(1);
-        person.setName("Michał");
-        person.setSurname("Wojda");
-        person.setDepartament("Zaopatrzenie");
+        person = PersonConverter.convertToPerson(this.getPersonFXSimpleObjectProperty());
         personDao.createOrUpdate(person);
-        dbManager.closeConnection();
+        try {
+            dbManager.closeConnection();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        innit();
+    }
+
+    public void deletePersonFX(PersonFX item) throws IOException {
+        PersonDao personDao = new PersonDao();
+        personDao.deleteById(Person.class, item.getId());
+        innit();
     }
 }
 
