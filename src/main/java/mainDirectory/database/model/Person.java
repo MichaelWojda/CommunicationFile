@@ -24,6 +24,8 @@ public class Person implements BaseModel {
     @DatabaseField(columnName = "DEPARTAMENT", canBeNull = false)
     private String departament;
 
+
+
     @ForeignCollectionField
     ForeignCollection<Ticket> tickets;
 
@@ -51,20 +53,20 @@ public class Person implements BaseModel {
         this.surname = surname;
     }
 
-    public String getDepartament() {
-        return departament;
-    }
-
-    public void setDepartament(String departament) {
-        this.departament = departament;
-    }
-
     public ForeignCollection<Ticket> getTickets() {
         return tickets;
     }
 
     public void setTickets(ForeignCollection<Ticket> tickets) {
         this.tickets = tickets;
+    }
+
+    public String getDepartament() {
+        return departament;
+    }
+
+    public void setDepartament(String departament) {
+        this.departament = departament;
     }
 
     @Override

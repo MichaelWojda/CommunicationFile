@@ -6,11 +6,13 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.stage.Window;
+import mainDirectory.dialogs.Dialogs;
 import mainDirectory.modelFX.PersonModel;
+import mainDirectory.utils.Exceptions.ApplicationException;
 
 import java.io.IOException;
 
-public class EditWindowController {
+public class EditPersonWindowController {
 
     @FXML
     private TextField editNameField;
@@ -45,8 +47,12 @@ public class EditWindowController {
         this.personModel.getPersonFXSimpleObjectProperty().setDepartament(this.editDeptComboBox.getSelectionModel().getSelectedItem());
     }
     @FXML
-    void saveEdit() throws IOException {
-        this.personModel.savePersonInDB();
+    void saveEdit() {
+        try {
+            this.personModel.savePersonInDB();
+        } catch (ApplicationException e) {
+            Dialogs.alertMessage(e.getMessage());
+        }
         Stage stage = (Stage)this.editSaveButton.getScene().getWindow();
         stage.close();
 

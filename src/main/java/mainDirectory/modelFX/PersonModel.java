@@ -11,6 +11,7 @@ import mainDirectory.database.dao.PersonDao;
 import mainDirectory.database.dbutils.dbManager;
 import mainDirectory.database.model.BaseModel;
 import mainDirectory.database.model.Person;
+import mainDirectory.utils.Exceptions.ApplicationException;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -21,7 +22,7 @@ public class PersonModel {
     ObservableList<PersonFX> personFXObservableList = FXCollections.observableArrayList();
 
 
-    public void innit() throws IOException {
+    public void innit() throws ApplicationException {
         PersonDao personDao = new PersonDao();
         List<Person> list = personDao.queryForAll(Person.class);
         personFXObservableList.clear();
@@ -52,20 +53,16 @@ public class PersonModel {
         this.personFXObservableList = personFXObservableList;
     }
 
-    public void savePersonInDB() throws IOException {
+    public void savePersonInDB() throws ApplicationException {
         PersonDao personDao = new PersonDao();
         Person person = new Person();
         person = PersonConverter.convertToPerson(this.getPersonFXSimpleObjectProperty());
         personDao.createOrUpdate(person);
-        try {
-            dbManager.closeConnection();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        dbManager.closeConnection();
         innit();
     }
 
-    public void deletePersonFX(PersonFX item) throws IOException {
+    public void deletePersonFX(PersonFX item) throws ApplicationException {
         PersonDao personDao = new PersonDao();
         personDao.deleteById(Person.class, item.getId());
         innit();

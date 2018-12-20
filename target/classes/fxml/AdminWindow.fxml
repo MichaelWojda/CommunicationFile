@@ -49,7 +49,30 @@
     </Tab>
       <Tab text="Dodaj status">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="259.0" layoutY="55.0" text="Nazwa:" />
+                  <TextField fx:id="statusNameField" layoutX="326.0" layoutY="51.0" />
+                  <Button fx:id="addStatusButton" layoutX="496.0" layoutY="32.0" mnemonicParsing="false" onAction="#addStatusOnClick" prefHeight="63.0" prefWidth="118.0" text="Dodaj">
+                     <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../icons/addButton.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <TableView fx:id="statusTableView" layoutX="238.0" layoutY="166.0" prefHeight="280.0" prefWidth="323.0">
+                    <columns>
+                      <TableColumn fx:id="statusNameColumn" prefWidth="75.0" text="Nazwa" />
+                      <TableColumn fx:id="statusEditColumn" prefWidth="75.0" text="Edycja" />
+                        <TableColumn fx:id="statusDeleteColumn" prefWidth="75.0" text="Usuń" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children></AnchorPane>
         </content>
       </Tab>
       <Tab text="Statystyki">

@@ -1,11 +1,8 @@
 package mainDirectory.controllers;
 
-import com.sun.jmx.remote.internal.ClientCommunicatorAdmin;
 import javafx.fxml.FXML;
 import javafx.scene.control.ToggleGroup;
 import mainDirectory.dialogs.Dialogs;
-
-import java.util.NoSuchElementException;
 
 public class TopMenuButtonsController {
 
@@ -24,13 +21,13 @@ public class TopMenuButtonsController {
     void enterAdmin() throws NullPointerException {
         String result = Dialogs.passwdCheckDialog();
         if(result==null){
-            Dialogs.wrongPasswd();
+            Dialogs.alertMessage("Wprowadziłeś błędne hasło");
         }
         else if(result.equals(PASSWORD))
         {
         mainWindowController.setCenter(ADMIN_WINDOW_FXML);}
         else{
-            Dialogs.wrongPasswd();
+            Dialogs.alertMessage("Wprowadziłeś błędne hasło");
         }
 
 

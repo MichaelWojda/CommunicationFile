@@ -19,11 +19,11 @@ public class Dialogs {
         return null;
     }
 
-    public static void wrongPasswd() {
+    public static void alertMessage(String error) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Błąd");
-        alert.setHeaderText("Błędne hasło");
-        alert.setContentText("Wprowadzono błędne hasło");
+        alert.setHeaderText("Wystąpił błąd");
+        alert.setContentText(error);
         alert.showAndWait();
     }
     public static Optional<ButtonType> confirmDelete(){

@@ -35,24 +35,35 @@ public class PlanningWindowController {
     private AddTicketForPlanningModel addTicketForPlanningModel;
 
     @FXML
-    private void initialize() throws IOException {
+    private void initialize(){
         addTicketForPlanningModel = new AddTicketForPlanningModel();
         addTicketForPlanningModel.innit();
         this.choosePlanAuthorBox.setItems(addTicketForPlanningModel.getPlanningFXList());
+        this.purComboBox.setItems(addTicketForPlanningModel.getPurFXList());
+        this.scmComboBox.setItems(addTicketForPlanningModel.getScMFXList());
+        this.materialNameField.textProperty().bind(addTicketForPlanningModel.getTicketFXObjectProperty().materialNamePropertyProperty());
+        this.materialDescField.textProperty().bind(addTicketForPlanningModel.getTicketFXObjectProperty().materialDescriptionPropertyProperty());
+        this.notesField.textProperty().bind(addTicketForPlanningModel.getTicketFXObjectProperty().notesPropertyProperty());
+        this.projectNameField.textProperty().bind(addTicketForPlanningModel.getTicketFXObjectProperty().projectPropertyProperty());
+
+
+
 
     }
 
     @FXML
     void onSelectionAuthorBox() {
+        this.addTicketForPlanningModel.setAuthorFXObjectProperty(this.choosePlanAuthorBox.getSelectionModel().getSelectedItem());
 
     }
     @FXML
     void purBoxOnSelection() {
-
+        this.addTicketForPlanningModel.setPurFXObjectProperty(this.purComboBox.getSelectionModel().getSelectedItem());
     }
 
     @FXML
     void scmBoxOnSelection() {
+        this.addTicketForPlanningModel.setScmFXObjectProperty(this.scmComboBox.getSelectionModel().getSelectedItem());
 
     }
 

@@ -11,6 +11,7 @@ public class PersonFX {
     SimpleStringProperty surname = new SimpleStringProperty();
     SimpleStringProperty departament = new SimpleStringProperty();
 
+
     public int getId() {
         return id.get();
     }
@@ -61,11 +62,6 @@ public class PersonFX {
 
     @Override
     public String toString() {
-        return "PersonFX{" +
-                "id=" + id +
-                ", name=" + name +
-                ", surname=" + surname +
-                ", departament=" + departament +
-                '}';
+        return name.getValue() +" "+ surname.getValue();
     }
 }

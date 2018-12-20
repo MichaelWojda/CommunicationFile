@@ -14,6 +14,9 @@ import javafx.stage.Stage;
 import mainDirectory.dialogs.Dialogs;
 import mainDirectory.modelFX.PersonFX;
 import mainDirectory.modelFX.PersonModel;
+import mainDirectory.modelFX.StatusFX;
+import mainDirectory.modelFX.StatusModel;
+import mainDirectory.utils.Exceptions.ApplicationException;
 import mainDirectory.utils.fxmlUtils;
 
 import java.io.IOException;
@@ -33,6 +36,7 @@ public class AdminWindowController {
 
     @FXML
     private Button addPersonButton;
+
     @FXML
     private TableView<PersonFX> personTableView;
 
@@ -50,21 +54,55 @@ public class AdminWindowController {
 
     @FXML
     private TableColumn<PersonFX, PersonFX> deleteColumn;
+    @FXML
+    private TextField statusNameField;
+
+    @FXML
+    private Button addStatusButton;
+
+    @FXML
+    private TableView<StatusFX> statusTableView;
+
+    @FXML
+    private TableColumn<StatusFX, String> statusNameColumn;
+
+    @FXML
+    private TableColumn<StatusFX, StatusFX> statusEditColumn;
+
+    @FXML
+    private TableColumn<StatusFX, StatusFX> statusDeleteColumn;
+
 
     private PersonModel personModel;
-
+    private StatusModel statusModel;
 
 
     @FXML
     public void initialize() {
         personModel = new PersonModel();
-        personModel.innit();
+        statusModel = new StatusModel();
+        try {
+            statusModel.innit();
+            personModel.innit();
+        } catch (ApplicationException e) {
+            Dialogs.alertMessage(e.getMessage());
+        }
         initComboBox();
         checkFields();
 
+
         this.nameField.textProperty().bindBidirectional(personModel.getPersonFXSimpleObjectProperty().nameProperty());
+        this.statusNameField.textProperty().bindBidirectional(statusModel.getStatusFXObjectProperty().nameFXProperty());
         this.surnameField.textProperty().bindBidirectional(personModel.getPersonFXSimpleObjectProperty().surnameProperty());
         this.deptComboBox.getItems().setAll(initComboBox());
+        this.statusTableView.setItems(this.statusModel.getStatusFXObservableList());
+        this.statusNameColumn.setCellValueFactory(c -> c.getValue().nameFXProperty());
+        personTableViewCreation();
+
+
+    }
+
+    private void personTableViewCreation() {
         this.personTableView.setItems(this.personModel.getPersonFXObservableList());
         this.nameColumn.setCellValueFactory(c -> c.getValue().nameProperty());
         this.surnameColumn.setCellValueFactory(c -> c.getValue().surnameProperty());
@@ -84,7 +122,11 @@ public class AdminWindowController {
                     button.setOnAction(event -> {
                         Optional<ButtonType> result = Dialogs.confirmDelete();
                         if (result.get() == ButtonType.OK) {
-                            personModel.deletePersonFX(item);
+                            try {
+                                personModel.deletePersonFX(item);
+                            } catch (ApplicationException e) {
+                                Dialogs.alertMessage(e.getMessage());
+                            }
                         }
                     });
                 }
@@ -104,7 +146,7 @@ public class AdminWindowController {
                 if (!empty) {
                     setGraphic(button);
                     button.setOnAction(event -> {
-                        FXMLLoader loader = fxmlUtils.returnLoader("/fxml/EditWindow.fxml");
+                        FXMLLoader loader = fxmlUtils.returnLoader("/fxml/EditPersonWindow.fxml");
 
                         Scene scene = null;
                         try {
@@ -112,9 +154,9 @@ public class AdminWindowController {
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
-                        EditWindowController editWindowController = loader.getController();
-                        editWindowController.getPersonModel().setPersonFXSimpleObjectProperty(item);
-                        editWindowController.bindings();
+                        EditPersonWindowController editPersonWindowController = loader.getController();
+                        editPersonWindowController.getPersonModel().setPersonFXSimpleObjectProperty(item);
+                        editPersonWindowController.bindings();
                         Stage stage = new Stage();
                         stage.setScene(scene);
                         stage.setTitle("Edycja");
@@ -125,11 +167,10 @@ public class AdminWindowController {
                 }
             }
         });
-
-
     }
 
     private void checkFields() {
+        this.addStatusButton.disableProperty().bind(this.statusNameField.textProperty().isEmpty());
         this.addPersonButton.disableProperty().bind(this.nameField.textProperty().isEmpty().or(this.surnameField.textProperty().isEmpty().or(this.deptComboBox.valueProperty().isNull())));
     }
 
@@ -143,10 +184,13 @@ public class AdminWindowController {
     }
 
 
-
     @FXML
     void addPersonOnClick() {
-        this.personModel.savePersonInDB();
+        try {
+            this.personModel.savePersonInDB();
+        } catch (ApplicationException e) {
+            Dialogs.alertMessage(e.getMessage());
+        }
 
 
     }
@@ -165,4 +209,13 @@ public class AdminWindowController {
 
     }
 
+    @FXML
+    void addStatusOnClick() {
+        try {
+            this.statusModel.saveStatusInDB();
+            this.statusNameField.clear();
+        } catch (ApplicationException e) {
+            Dialogs.alertMessage(e.getMessage());
+        }
+    }
 }

@@ -4,7 +4,9 @@ import com.j256.ormlite.jdbc.JdbcConnectionSource;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 import mainDirectory.database.model.Person;
+import mainDirectory.database.model.Status;
 import mainDirectory.database.model.Ticket;
+import mainDirectory.utils.Exceptions.ApplicationException;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -32,17 +34,28 @@ public class dbManager {
         return connectionSource;
     }
 
-    public static void closeConnection() throws IOException {
-        connectionSource.close();
+    public static void closeConnection() throws ApplicationException {
+        try {
+            connectionSource.close();
+        } catch (IOException e) {
+            throw new ApplicationException("Problem z połączeniem z bazą danych");
+        }
     }
 
 
-    public static void innitDB() throws SQLException, IOException {
+    public static void innitDB() throws ApplicationException, SQLException {
         createConnectionSource();
-        //TableUtils.dropTable(connectionSource,Ticket.class, true);
-        //TableUtils.dropTable(connectionSource, Person.class, true);
-        TableUtils.createTableIfNotExists(connectionSource, Ticket.class);
-        TableUtils.createTableIfNotExists(connectionSource, Person.class);
+        TableUtils.dropTable(connectionSource,Ticket.class, true);
+        TableUtils.dropTable(connectionSource, Person.class, true);
+        TableUtils.dropTable(connectionSource, Status.class, true);
+        try {
+            TableUtils.createTableIfNotExists(connectionSource, Ticket.class);
+            TableUtils.createTableIfNotExists(connectionSource, Person.class);
+            TableUtils.createTableIfNotExists(connectionSource, Status.class);
+        } catch (SQLException e) {
+            throw new ApplicationException("Problem z połączeniem z bazą danych");
+        }
+
         closeConnection();
     }
 
