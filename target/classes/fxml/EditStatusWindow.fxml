@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="296.0" prefWidth="256.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainDirectory.controllers.EditStatusWindowController">
+   <children>
+      <Label layoutX="24.0" layoutY="55.0" prefHeight="17.0" prefWidth="50.0" text="Nazwa" />
+      <Label layoutX="15.0" layoutY="112.0" text="Dział zależny" />
+      <Button fx:id="editSaveButton" layoutX="103.0" layoutY="170.0" mnemonicParsing="false" onAction="#saveEdit" text="Zapisz" />
+      <TextField fx:id="editStatusNameField" layoutX="101.0" layoutY="51.0" />
+      <ComboBox fx:id="editDeptComboBox" layoutX="100.0" layoutY="108.0" onAction="#onSelectionEditComboBox" prefWidth="150.0" />
+   </children>
+</Pane>

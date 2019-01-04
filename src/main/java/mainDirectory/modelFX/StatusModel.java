@@ -59,4 +59,18 @@ public class StatusModel {
         dbManager.closeConnection();
         innit();
     }
+
+    public void deleteStatusFX(StatusFX item) throws ApplicationException {
+        StatusDao statusDao = new StatusDao();
+        statusDao.deleteById(Status.class, item.getId());
+        innit();
+    }
+
+    public void updateStatusInDB(StatusFX item) throws ApplicationException {
+        StatusDao statusDao = new StatusDao();
+        Status temp = statusDao.findById(Status.class, item.getId());
+        temp.setStatusName(item.getNameFX());
+        statusDao.createOrUpdate(temp);
+        innit();
+    }
 }

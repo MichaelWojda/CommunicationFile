@@ -3,6 +3,7 @@ package mainDirectory.controllers;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -24,6 +25,8 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 public class AdminWindowController {
+
+
 
     @FXML
     private TextField nameField;
@@ -72,6 +75,12 @@ public class AdminWindowController {
     @FXML
     private TableColumn<StatusFX, StatusFX> statusDeleteColumn;
 
+    @FXML
+    private TableColumn<StatusFX,String> statusDeptColumn;
+
+    @FXML
+    private ComboBox<String> statusDeptComboBox;
+
 
     private PersonModel personModel;
     private StatusModel statusModel;
@@ -89,17 +98,81 @@ public class AdminWindowController {
         }
         initComboBox();
         checkFields();
+        personBindings();
 
-
-        this.nameField.textProperty().bindBidirectional(personModel.getPersonFXSimpleObjectProperty().nameProperty());
         this.statusNameField.textProperty().bindBidirectional(statusModel.getStatusFXObjectProperty().nameFXProperty());
-        this.surnameField.textProperty().bindBidirectional(personModel.getPersonFXSimpleObjectProperty().surnameProperty());
-        this.deptComboBox.getItems().setAll(initComboBox());
+        this.statusDeptComboBox.getItems().setAll(initComboBox());
         this.statusTableView.setItems(this.statusModel.getStatusFXObservableList());
         this.statusNameColumn.setCellValueFactory(c -> c.getValue().nameFXProperty());
+        this.statusDeptColumn.setCellValueFactory(c->c.getValue().departamentFXProperty());
+        this.statusDeleteColumn.setCellValueFactory(c-> new SimpleObjectProperty<>(c.getValue()));
+        this.statusDeleteColumn.setCellFactory(c->new TableCell<StatusFX,StatusFX>(){
+            Button button = createButton("/icons/delete.png");
+
+            @Override
+            protected void updateItem(StatusFX item, boolean empty) {
+                super.updateItem(item, empty);
+                if(empty){
+                    setGraphic(null);
+                }
+                if (!empty){
+                    setGraphic(button);
+                    button.setOnAction(event->{
+                        Optional<ButtonType> result = Dialogs.confirmDelete();
+                        if(result.get()==ButtonType.OK){
+                            try {
+                                statusModel.deleteStatusFX(item);
+                            } catch (ApplicationException e) {
+                                Dialogs.alertMessage(e.getMessage());
+                            }
+                        }
+                    });
+                }
+            }
+        });
+        this.statusEditColumn.setCellValueFactory(c->new SimpleObjectProperty<>(c.getValue()));
+        this.statusEditColumn.setCellFactory(c->new TableCell<StatusFX, StatusFX>(){
+            Button button = createButton("/icons/edit.png");
+
+            @Override
+            protected void updateItem(StatusFX item, boolean empty) {
+                super.updateItem(item, empty);
+                if(empty){
+                    setGraphic(null);
+                }
+                if(!empty){
+                    setGraphic(button);
+                    button.setOnAction(event->{
+                      FXMLLoader fxmlLoader = fxmlUtils.returnLoader("/fxml/EditStatusWindow.fxml");
+                      Scene scene = null;
+                        try {
+                            scene = new Scene(fxmlLoader.load());
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        EditStatusWindowController editStatusWindowController = fxmlLoader.getController();
+                      editStatusWindowController.statusModel.setStatusFXObjectProperty(item);
+                      editStatusWindowController.bindings();
+                      Stage stage = new Stage();
+                      stage.setScene(scene);
+                      stage.setTitle("Edycja");
+                      stage.initModality(Modality.APPLICATION_MODAL);
+                      stage.showAndWait();
+
+                    });
+                }
+            }
+        });
         personTableViewCreation();
 
 
+    }
+
+    private void personBindings() {
+        this.nameField.textProperty().bindBidirectional(personModel.getPersonFXSimpleObjectProperty().nameProperty());
+        this.surnameField.textProperty().bindBidirectional(personModel.getPersonFXSimpleObjectProperty().surnameProperty());
+        this.deptComboBox.valueProperty().bindBidirectional(personModel.getPersonFXSimpleObjectProperty().departamentProperty());
+        this.deptComboBox.getItems().setAll(initComboBox());
     }
 
     private void personTableViewCreation() {
@@ -170,7 +243,7 @@ public class AdminWindowController {
     }
 
     private void checkFields() {
-        this.addStatusButton.disableProperty().bind(this.statusNameField.textProperty().isEmpty());
+        this.addStatusButton.disableProperty().bind(this.statusNameField.textProperty().isEmpty().or(this.statusDeptComboBox.valueProperty().isNull()));
         this.addPersonButton.disableProperty().bind(this.nameField.textProperty().isEmpty().or(this.surnameField.textProperty().isEmpty().or(this.deptComboBox.valueProperty().isNull())));
     }
 
@@ -188,6 +261,9 @@ public class AdminWindowController {
     void addPersonOnClick() {
         try {
             this.personModel.savePersonInDB();
+            this.nameField.clear();
+            this.surnameField.clear();
+            this.deptComboBox.setValue(null);
         } catch (ApplicationException e) {
             Dialogs.alertMessage(e.getMessage());
         }
@@ -214,8 +290,13 @@ public class AdminWindowController {
         try {
             this.statusModel.saveStatusInDB();
             this.statusNameField.clear();
+            this.statusDeptComboBox.setValue(null);
         } catch (ApplicationException e) {
             Dialogs.alertMessage(e.getMessage());
         }
+    }
+
+    public void onSelectionStatusDept() {
+        this.statusModel.getStatusFXObjectProperty().setDepartamentFX(this.statusDeptComboBox.getSelectionModel().getSelectedItem());
     }
 }

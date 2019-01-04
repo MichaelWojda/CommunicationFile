@@ -1,15 +1,29 @@
 package mainDirectory.controllers;
 
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import mainDirectory.modelFX.AddTicketForPlanningModel;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import mainDirectory.database.model.Ticket;
+import mainDirectory.dialogs.Dialogs;
+import mainDirectory.modelFX.TicketPlanningModel;
 import mainDirectory.modelFX.PersonFX;
+import mainDirectory.modelFX.StatusFX;
+import mainDirectory.modelFX.TicketFX;
+import mainDirectory.utils.Exceptions.ApplicationException;
+import mainDirectory.utils.fxmlUtils;
 
 import java.io.IOException;
 
 public class PlanningWindowController {
+
+    @FXML
+    private Button addTicketButton;
 
     @FXML
     private TextField materialNameField;
@@ -32,44 +46,277 @@ public class PlanningWindowController {
     @FXML
     private ComboBox<PersonFX> choosePlanAuthorBox;
 
-    private AddTicketForPlanningModel addTicketForPlanningModel;
+    @FXML
+    private ComboBox<StatusFX> statusComboBox;
+
+    @FXML
+    private ComboBox<PersonFX> filterByPlannerComboBox;
+
+    @FXML
+    private TableView<TicketFX> ticketTableView;
+
+    @FXML
+    private TableColumn<TicketFX, Number> ticketIdColumn;
+
+    @FXML
+    private TableColumn<TicketFX, String> ticketMatNameColumn;
+
+    @FXML
+    private TableColumn<TicketFX, String> ticketMatDescColumn;
+
+    @FXML
+    private TableColumn<TicketFX, StatusFX> ticketStatusColumn;
+
+    @FXML
+    private TableColumn<TicketFX, PersonFX> ticketAuthorColumn;
+
+    @FXML
+    private TableColumn<TicketFX, TicketFX> receiveColumn;
+
+    @FXML
+    private TableView<TicketFX> myTicketsTable;
+
+    @FXML
+    private TableColumn<TicketFX, Number> myTicketsId;
+
+    @FXML
+    private TableColumn<TicketFX, String> myTicketsMatNum;
+
+    @FXML
+    private TableColumn<TicketFX, String> myTicketsMatDesc;
+
+    @FXML
+    private TableColumn<TicketFX, StatusFX> myTicketsMatStatus;
+
+    @FXML
+    private TableColumn<TicketFX, PersonFX> myTicketsPurColumn;
+
+    @FXML
+    private TableColumn<TicketFX, PersonFX> myTicketsScmColumn;
+
+    @FXML
+    private TableColumn<TicketFX, TicketFX> closeTicketColumn;
+
+    @FXML
+    private TableColumn<TicketFX, TicketFX> alertColumn;
+
+    @FXML
+    private ComboBox<PersonFX> myTicketComboBox;
+
+
+
+    private TicketPlanningModel ticketPlanningModel;
 
     @FXML
     private void initialize(){
-        addTicketForPlanningModel = new AddTicketForPlanningModel();
-        addTicketForPlanningModel.innit();
-        this.choosePlanAuthorBox.setItems(addTicketForPlanningModel.getPlanningFXList());
-        this.purComboBox.setItems(addTicketForPlanningModel.getPurFXList());
-        this.scmComboBox.setItems(addTicketForPlanningModel.getScMFXList());
-        this.materialNameField.textProperty().bind(addTicketForPlanningModel.getTicketFXObjectProperty().materialNamePropertyProperty());
-        this.materialDescField.textProperty().bind(addTicketForPlanningModel.getTicketFXObjectProperty().materialDescriptionPropertyProperty());
-        this.notesField.textProperty().bind(addTicketForPlanningModel.getTicketFXObjectProperty().notesPropertyProperty());
-        this.projectNameField.textProperty().bind(addTicketForPlanningModel.getTicketFXObjectProperty().projectPropertyProperty());
+        ticketPlanningModel = new TicketPlanningModel();
+        try {
+            ticketPlanningModel.innit();
+        } catch (ApplicationException e) {
+            Dialogs.alertMessage(e.getMessage());
+        }
+        this.myTicketsTable.setItems(this.ticketPlanningModel.getTicketFXObservableListForAuthor());
+        this.myTicketsId.setCellValueFactory(c->c.getValue().idPropertyProperty());
+        this.myTicketsMatNum.setCellValueFactory(c->c.getValue().materialNamePropertyProperty());
+        this.myTicketsMatDesc.setCellValueFactory(c->c.getValue().materialDescriptionPropertyProperty());
+        this.myTicketsPurColumn.setCellValueFactory(c->c.getValue().buyerFXPropertyProperty());
+        this.myTicketsScmColumn.setCellValueFactory(c->c.getValue().scmerFXPropertyProperty());
+        this.myTicketsMatStatus.setCellValueFactory(c->c.getValue().statusPropertyProperty());
+        this.closeTicketColumn.setCellValueFactory(c->new SimpleObjectProperty<>(c.getValue()));
+        this.closeTicketColumn.setCellFactory(c->new TableCell<TicketFX, TicketFX>(){
+            Button button = createButton("/icons/racing.png");
+
+            @Override
+            protected void updateItem(TicketFX item, boolean empty) {
+                super.updateItem(item, empty);
+                if(empty){
+                    setGraphic(null);
+                }
+                if(!empty){
+                    setGraphic(button);
+                }
+                button.setOnAction(event->{
+                    item.setActiveProperty(false);
+                    try {
+                        ticketPlanningModel.updateTicketInDB(item);
+                    } catch (ApplicationException e) {
+                        Dialogs.alertMessage(e.getMessage());
+                    }
+
+
+                });
+            }
+        });
+        this.alertColumn.setCellValueFactory(c-> new SimpleObjectProperty<>(c.getValue()));
+        this.alertColumn.setCellFactory(c->new TableCell<TicketFX, TicketFX>(){
+            Button button = createButton("/icons/bell.png");
+
+            @Override
+            protected void updateItem(TicketFX item, boolean empty) {
+                super.updateItem(item, empty);
+                if(empty){
+                    setGraphic(null);
+                }
+                if(!empty){
+                    setGraphic(button);
+                }
+                button.setOnAction(event->{
+
+                });
+            }
+        });
+
+
+        editTicketColumnBindings();
+        addTicketBindings();
+        checkUpFields();
 
 
 
+    }
+
+    protected void editTicketColumnBindings() {
+        this.ticketTableView.setItems(this.ticketPlanningModel.getTicketFXObservableList());
+        this.ticketIdColumn.setCellValueFactory(c->c.getValue().idPropertyProperty());
+        this.ticketMatNameColumn.setCellValueFactory(c->c.getValue().materialNamePropertyProperty());
+        this.ticketMatDescColumn.setCellValueFactory(c->c.getValue().materialDescriptionPropertyProperty());
+        this.ticketStatusColumn.setCellValueFactory(c->c.getValue().statusPropertyProperty());
+        this.ticketAuthorColumn.setCellValueFactory(c->c.getValue().authorFXPropertyProperty());
+        this.receiveColumn.setCellValueFactory(c->new SimpleObjectProperty<>(c.getValue()));
+        this.receiveColumn.setCellFactory(c->new TableCell<TicketFX,TicketFX>(){
+            Button button = createButton("/icons/mail.png");
+
+            @Override
+            protected void updateItem(TicketFX item, boolean empty) {
+                super.updateItem(item, empty);
+                if(empty){
+                    setGraphic(null);
+                }
+                if(!empty){
+                    setGraphic(button);
+                }
+                button.setOnAction(event->{
+                    FXMLLoader loader = fxmlUtils.returnLoader("/fxml/EditTicketWindow.fxml");
+                    Scene scene = null;
+                    try {
+                        scene = new Scene(loader.load());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    EditTicketWindowController editTicketWindowController = loader.getController();
+                    editTicketWindowController.ticketPlanningModel.setTicketFXObjectProperty(item);
+                    editTicketWindowController.bindings();
+                    Stage stage = new Stage();
+                    stage.setScene(scene);
+                    stage.setTitle("Edycja ticketa");
+                    stage.initModality(Modality.APPLICATION_MODAL);
+                    stage.showAndWait();
+
+
+                });
+            }
+        });
+
+    }
+
+    private void addTicketBindings() {
+        this.choosePlanAuthorBox.setItems(ticketPlanningModel.getPlanningFXList());
+        this.filterByPlannerComboBox.setItems(ticketPlanningModel.getPlanningFXList());
+        this.myTicketComboBox.setItems(ticketPlanningModel.getPlanningFXList());
+        this.purComboBox.setItems(ticketPlanningModel.getPurFXList());
+        this.scmComboBox.setItems(ticketPlanningModel.getScMFXList());
+        this.statusComboBox.setItems(ticketPlanningModel.getStatusFXObservableList());
+        this.materialNameField.textProperty().bindBidirectional(ticketPlanningModel.getTicketFXObjectProperty().materialNamePropertyProperty());
+        this.materialDescField.textProperty().bindBidirectional(ticketPlanningModel.getTicketFXObjectProperty().materialDescriptionPropertyProperty());
+        this.notesField.textProperty().bindBidirectional(ticketPlanningModel.getTicketFXObjectProperty().notesPropertyProperty());
+        this.projectNameField.textProperty().bindBidirectional(ticketPlanningModel.getTicketFXObjectProperty().projectPropertyProperty());
+        //this.choosePlanAuthorBox.valueProperty().bindBidirectional(this.filterByPlannerComboBox.valueProperty());
+        this.ticketPlanningModel.plannerFXProperty().bind(this.filterByPlannerComboBox.valueProperty());
+        this.ticketPlanningModel.authorFXProperty().bind(this.myTicketComboBox.valueProperty());
+        this.ticketPlanningModel.getTicketFXObjectProperty().setActiveProperty(true);
+    }
+
+    private void checkUpFields() {
+        this.addTicketButton.disableProperty().bind(choosePlanAuthorBox.valueProperty().isNull()
+                .or(materialNameField.textProperty().isEmpty()
+                        .or(materialDescField.textProperty().isEmpty()
+                                .or(projectNameField.textProperty().isEmpty()
+                                        .or(notesField.textProperty().isEmpty()
+                                                .or(purComboBox.valueProperty().isNull().
+                                                        or(scmComboBox.valueProperty().isNull()
+                                                                .or(statusComboBox.valueProperty().isNull()))))))));
 
     }
 
     @FXML
     void onSelectionAuthorBox() {
-        this.addTicketForPlanningModel.setAuthorFXObjectProperty(this.choosePlanAuthorBox.getSelectionModel().getSelectedItem());
-
+        this.ticketPlanningModel.getTicketFXObjectProperty().setAuthorFXProperty(this.choosePlanAuthorBox.getSelectionModel().getSelectedItem());
+        this.ticketPlanningModel.getTicketFXObjectProperty().setPlannerFXProperty(this.choosePlanAuthorBox.getSelectionModel().getSelectedItem());
+        this.filterByPlannerComboBox.setValue(this.choosePlanAuthorBox.getSelectionModel().getSelectedItem());
+        this.ticketPlanningModel.filterByPlanner();
     }
     @FXML
     void purBoxOnSelection() {
-        this.addTicketForPlanningModel.setPurFXObjectProperty(this.purComboBox.getSelectionModel().getSelectedItem());
+        this.ticketPlanningModel.getTicketFXObjectProperty().setBuyerFXProperty(this.purComboBox.getSelectionModel().getSelectedItem());
     }
 
     @FXML
     void scmBoxOnSelection() {
-        this.addTicketForPlanningModel.setScmFXObjectProperty(this.scmComboBox.getSelectionModel().getSelectedItem());
-
+        this.ticketPlanningModel.getTicketFXObjectProperty().setScmerFXProperty(this.scmComboBox.getSelectionModel().getSelectedItem());
     }
 
     @FXML
     void statusBoxOnSelection() {
+        this.ticketPlanningModel.getTicketFXObjectProperty().setStatusProperty(this.statusComboBox.getSelectionModel().getSelectedItem());
+
+    }
+    @FXML
+    void myTicketOnSelectionComboBox() {
+        this.ticketPlanningModel.filterByAuthor();
 
     }
 
+    public void clearButtonOnClick() {
+        this.choosePlanAuthorBox.setValue(null);
+        this.materialNameField.clear();
+        this.materialDescField.clear();
+        this.projectNameField.clear();
+        this.notesField.clear();
+        this.scmComboBox.setValue(null);
+        this.purComboBox.setValue(null);
+        this.statusComboBox.setValue(null);
+    }
+
+    public void addTicketButtonOnClick() {
+        try {
+            this.ticketPlanningModel.saveTicketInDB();
+        } catch (ApplicationException e) {
+            Dialogs.alertMessage(e.getMessage());
+        }
+
+        this.materialNameField.clear();
+        /*this.choosePlanAuthorBox.setValue(this.ticketPlanningModel.getTicketFXObjectProperty().getAuthorFXProperty());
+        this.purComboBox.setValue(this.ticketPlanningModel.getTicketFXObjectProperty().getBuyerFXProperty());
+        this.scmComboBox.setValue(this.ticketPlanningModel.getTicketFXObjectProperty().getScmerFXProperty());
+        this.statusComboBox.setValue(this.ticketPlanningModel.getTicketFXObjectProperty().getStatusProperty());*/
+    }
+
+    public void filterbyPlannerOnSelection() {
+        this.ticketPlanningModel.filterByPlanner();
+    }
+
+
+    public Button createButton(String path) {
+        Button button = new Button();
+        Image image = new Image(this.getClass().getResource(path).toString());
+        ImageView imageView = new ImageView(image);
+        button.setGraphic(imageView);
+        return button;
+
+
+    }
+
+
 }
+
+

@@ -7,6 +7,7 @@ public class StatusFX {
 
     SimpleIntegerProperty id = new SimpleIntegerProperty();
     SimpleStringProperty nameFX = new SimpleStringProperty();
+    SimpleStringProperty departamentFX = new SimpleStringProperty();
 
     public int getId() {
         return id.get();
@@ -30,5 +31,22 @@ public class StatusFX {
 
     public void setNameFX(String nameFX) {
         this.nameFX.set(nameFX);
+    }
+
+    public String getDepartamentFX() {
+        return departamentFX.get();
+    }
+
+    public SimpleStringProperty departamentFXProperty() {
+        return departamentFX;
+    }
+
+    public void setDepartamentFX(String departamentFX) {
+        this.departamentFX.set(departamentFX);
+    }
+
+    @Override
+    public String toString() {
+        return nameFX.getValue();
     }
 }

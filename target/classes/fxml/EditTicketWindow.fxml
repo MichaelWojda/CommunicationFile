@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="466.0" prefWidth="631.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainDirectory.controllers.EditTicketWindowController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="ID: ">
+         <font>
+            <Font name="ABBvoice Arabic Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="idNumberLabel" layoutX="43.0" layoutY="14.0" text="Label">
+         <font>
+            <Font name="ABBvoice Arabic" size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="editTicketMatNumber" layoutX="29.0" layoutY="64.0" />
+      <TextField fx:id="editTicketMatDesc" layoutX="237.0" layoutY="64.0" />
+      <TextField fx:id="editTicketProject" layoutX="452.0" layoutY="64.0" />
+      <Label layoutX="241.0" layoutY="16.0" text="AUTOR:">
+         <font>
+            <Font name="ABBvoice Arabic Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="authorLabel" layoutX="316.0" layoutY="16.0" text="Label">
+         <font>
+            <Font name="ABBvoice Arabic" size="20.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="editTicketNotes" layoutX="22.0" layoutY="138.0" prefHeight="143.0" prefWidth="578.0" />
+      <ComboBox fx:id="editTicketPlanComboBox" layoutX="6.0" layoutY="315.0" onAction="#planComboBoxOnAction" prefWidth="150.0" />
+      <ComboBox fx:id="editTicketPurComboBox" layoutX="242.0" layoutY="315.0" onAction="#PurComboBoxOnAction" prefWidth="150.0" />
+      <ComboBox fx:id="editTicketScmComboBox" layoutX="467.0" layoutY="315.0" onAction="#scmComboBoxOnAction" prefWidth="150.0" />
+      <Button fx:id="saveChangesButton" layoutX="103.0" layoutY="402.0" mnemonicParsing="false" onAction="#saveChangesButtonOnClick" prefHeight="50.0" prefWidth="150.0" text="Zapisz zmiany">
+         <graphic>
+            <ImageView fitHeight="37.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/save.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="saveAndExitButton" layoutX="377.0" layoutY="402.0" mnemonicParsing="false" onAction="#saveAndExitButtonOnClick" prefHeight="50.0" prefWidth="150.0" text="Zamknij Ticket">
+         <graphic>
+            <ImageView fitHeight="39.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/racing.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Label layoutX="81.0" layoutY="42.0" text="Materiał" />
+      <Label layoutX="299.0" layoutY="42.0" text="Opis" />
+      <Label layoutX="506.0" layoutY="42.0" text="Projekt" />
+      <Label layoutX="297.0" layoutY="121.0" text="Notatki" />
+      <Label layoutX="51.0" layoutY="290.0" text="Planowanie" />
+      <Label layoutX="281.0" layoutY="290.0" text="Zaopatrzenie" />
+      <Label layoutX="530.0" layoutY="290.0" text="SCM" />
+      <ComboBox fx:id="editTicketStatusComboBox" layoutX="242.0" layoutY="365.0" onAction="#statusComboBoxOnSelection" prefWidth="150.0" />
+      <Label layoutX="302.0" layoutY="340.0" text="Status" />
+   </children>
+</Pane>

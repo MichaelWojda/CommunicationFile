@@ -6,9 +6,11 @@ import com.j256.ormlite.logger.Logger;
 import com.j256.ormlite.logger.LoggerFactory;
 import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.stmt.QueryBuilder;
+import com.j256.ormlite.stmt.Where;
 import com.j256.ormlite.support.ConnectionSource;
 import mainDirectory.database.dbutils.dbManager;
 import mainDirectory.database.model.BaseModel;
+import mainDirectory.database.model.Ticket;
 import mainDirectory.utils.Exceptions.ApplicationException;
 
 import java.io.IOException;
@@ -86,11 +88,11 @@ public class CommonDao {
 
     }
 
-    public <T extends BaseModel, I> List<T> queryForDept(Class<T> cls, String dept) throws ApplicationException {
+    public <T extends BaseModel, I> List<T> queryForOneCondition(Class<T> cls, String columnName, String condition) throws ApplicationException {
         Dao<T, I> dao = createDao(cls);
         QueryBuilder<T, I> queryBuilder = dao.queryBuilder();
         try {
-            queryBuilder.where().eq("DEPARTAMENT", dept);
+            queryBuilder.where().eq(columnName, condition);
             PreparedQuery<T> prepare = queryBuilder.prepare();
             return dao.query(prepare);
         } catch (SQLException e) {

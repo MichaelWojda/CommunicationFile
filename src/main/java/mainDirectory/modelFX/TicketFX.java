@@ -1,5 +1,6 @@
 package mainDirectory.modelFX;
 
+import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -10,12 +11,14 @@ public class TicketFX {
     SimpleIntegerProperty id_ticketProperty = new SimpleIntegerProperty();
     SimpleStringProperty materialNameProperty = new SimpleStringProperty();
     SimpleStringProperty materialDescriptionProperty = new SimpleStringProperty();
-    SimpleStringProperty statusProperty = new SimpleStringProperty();
     SimpleStringProperty notesProperty = new SimpleStringProperty();
     SimpleStringProperty projectProperty = new SimpleStringProperty();
-    SimpleStringProperty departamentProperty = new SimpleStringProperty();
-    SimpleStringProperty autorProperty = new SimpleStringProperty();
-    SimpleObjectProperty<PersonFX> personFXProperty = new SimpleObjectProperty<>();
+    SimpleObjectProperty<PersonFX> authorFXProperty = new SimpleObjectProperty<>();
+    SimpleObjectProperty<PersonFX> plannerFXProperty = new SimpleObjectProperty<>();
+    SimpleObjectProperty<PersonFX> scmerFXProperty = new SimpleObjectProperty<>();
+    SimpleObjectProperty<PersonFX> buyerFXProperty = new SimpleObjectProperty<>();
+    SimpleObjectProperty<StatusFX> statusProperty = new SimpleObjectProperty<>();
+    SimpleBooleanProperty activeProperty = new SimpleBooleanProperty();
 
 
     public int getIdProperty() {
@@ -66,15 +69,15 @@ public class TicketFX {
         this.materialDescriptionProperty.set(materialDescriptionProperty);
     }
 
-    public String getStatusProperty() {
+    public StatusFX getStatusProperty() {
         return statusProperty.get();
     }
 
-    public SimpleStringProperty statusPropertyProperty() {
+    public SimpleObjectProperty<StatusFX> statusPropertyProperty() {
         return statusProperty;
     }
 
-    public void setStatusProperty(String statusProperty) {
+    public void setStatusProperty(StatusFX statusProperty) {
         this.statusProperty.set(statusProperty);
     }
 
@@ -102,39 +105,65 @@ public class TicketFX {
         this.projectProperty.set(projectProperty);
     }
 
-    public String getDepartamentProperty() {
-        return departamentProperty.get();
+    public PersonFX getAuthorFXProperty() {
+        return authorFXProperty.get();
     }
 
-    public SimpleStringProperty departamentPropertyProperty() {
-        return departamentProperty;
+    public SimpleObjectProperty<PersonFX> authorFXPropertyProperty() {
+        return authorFXProperty;
     }
 
-    public void setDepartamentProperty(String departamentProperty) {
-        this.departamentProperty.set(departamentProperty);
+    public void setAuthorFXProperty(PersonFX authorFXProperty) {
+        this.authorFXProperty.set(authorFXProperty);
     }
 
-    public String getAutorProperty() {
-        return autorProperty.get();
+    public PersonFX getPlannerFXProperty() {
+        return plannerFXProperty.get();
     }
 
-    public SimpleStringProperty autorPropertyProperty() {
-        return autorProperty;
+    public SimpleObjectProperty<PersonFX> plannerFXPropertyProperty() {
+        return plannerFXProperty;
     }
 
-    public void setAutorProperty(String autorProperty) {
-        this.autorProperty.set(autorProperty);
+    public void setPlannerFXProperty(PersonFX plannerFXProperty) {
+        this.plannerFXProperty.set(plannerFXProperty);
     }
 
-    public PersonFX getPersonFXProperty() {
-        return personFXProperty.get();
+    public PersonFX getScmerFXProperty() {
+        return scmerFXProperty.get();
     }
 
-    public SimpleObjectProperty<PersonFX> personFXPropertyProperty() {
-        return personFXProperty;
+    public SimpleObjectProperty<PersonFX> scmerFXPropertyProperty() {
+        return scmerFXProperty;
     }
 
-    public void setPersonFXProperty(PersonFX personFXProperty) {
-        this.personFXProperty.set(personFXProperty);
+    public void setScmerFXProperty(PersonFX scmerFXProperty) {
+        this.scmerFXProperty.set(scmerFXProperty);
     }
+
+    public PersonFX getBuyerFXProperty() {
+        return buyerFXProperty.get();
+    }
+
+    public SimpleObjectProperty<PersonFX> buyerFXPropertyProperty() {
+        return buyerFXProperty;
+    }
+
+    public void setBuyerFXProperty(PersonFX buyerFXProperty) {
+        this.buyerFXProperty.set(buyerFXProperty);
+    }
+
+    public boolean getActiveProperty() {
+        return activeProperty.get();
+    }
+
+    public SimpleBooleanProperty activePropertyProperty() {
+        return activeProperty;
+    }
+
+    public void setActiveProperty(boolean activeProperty) {
+        this.activeProperty.set(activeProperty);
+    }
+
+
 }

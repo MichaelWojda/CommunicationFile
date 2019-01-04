@@ -16,6 +16,10 @@ public class Status implements BaseModel {
     @DatabaseField(columnName = "STATUS_NAME")
     String statusName;
 
+    @DatabaseField(columnName = "DEPARTAMENT")
+    String departamentDependency;
+
+
     public int getId() {
         return id;
     }
@@ -30,5 +34,13 @@ public class Status implements BaseModel {
 
     public void setStatusName(String statusName) {
         this.statusName = statusName;
+    }
+
+    public String getDepartamentDependency() {
+        return departamentDependency;
+    }
+
+    public void setDepartamentDependency(String departamentDependency) {
+        this.departamentDependency = departamentDependency;
     }
 }

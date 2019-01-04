@@ -3,6 +3,7 @@ package mainDirectory.controllers;
 import javafx.fxml.FXML;
 import javafx.scene.control.ToggleGroup;
 import mainDirectory.dialogs.Dialogs;
+import mainDirectory.utils.Exceptions.ApplicationException;
 
 public class TopMenuButtonsController {
 
@@ -18,20 +19,17 @@ public class TopMenuButtonsController {
     private MainWindowController mainWindowController;
 
     @FXML
-    void enterAdmin() throws NullPointerException {
-        String result = Dialogs.passwdCheckDialog();
-        if(result==null){
-            Dialogs.alertMessage("Wprowadziłeś błędne hasło");
-        }
-        else if(result.equals(PASSWORD))
-        {
-        mainWindowController.setCenter(ADMIN_WINDOW_FXML);}
-        else{
-            Dialogs.alertMessage("Wprowadziłeś błędne hasło");
+    void enterAdmin() {
+            String result = Dialogs.passwdCheckDialog();
+            if (result == null) {
+                Dialogs.alertMessage("Wprowadziłeś błędne hasło");
+            } else if (result.equals(PASSWORD)) {
+                mainWindowController.setCenter(ADMIN_WINDOW_FXML);
+            } else {
+                Dialogs.alertMessage("Wprowadziłeś błędne hasło");
+            }
         }
 
-
-    }
 
     @FXML
     void enterPUR() {

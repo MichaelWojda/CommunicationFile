@@ -30,8 +30,21 @@ public class Dialogs {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Uwaga");
         alert.setHeaderText("UWAGA!!!");
-        alert.setContentText("Usunięcie użytkownika spowoduje nieodwaracalne zmiany w systemie, stosuj jedynie w ostateczności, czy napewno chcesz usunąć");
+        alert.setContentText("Usunięcie rekordu spowoduje nieodwaracalne zmiany w systemie, stosuj jedynie w ostateczności, czy napewno chcesz usunąć");
         Optional<ButtonType> result = alert.showAndWait();
         return result;
+    }
+
+    public static String editDialog(String value){
+        TextInputDialog dialog = new TextInputDialog(value);
+        dialog.setTitle("Edycja");
+        dialog.setHeaderText("Edycja nazwy");
+        dialog.setContentText("Wprowadź nową nazwę");
+        Optional<String> result = dialog.showAndWait();
+        if(result.isPresent()){
+            return result.get();
+        }
+        return null;
+
     }
 }
