@@ -9,7 +9,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import mainDirectory.database.model.Ticket;
 import mainDirectory.dialogs.Dialogs;
 import mainDirectory.modelFX.TicketPlanningModel;
 import mainDirectory.modelFX.PersonFX;
@@ -19,6 +18,7 @@ import mainDirectory.utils.Exceptions.ApplicationException;
 import mainDirectory.utils.fxmlUtils;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class PlanningWindowController {
 
@@ -115,7 +115,7 @@ public class PlanningWindowController {
         } catch (ApplicationException e) {
             Dialogs.alertMessage(e.getMessage());
         }
-        this.myTicketsTable.setItems(this.ticketPlanningModel.getTicketFXObservableListForAuthor());
+        this.myTicketsTable.setItems(this.ticketPlanningModel.getTicketFXMyTicketList());
         this.myTicketsId.setCellValueFactory(c->c.getValue().idPropertyProperty());
         this.myTicketsMatNum.setCellValueFactory(c->c.getValue().materialNamePropertyProperty());
         this.myTicketsMatDesc.setCellValueFactory(c->c.getValue().materialDescriptionPropertyProperty());
@@ -136,11 +136,14 @@ public class PlanningWindowController {
                     setGraphic(button);
                 }
                 button.setOnAction(event->{
-                    item.setActiveProperty(false);
-                    try {
-                        ticketPlanningModel.updateTicketInDB(item);
-                    } catch (ApplicationException e) {
-                        Dialogs.alertMessage(e.getMessage());
+                    Optional<ButtonType> result = Dialogs.confirmFinished();
+                    if(result.get()==ButtonType.OK) {
+                        item.setActiveProperty(false);
+                        try {
+                            ticketPlanningModel.updateTicketInDB(item);
+                        } catch (ApplicationException e) {
+                            Dialogs.alertMessage(e.getMessage());
+                        }
                     }
 
 
@@ -176,7 +179,7 @@ public class PlanningWindowController {
     }
 
     protected void editTicketColumnBindings() {
-        this.ticketTableView.setItems(this.ticketPlanningModel.getTicketFXObservableList());
+        this.ticketTableView.setItems(this.ticketPlanningModel.getTicketFXObservableListPlanning());
         this.ticketIdColumn.setCellValueFactory(c->c.getValue().idPropertyProperty());
         this.ticketMatNameColumn.setCellValueFactory(c->c.getValue().materialNamePropertyProperty());
         this.ticketMatDescColumn.setCellValueFactory(c->c.getValue().materialDescriptionPropertyProperty());

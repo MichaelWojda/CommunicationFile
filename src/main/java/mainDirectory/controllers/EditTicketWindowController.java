@@ -45,9 +45,6 @@ public class EditTicketWindowController {
     private Button saveChangesButton;
 
     @FXML
-    private Button saveAndExitButton;
-
-    @FXML
     private ComboBox<StatusFX> editTicketStatusComboBox;
 
     public TicketPlanningModel ticketPlanningModel;
@@ -99,11 +96,6 @@ public class EditTicketWindowController {
 
     }
 
-    @FXML
-    void saveAndExitButtonOnClick() {
-
-
-    }
 
     @FXML
     void saveChangesButtonOnClick() {

@@ -3,44 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="de0aba4c-3f98-4b55-bdab-bb04500763f1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/Converters/StatusConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/Converters/StatusConverter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/AdminWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/AdminWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/EditPersonWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/EditPersonWindowController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/EditTicketWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/EditTicketWindowController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/PlanningWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/PlanningWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/TopMenuButtonsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/TopMenuButtonsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/database/dao/CommonDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/database/dao/CommonDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/database/dao/StatusDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/database/dao/StatusDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/database/dao/TicketDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/database/dao/TicketDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/database/dbutils/dbManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/database/dbutils/dbManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/database/model/Status.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/database/model/Status.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/database/model/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/database/model/Ticket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/dialogs/Dialogs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/dialogs/Dialogs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/AddTicketForPlanningModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/TicketPlanningModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/StatusFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/StatusFX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/StatusModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/StatusModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/TicketFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/TicketFX.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/AdminWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/AdminWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/PlanningWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/PlanningWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fxml/AdminWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/AdminWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fxml/EditWindow.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fxml/PlanningWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/PlanningWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/Converters/StatusConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/Converters/StatusConverter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/AdminWindowController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/AdminWindowController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/AdminWindowController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/AdminWindowController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/AdminWindowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/AdminWindowController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/EditWindowController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/TicketPlanningModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/TicketPlanningModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/EditTicketWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/EditTicketWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/PurchasingWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/PurchasingWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/ScmWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/ScmWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/EditTicketWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/EditTicketWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/PurchasingWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/PurchasingWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fxml/ScmWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/ScmWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/EditTicketWindowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/EditTicketWindowController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/PlanningWindowController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/PlanningWindowController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/PlanningWindowController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/PlanningWindowController$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/PlanningWindowController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/PlanningWindowController$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/PlanningWindowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/PlanningWindowController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/TopMenuButtonsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/TopMenuButtonsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/database/dao/CommonDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/database/dao/CommonDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/database/dao/TicketDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/database/dao/TicketDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/database/dbutils/dbManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/database/dbutils/dbManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/database/model/Status.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/database/model/Status.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/database/model/Ticket.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/database/model/Ticket.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/dialogs/Dialogs.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/dialogs/Dialogs.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/modelFX/AddTicketForPlanningModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/modelFX/StatusFX.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/modelFX/StatusFX.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/modelFX/StatusModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/modelFX/StatusModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/modelFX/TicketFX.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/modelFX/TicketFX.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/modelFX/TicketPlanningModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/modelFX/TicketPlanningModel.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -54,53 +33,54 @@
     <session id="-386301374">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="38" />
+          <entry key="project.closed" value="45" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.15" value="1" />
-          <entry key="project.open.time.16" value="3" />
+          <entry key="project.open.time.16" value="4" />
           <entry key="project.open.time.17" value="2" />
-          <entry key="project.open.time.18" value="2" />
-          <entry key="project.open.time.19" value="3" />
-          <entry key="project.open.time.20" value="4" />
-          <entry key="project.open.time.21" value="4" />
+          <entry key="project.open.time.18" value="3" />
+          <entry key="project.open.time.19" value="4" />
+          <entry key="project.open.time.20" value="6" />
+          <entry key="project.open.time.21" value="5" />
           <entry key="project.open.time.22" value="3" />
           <entry key="project.open.time.23" value="7" />
           <entry key="project.open.time.24" value="2" />
           <entry key="project.open.time.25" value="3" />
           <entry key="project.open.time.27" value="1" />
-          <entry key="project.open.time.28" value="2" />
+          <entry key="project.open.time.28" value="4" />
           <entry key="project.open.time.29" value="1" />
           <entry key="project.open.time.30" value="1" />
+          <entry key="project.open.time.33" value="1" />
           <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="41" />
+          <entry key="project.opened" value="50" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="76" />
-          <entry key="fxml" value="26" />
-          <entry key="java" value="18404" />
+          <entry key="dummy" value="118" />
+          <entry key="fxml" value="38" />
+          <entry key="java" value="20814" />
           <entry key="txt" value="55" />
           <entry key="xml" value="33" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="18404" />
-          <entry key="PLAIN_TEXT" value="131" />
-          <entry key="XML" value="59" />
+          <entry key="JAVA" value="20814" />
+          <entry key="PLAIN_TEXT" value="173" />
+          <entry key="XML" value="71" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="fxml" value="27" />
-          <entry key="java" value="184" />
+          <entry key="fxml" value="30" />
+          <entry key="java" value="197" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="184" />
-          <entry key="XML" value="27" />
+          <entry key="JAVA" value="197" />
+          <entry key="XML" value="30" />
         </counts>
       </usages-collector>
     </session>
@@ -139,41 +119,30 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/PlanningWindowController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="263" column="30" lean-forward="true" selection-start-line="263" selection-start-column="30" selection-end-line="263" selection-end-column="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/EditTicketWindow.fxml">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/PlanningWindow.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1122">
-              <caret line="66" column="110" selection-start-line="66" selection-start-column="110" selection-end-line="66" selection-end-column="110" />
+            <state relative-caret-position="2023">
+              <caret line="119" selection-end-line="119" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/EditStatusWindowController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/PurchasingWindow.fxml">
+          <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="49" />
+            <state relative-caret-position="255">
+              <caret line="102" column="62" selection-start-line="102" selection-start-column="44" selection-end-line="102" selection-end-column="54" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/EditTicketWindowController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/PurWindowController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="113" column="9" lean-forward="true" selection-start-line="113" selection-start-column="9" selection-end-line="113" selection-end-column="9" />
+            <state relative-caret-position="1258">
+              <caret line="178" column="29" lean-forward="true" selection-start-line="130" selection-start-column="8" selection-end-line="227" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -182,68 +151,120 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/database/dao/CommonDao.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/database/dbutils/dbManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1462">
-              <caret line="103" selection-start-line="103" selection-end-line="103" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/MainWindowController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
+            <state relative-caret-position="323">
               <caret line="28" selection-start-line="28" selection-end-line="28" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/TopMenuButtonsController.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/ScmWindowController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="40" selection-start-line="40" selection-end-line="40" />
-              <folding>
-                <element signature="e#1347#1348#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-2720">
+              <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/TicketPlanningModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="138" column="38" lean-forward="true" selection-start-line="138" selection-start-column="38" selection-end-line="138" selection-end-column="38" />
+            <state relative-caret-position="1581">
+              <caret line="330" column="32" selection-start-line="330" selection-start-column="32" selection-end-line="330" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6942#6943#0" expanded="true" />
-                <element signature="e#6987#6988#0" expanded="true" />
-                <element signature="e#7516#7517#0" expanded="true" />
-                <element signature="e#7558#7559#0" expanded="true" />
-                <element signature="e#7712#7713#0" expanded="true" />
-                <element signature="e#7754#7755#0" expanded="true" />
+                <element signature="e#9432#9433#0" expanded="true" />
+                <element signature="e#9483#9484#0" expanded="true" />
+                <element signature="e#9555#9556#0" expanded="true" />
+                <element signature="e#9600#9601#0" expanded="true" />
+                <element signature="e#9808#9809#0" expanded="true" />
+                <element signature="e#9845#9846#0" expanded="true" />
+                <element signature="e#9923#9924#0" expanded="true" />
+                <element signature="e#9975#9976#0" expanded="true" />
+                <element signature="e#10029#10030#0" expanded="true" />
+                <element signature="e#10061#10062#0" expanded="true" />
+                <element signature="e#10129#10130#0" expanded="true" />
+                <element signature="e#10171#10172#0" expanded="true" />
+                <element signature="e#10225#10226#0" expanded="true" />
+                <element signature="e#10257#10258#0" expanded="true" />
+                <element signature="e#10325#10326#0" expanded="true" />
+                <element signature="e#10367#10368#0" expanded="true" />
+                <element signature="e#10434#10435#0" expanded="true" />
+                <element signature="e#10479#10480#0" expanded="true" />
+                <element signature="e#10679#10680#0" expanded="true" />
+                <element signature="e#10717#10718#0" expanded="true" />
+                <element signature="e#10776#10777#0" expanded="true" />
+                <element signature="e#10808#10809#0" expanded="true" />
+                <element signature="e#10860#10861#0" expanded="true" />
+                <element signature="e#10905#10906#0" expanded="true" />
+                <element signature="e#10980#10981#0" expanded="true" />
+                <element signature="e#11033#11034#0" expanded="true" />
+                <element signature="e#11291#11292#0" expanded="true" />
+                <element signature="e#11334#11335#0" expanded="true" />
+                <element signature="e#11525#11526#0" expanded="true" />
+                <element signature="e#11562#11563#0" expanded="true" />
+                <element signature="e#11620#11621#0" expanded="true" />
+                <element signature="e#11651#11652#0" expanded="true" />
+                <element signature="e#11701#11702#0" expanded="true" />
+                <element signature="e#11744#11745#0" expanded="true" />
+                <element signature="e#11814#11815#0" expanded="true" />
+                <element signature="e#11862#11863#0" expanded="true" />
+                <element signature="e#12106#12107#0" expanded="true" />
+                <element signature="e#12154#12155#0" expanded="true" />
+                <element signature="e#12362#12363#0" expanded="true" />
+                <element signature="e#12396#12397#0" expanded="true" />
+                <element signature="e#12451#12452#0" expanded="true" />
+                <element signature="e#12479#12480#0" expanded="true" />
+                <element signature="e#12523#12524#0" expanded="true" />
+                <element signature="e#12560#12561#0" expanded="true" />
+                <element signature="e#12709#12710#0" expanded="true" />
+                <element signature="e#12764#12765#0" expanded="true" />
+                <element signature="e#12792#12793#0" expanded="true" />
+                <element signature="e#12836#12837#0" expanded="true" />
+                <element signature="e#12873#12874#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/TicketFX.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/PlanningWindowController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1632">
-              <caret line="167" selection-start-line="167" selection-end-line="167" />
+            <state relative-caret-position="428">
+              <caret line="107" column="4" selection-start-line="107" selection-start-column="4" selection-end-line="107" selection-end-column="52" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/PlanningWindow.fxml">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/ScmWindow.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1496">
-              <caret line="88" column="26" selection-start-line="88" selection-start-column="26" selection-end-line="88" selection-end-column="26" />
+            <state relative-caret-position="275">
+              <caret line="111" column="57" selection-start-line="111" selection-start-column="57" selection-end-line="111" selection-end-column="57" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/AdminWindowController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3485">
+              <caret line="227" column="28" selection-start-line="227" selection-start-column="28" selection-end-line="227" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/PersonModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="731">
+              <caret line="64" column="12" selection-start-line="64" selection-start-column="4" selection-end-line="68" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -253,8 +274,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -263,9 +284,12 @@
       <find>statusNameF</find>
       <find>ticketPre</find>
       <find>authorPredicate</find>
-      <find>filterByPlannerComboBox</find>
       <find>byAuthorTicketList</find>
+      <find>controll</find>
+      <find>filterByPlannerComboBox</find>
+      <find>creat</find>
       <find>myTicketComboBox</find>
+      <find>myTicketsPlanColumn</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -274,11 +298,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/fxml/Admin.fxml" />
-        <option value="$PROJECT_DIR$/src/main/resources/fxml/MainWindow.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/MainWindowController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mainDirectory/database/model/BaseModel.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mainDirectory/database/model/Planning.java" />
         <option value="$PROJECT_DIR$/src/main/java/mainDirectory/database/model/SCM.java" />
         <option value="$PROJECT_DIR$/src/main/java/mainDirectory/database/dao/SCMDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/mainDirectory/database/dao/PurchasingDao.java" />
@@ -304,7 +323,6 @@
         <option value="$PROJECT_DIR$/src/main/java/mainDirectory/database/model/Purchaser.java" />
         <option value="$PROJECT_DIR$/src/main/java/mainDirectory/database/model/SourcingManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/mainDirectory/database/model/Person.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mainDirectory/dialogs/Dialogs.java" />
         <option value="$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/StatusModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/AddTicketForPlanningModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/mainDirectory/database/model/Status.java" />
@@ -322,9 +340,15 @@
         <option value="$PROJECT_DIR$/src/main/java/mainDirectory/Converters/TicketConverter.java" />
         <option value="$PROJECT_DIR$/src/main/java/mainDirectory/database/model/Ticket.java" />
         <option value="$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/TicketFX.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mainDirectory/dialogs/Dialogs.java" />
         <option value="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/EditTicketWindowController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/TicketPlanningModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/SCMWindowController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/PurchasingWindow.fxml" />
+        <option value="$PROJECT_DIR$/src/main/resources/fxml/ScmWindow.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/PlanningWindowController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/PurWindowController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/TicketPlanningModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/ScmWindowController.java" />
       </list>
     </option>
   </component>
@@ -335,10 +359,11 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-60" />
-    <option name="width" value="1616" />
-    <option name="height" value="876" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="1685" />
+    <option name="y" value="40" />
+    <option name="width" value="1600" />
+    <option name="height" value="860" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -349,7 +374,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -447,6 +471,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="mainDirectory" type="462c0819:PsiDirectoryNode" />
+              <item name="dialogs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Plik komunikacji re-load" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Plik komunikacji re-load" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="mainDirectory" type="462c0819:PsiDirectoryNode" />
               <item name="modelFX" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -470,10 +503,11 @@
       </pane>
       <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546585190867" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547563347949" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Artifacts" />
@@ -552,10 +586,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="1592" y="-8" width="1696" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.40681234" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.4364303" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -563,16 +597,16 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.4408602" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3293011" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.43897218" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39784947" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50064266" side_tool="true" weight="0.32839838" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32974428" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4993573" weight="0.3222698" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.3293011" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.4993573" weight="0.32005495" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -629,22 +663,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="baza danych + menu górne i ładowanie formatek" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/PurchasingWindow.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/database/model/BaseModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/database/dao/PlanningDao.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/database/model/Planning.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/PlanningFX.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/database/model/SCM.java" />
@@ -677,21 +695,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/ScmWindow.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/TopMenuButtons.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="15" column="23" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/Converters/StatusConverter.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -708,8 +718,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/EditPersonWindow.fxml">
-      <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/database/dao/StatusDao.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -739,13 +749,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/dialogs/Dialogs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/Converters/PersonConverter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -761,12 +764,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/MainWindow.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
           <caret line="32" column="72" selection-start-line="32" selection-start-column="58" selection-end-line="32" selection-end-column="72" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/Converters/TicketConverter.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -783,12 +786,12 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/EditStatusWindow.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/PersonFX.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -811,32 +814,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/database/dbutils/dbManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="51" column="78" selection-start-line="51" selection-start-column="78" selection-end-line="51" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/AdminWindow.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="273">
           <caret line="67" column="51" selection-start-line="67" selection-start-column="51" selection-end-line="67" selection-end-column="51" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/AdminWindowController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3485">
-          <caret line="227" column="28" selection-start-line="227" selection-start-column="28" selection-end-line="227" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/PersonModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="64" column="12" selection-start-line="64" selection-start-column="4" selection-end-line="68" selection-end-column="5" />
         </state>
       </provider>
     </entry>
@@ -846,14 +828,6 @@
           <caret line="936" selection-start-line="936" selection-end-line="936" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/EditTicketWindow.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1122">
-          <caret line="66" column="110" selection-start-line="66" selection-start-column="110" selection-end-line="66" selection-end-column="110" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/EditStatusWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -869,23 +843,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/MainWindowController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="28" selection-start-line="28" selection-end-line="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/TopMenuButtonsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="40" selection-start-line="40" selection-end-line="40" />
-          <folding>
-            <element signature="e#1347#1348#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/TicketFX.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1632">
@@ -893,28 +850,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/PlanningWindow.fxml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/dialogs/Dialogs.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1496">
-          <caret line="88" column="26" selection-start-line="88" selection-start-column="26" selection-end-line="88" selection-end-column="26" />
+        <state relative-caret-position="317">
+          <caret line="56" column="35" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/EditTicketWindow.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/EditTicketWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1530">
+          <caret line="102" column="36" selection-start-line="102" selection-start-column="36" selection-end-line="102" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/TopMenuButtonsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+          <folding>
+            <element signature="e#1241#1242#0" expanded="true" />
+            <element signature="e#1279#1280#0" expanded="true" />
+            <element signature="e#1347#1348#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/MainWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/PlanningWindow.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2023">
+          <caret line="119" selection-end-line="119" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/database/dbutils/dbManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/AdminWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3485">
+          <caret line="227" column="28" selection-start-line="227" selection-start-column="28" selection-end-line="227" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/PersonModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="64" column="12" selection-start-line="64" selection-start-column="4" selection-end-line="68" selection-end-column="5" />
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/PlanningWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="263" column="30" lean-forward="true" selection-start-line="263" selection-start-column="30" selection-end-line="263" selection-end-column="30" />
+        <state relative-caret-position="428">
+          <caret line="107" column="4" selection-start-line="107" selection-start-column="4" selection-end-line="107" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/EditTicketWindowController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/PurWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="113" column="9" lean-forward="true" selection-start-line="113" selection-start-column="9" selection-end-line="113" selection-end-column="9" />
+        <state relative-caret-position="1258">
+          <caret line="178" column="29" lean-forward="true" selection-start-line="130" selection-start-column="8" selection-end-line="227" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -923,17 +942,83 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/TicketPlanningModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="138" column="38" lean-forward="true" selection-start-line="138" selection-start-column="38" selection-end-line="138" selection-end-column="38" />
+        <state relative-caret-position="1581">
+          <caret line="330" column="32" selection-start-line="330" selection-start-column="32" selection-end-line="330" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6942#6943#0" expanded="true" />
-            <element signature="e#6987#6988#0" expanded="true" />
-            <element signature="e#7516#7517#0" expanded="true" />
-            <element signature="e#7558#7559#0" expanded="true" />
-            <element signature="e#7712#7713#0" expanded="true" />
-            <element signature="e#7754#7755#0" expanded="true" />
+            <element signature="e#9432#9433#0" expanded="true" />
+            <element signature="e#9483#9484#0" expanded="true" />
+            <element signature="e#9555#9556#0" expanded="true" />
+            <element signature="e#9600#9601#0" expanded="true" />
+            <element signature="e#9808#9809#0" expanded="true" />
+            <element signature="e#9845#9846#0" expanded="true" />
+            <element signature="e#9923#9924#0" expanded="true" />
+            <element signature="e#9975#9976#0" expanded="true" />
+            <element signature="e#10029#10030#0" expanded="true" />
+            <element signature="e#10061#10062#0" expanded="true" />
+            <element signature="e#10129#10130#0" expanded="true" />
+            <element signature="e#10171#10172#0" expanded="true" />
+            <element signature="e#10225#10226#0" expanded="true" />
+            <element signature="e#10257#10258#0" expanded="true" />
+            <element signature="e#10325#10326#0" expanded="true" />
+            <element signature="e#10367#10368#0" expanded="true" />
+            <element signature="e#10434#10435#0" expanded="true" />
+            <element signature="e#10479#10480#0" expanded="true" />
+            <element signature="e#10679#10680#0" expanded="true" />
+            <element signature="e#10717#10718#0" expanded="true" />
+            <element signature="e#10776#10777#0" expanded="true" />
+            <element signature="e#10808#10809#0" expanded="true" />
+            <element signature="e#10860#10861#0" expanded="true" />
+            <element signature="e#10905#10906#0" expanded="true" />
+            <element signature="e#10980#10981#0" expanded="true" />
+            <element signature="e#11033#11034#0" expanded="true" />
+            <element signature="e#11291#11292#0" expanded="true" />
+            <element signature="e#11334#11335#0" expanded="true" />
+            <element signature="e#11525#11526#0" expanded="true" />
+            <element signature="e#11562#11563#0" expanded="true" />
+            <element signature="e#11620#11621#0" expanded="true" />
+            <element signature="e#11651#11652#0" expanded="true" />
+            <element signature="e#11701#11702#0" expanded="true" />
+            <element signature="e#11744#11745#0" expanded="true" />
+            <element signature="e#11814#11815#0" expanded="true" />
+            <element signature="e#11862#11863#0" expanded="true" />
+            <element signature="e#12106#12107#0" expanded="true" />
+            <element signature="e#12154#12155#0" expanded="true" />
+            <element signature="e#12362#12363#0" expanded="true" />
+            <element signature="e#12396#12397#0" expanded="true" />
+            <element signature="e#12451#12452#0" expanded="true" />
+            <element signature="e#12479#12480#0" expanded="true" />
+            <element signature="e#12523#12524#0" expanded="true" />
+            <element signature="e#12560#12561#0" expanded="true" />
+            <element signature="e#12709#12710#0" expanded="true" />
+            <element signature="e#12764#12765#0" expanded="true" />
+            <element signature="e#12792#12793#0" expanded="true" />
+            <element signature="e#12836#12837#0" expanded="true" />
+            <element signature="e#12873#12874#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/PurchasingWindow.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="102" column="62" selection-start-line="102" selection-start-column="44" selection-end-line="102" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/ScmWindow.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="111" column="57" selection-start-line="111" selection-start-column="57" selection-end-line="111" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/ScmWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2720">
+          <caret line="11" column="33" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="33" />
         </state>
       </provider>
     </entry>

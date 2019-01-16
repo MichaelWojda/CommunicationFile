@@ -27,15 +27,21 @@ public class TicketPlanningModel {
 
     ObjectProperty<TicketFX> ticketFXObjectProperty = new SimpleObjectProperty<>(new TicketFX());
     ObjectProperty<PersonFX> PlannerFX = new SimpleObjectProperty<>(new PersonFX());
+    ObjectProperty<PersonFX> PurFX = new SimpleObjectProperty<>(new PersonFX());
+    ObjectProperty<PersonFX> ScmFX = new SimpleObjectProperty<>(new PersonFX());
     ObjectProperty<PersonFX> authorFX = new SimpleObjectProperty<>(new PersonFX());
     ObservableList<PersonFX> planningFXList = FXCollections.observableArrayList();
     ObservableList<StatusFX> statusFXObservableList = FXCollections.observableArrayList();
-    ObservableList<TicketFX> ticketFXObservableList = FXCollections.observableArrayList();
-    ObservableList<TicketFX> ticketFXObservableListForAuthor = FXCollections.observableArrayList();
+    ObservableList<TicketFX> ticketFXObservableListPlanning = FXCollections.observableArrayList();
+    ObservableList<TicketFX> ticketFXObservableListPur = FXCollections.observableArrayList();
+    ObservableList<TicketFX> ticketFXObservableListSCM = FXCollections.observableArrayList();
+    ObservableList<TicketFX> ticketFXMyTicketList = FXCollections.observableArrayList();
     ObservableList<PersonFX> purFXList = FXCollections.observableArrayList();
     ObservableList<PersonFX> scMFXList = FXCollections.observableArrayList();
-    private List<TicketFX> ticketFXRandomList = new ArrayList<>();
-    private List<TicketFX> ticketFXRandomListForAuthor = new ArrayList<>();
+    private List<TicketFX> ticketFXRandomListPlanning = new ArrayList<>();
+    private List<TicketFX> ticketFXRandomListPur = new ArrayList<>();
+    private List<TicketFX> ticketFXRandomListSCM = new ArrayList<>();
+    private List<TicketFX> ticketFXMyTicketRandomList = new ArrayList<>();
 
     public void innit() throws ApplicationException {
         innitStaticLists();
@@ -45,23 +51,38 @@ public class TicketPlanningModel {
     }
 
     private void innitTicketLists() throws ApplicationException {
-        ticketFXRandomList.clear();
-        ticketFXObservableList.clear();
-        ticketFXRandomListForAuthor.clear();
-        ticketFXObservableListForAuthor.clear();
+        ticketFXRandomListPlanning.clear();
+        ticketFXRandomListPur.clear();
+        ticketFXRandomListSCM.clear();
+        ticketFXObservableListPur.clear();
+        ticketFXObservableListSCM.clear();
+        ticketFXObservableListPlanning.clear();
+        ticketFXMyTicketRandomList.clear();
+        ticketFXMyTicketList.clear();
         TicketDao ticketDao = new TicketDao();
         List<Ticket> list = ticketDao.queryForOneCondition(Ticket.class, "ACTIVE", "true");
         list.forEach(t -> {
             TicketFX allTickets = TicketConverter.convertToTicketFX(t);
-            ticketFXRandomListForAuthor.add(allTickets);
+            ticketFXMyTicketRandomList.add(allTickets);
             if (t.getStatus().getDepartamentDependency().equals("Planowanie")) {
                 TicketFX ticketFX = TicketConverter.convertToTicketFX(t);
-                ticketFXRandomList.add(ticketFX);
+                ticketFXRandomListPlanning.add(ticketFX);
+            }
+            if(t.getStatus().getDepartamentDependency().equals("Zaopatrzenie")){
+                TicketFX ticketFX = TicketConverter.convertToTicketFX(t);
+                ticketFXRandomListPur.add(ticketFX);
+            }
+            if(t.getStatus().getDepartamentDependency().equals("SCM")){
+                TicketFX ticketFX = TicketConverter.convertToTicketFX(t);
+                ticketFXRandomListSCM.add(ticketFX);
             }
 
         });
-        ticketFXObservableList.setAll(ticketFXRandomList);
-        ticketFXObservableListForAuthor.setAll(ticketFXRandomListForAuthor);
+        ticketFXObservableListPlanning.setAll(ticketFXRandomListPlanning);
+        ticketFXObservableListPur.setAll(ticketFXRandomListPur);
+        ticketFXObservableListSCM.setAll(ticketFXRandomListSCM);
+        ticketFXMyTicketList.setAll(ticketFXMyTicketRandomList);
+
     }
 
     public void innitStaticLists() throws ApplicationException {
@@ -121,9 +142,22 @@ public class TicketPlanningModel {
         return ticketFX -> ticketFX.getPlannerFXProperty().getId()==this.getPlannerFX().getId();
     }
 
-    public Predicate<TicketFX> authorPredicate(){
+    private Predicate<TicketFX> authorPredicate(){
         return ticketFX -> ticketFX.getAuthorFXProperty().getId()==this.getAuthorFX().getId();
     }
+    private Predicate<TicketFX> purPredicate(){
+        return ticketFX -> ticketFX.getBuyerFXProperty().getId()==this.getPurFX().getId();
+    }
+    /*private Predicate<TicketFX> statusFXPredicate(String departament){
+        return ticketFX -> ticketFX.getStatusProperty().getDepartamentFX().equals(departament);
+
+    }
+    public ObservableList<TicketFX> filteredTickets(String departament){
+        List<TicketFX> list = this.ticketFXMyTicketRandomList.stream().filter(statusFXPredicate(departament)).collect(Collectors.toList());
+        ObservableList<TicketFX> fxObservableList=null;
+        fxObservableList.setAll(list);
+        return fxObservableList;
+    }*/
 
 
 
@@ -134,14 +168,14 @@ public class TicketPlanningModel {
         innitTicketLists();
         dbManager.closeConnection();
     }
-
     public void filterByPlanner(){
         if(this.getPlannerFX()!=null){
-            List<TicketFX> newList = ticketFXRandomList.stream().filter(ticketPredicate()).collect(Collectors.toList());
-            this.ticketFXObservableList.setAll(newList);
+            List<TicketFX> newList = ticketFXRandomListPlanning.stream().filter(ticketPredicate()).collect(Collectors.toList());
+            this.ticketFXObservableListPlanning.setAll(newList);
         }
         if(this.getPlannerFX()==null){
-            this.ticketFXObservableList.setAll(ticketFXRandomList);
+            this.ticketFXObservableListPlanning.setAll(ticketFXRandomListPlanning);
+
         }
 
     }
@@ -152,13 +186,35 @@ public class TicketPlanningModel {
     }
     public void filterByAuthor() {
         if (this.getAuthorFX()!= null) {
-            List<TicketFX> newList2 = ticketFXRandomListForAuthor.stream().filter(authorPredicate()).collect(Collectors.toList());
-            this.ticketFXObservableListForAuthor.setAll(newList2);
+            List<TicketFX> newList2 = ticketFXMyTicketRandomList.stream().filter(authorPredicate()).collect(Collectors.toList());
+            this.ticketFXMyTicketList.setAll(newList2);
         }
         else {
-            ticketFXObservableListForAuthor.setAll(ticketFXRandomListForAuthor);
+            ticketFXMyTicketList.setAll(ticketFXMyTicketRandomList);
         }
 
+    }
+    public void filterByPur() {
+        if(this.getPurFX()!=null){
+            List<TicketFX> newList = ticketFXRandomListPur.stream().filter(purPredicate()).collect(Collectors.toList());
+            this.ticketFXObservableListPur.setAll(newList);
+        }
+        if(this.getPurFX()==null){
+            this.ticketFXObservableListPur.setAll(ticketFXRandomListPur);
+        }
+    }
+    public void updateTicketInDB(TicketFX item) throws ApplicationException {
+        TicketDao ticketDao = new TicketDao();
+        try {
+            Ticket temp = ticketDao.findById(Ticket.class, item.getIdProperty());
+            temp.setActive(item.getActiveProperty());
+            ticketDao.createOrUpdate(temp);
+        } catch (ApplicationException e) {
+            e.printStackTrace();
+        }
+        innitTicketLists();
+        filterByAuthor();
+        dbManager.closeConnection();
     }
     ////////////////GETTERS AND SETTERS///////////////////////////////////////////////////////////////
     public TicketFX getTicketFXObjectProperty() {
@@ -217,19 +273,19 @@ public class TicketPlanningModel {
         this.PlannerFX.set(plannerFX);
     }
 
-    public ObservableList<TicketFX> getTicketFXObservableList() {
-        return ticketFXObservableList;
+    public ObservableList<TicketFX> getTicketFXObservableListPlanning() {
+        return ticketFXObservableListPlanning;
     }
 
-    public void setTicketFXObservableList(ObservableList<TicketFX> ticketFXObservableList) {
-        this.ticketFXObservableList = ticketFXObservableList;
+    public void setTicketFXObservableListPlanning(ObservableList<TicketFX> ticketFXObservableListPlanning) {
+        this.ticketFXObservableListPlanning = ticketFXObservableListPlanning;
     }
-    public ObservableList<TicketFX> getTicketFXObservableListForAuthor() {
-        return ticketFXObservableListForAuthor;
+    public ObservableList<TicketFX> getTicketFXMyTicketList() {
+        return ticketFXMyTicketList;
     }
 
-    public void setTicketFXObservableListForAuthor(ObservableList<TicketFX> ticketFXObservableListForAuthor) {
-        this.ticketFXObservableListForAuthor = ticketFXObservableListForAuthor;
+    public void setTicketFXMyTicketList(ObservableList<TicketFX> ticketFXMyTicketList) {
+        this.ticketFXMyTicketList = ticketFXMyTicketList;
     }
 
     public PersonFX getAuthorFX() {
@@ -244,17 +300,43 @@ public class TicketPlanningModel {
         this.authorFX.set(authorFX);
     }
 
-    public void updateTicketInDB(TicketFX item) throws ApplicationException {
-        TicketDao ticketDao = new TicketDao();
-        try {
-            Ticket temp = ticketDao.findById(Ticket.class, item.getIdProperty());
-            temp.setActive(item.getActiveProperty());
-            ticketDao.createOrUpdate(temp);
-        } catch (ApplicationException e) {
-            e.printStackTrace();
-        }
-        innitTicketLists();
-        filterByAuthor();
-        dbManager.closeConnection();
+    public ObservableList<TicketFX> getTicketFXObservableListPur() {
+        return ticketFXObservableListPur;
+    }
+
+    public void setTicketFXObservableListPur(ObservableList<TicketFX> ticketFXObservableListPur) {
+        this.ticketFXObservableListPur = ticketFXObservableListPur;
+    }
+
+    public ObservableList<TicketFX> getTicketFXObservableListSCM() {
+        return ticketFXObservableListSCM;
+    }
+
+    public void setTicketFXObservableListSCM(ObservableList<TicketFX> ticketFXObservableListSCM) {
+        this.ticketFXObservableListSCM = ticketFXObservableListSCM;
+    }
+
+    public PersonFX getPurFX() {
+        return PurFX.get();
+    }
+
+    public ObjectProperty<PersonFX> purFXProperty() {
+        return PurFX;
+    }
+
+    public void setPurFX(PersonFX purFX) {
+        this.PurFX.set(purFX);
+    }
+
+    public PersonFX getScmFX() {
+        return ScmFX.get();
+    }
+
+    public ObjectProperty<PersonFX> scmFXProperty() {
+        return ScmFX;
+    }
+
+    public void setScmFX(PersonFX scmFX) {
+        this.ScmFX.set(scmFX);
     }
 }

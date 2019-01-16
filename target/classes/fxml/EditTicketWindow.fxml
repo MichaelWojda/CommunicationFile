@@ -25,34 +25,15 @@
       <TextField fx:id="editTicketMatNumber" layoutX="29.0" layoutY="64.0" />
       <TextField fx:id="editTicketMatDesc" layoutX="237.0" layoutY="64.0" />
       <TextField fx:id="editTicketProject" layoutX="452.0" layoutY="64.0" />
-      <Label layoutX="241.0" layoutY="16.0" text="AUTOR:">
-         <font>
-            <Font name="ABBvoice Arabic Bold" size="19.0" />
-         </font>
-      </Label>
-      <Label fx:id="authorLabel" layoutX="316.0" layoutY="16.0" text="Label">
-         <font>
-            <Font name="ABBvoice Arabic" size="20.0" />
-         </font>
-      </Label>
       <TextArea fx:id="editTicketNotes" layoutX="22.0" layoutY="138.0" prefHeight="143.0" prefWidth="578.0" />
       <ComboBox fx:id="editTicketPlanComboBox" layoutX="6.0" layoutY="315.0" onAction="#planComboBoxOnAction" prefWidth="150.0" />
-      <ComboBox fx:id="editTicketPurComboBox" layoutX="242.0" layoutY="315.0" onAction="#PurComboBoxOnAction" prefWidth="150.0" />
+      <ComboBox fx:id="editTicketPurComboBox" layoutX="241.0" layoutY="315.0" onAction="#PurComboBoxOnAction" prefWidth="150.0" />
       <ComboBox fx:id="editTicketScmComboBox" layoutX="467.0" layoutY="315.0" onAction="#scmComboBoxOnAction" prefWidth="150.0" />
-      <Button fx:id="saveChangesButton" layoutX="103.0" layoutY="402.0" mnemonicParsing="false" onAction="#saveChangesButtonOnClick" prefHeight="50.0" prefWidth="150.0" text="Zapisz zmiany">
+      <Button fx:id="saveChangesButton" layoutX="451.0" layoutY="390.0" mnemonicParsing="false" onAction="#saveChangesButtonOnClick" prefHeight="50.0" prefWidth="150.0" text="Zapisz zmiany">
          <graphic>
             <ImageView fitHeight="37.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../icons/save.png" />
-               </image>
-            </ImageView>
-         </graphic>
-      </Button>
-      <Button fx:id="saveAndExitButton" layoutX="377.0" layoutY="402.0" mnemonicParsing="false" onAction="#saveAndExitButtonOnClick" prefHeight="50.0" prefWidth="150.0" text="Zamknij Ticket">
-         <graphic>
-            <ImageView fitHeight="39.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../icons/racing.png" />
                </image>
             </ImageView>
          </graphic>

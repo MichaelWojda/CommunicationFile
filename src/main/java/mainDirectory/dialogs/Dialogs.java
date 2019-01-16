@@ -8,12 +8,12 @@ import java.util.Optional;
 
 public class Dialogs {
 
-    public static String passwdCheckDialog(){
+    public static String passwdCheckDialog() {
         TextInputDialog dialog = new TextInputDialog();
         dialog.setTitle("Hasło");
         dialog.setHeaderText("Wprowadz haslo");
         Optional<String> result = dialog.showAndWait();
-        if(result!=null){
+        if (result != null) {
             return result.get();
         }
         return null;
@@ -26,7 +26,8 @@ public class Dialogs {
         alert.setContentText(error);
         alert.showAndWait();
     }
-    public static Optional<ButtonType> confirmDelete(){
+
+    public static Optional<ButtonType> confirmDelete() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Uwaga");
         alert.setHeaderText("UWAGA!!!");
@@ -35,16 +36,25 @@ public class Dialogs {
         return result;
     }
 
-    public static String editDialog(String value){
+    public static String editDialog(String value) {
         TextInputDialog dialog = new TextInputDialog(value);
         dialog.setTitle("Edycja");
         dialog.setHeaderText("Edycja nazwy");
         dialog.setContentText("Wprowadź nową nazwę");
         Optional<String> result = dialog.showAndWait();
-        if(result.isPresent()){
+        if (result.isPresent()) {
             return result.get();
         }
         return null;
 
     }
+
+    public static Optional<ButtonType> confirmFinished(){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Uwaga");
+        alert.setHeaderText("Uwaga");
+        alert.setContentText("Czy napewno chcesz zamknąć ticket?");
+        return alert.showAndWait();
+    }
+
 }
