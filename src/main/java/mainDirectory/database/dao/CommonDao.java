@@ -101,5 +101,14 @@ public class CommonDao {
         }
 
     }
+    public <T extends BaseModel, I> long countAll(Class<T> cls) throws ApplicationException {
+        Dao<T, I> dao = createDao(cls);
+        try {
+            return dao.queryBuilder().countOf();
+        } catch (SQLException e) {
+            logger.warn(e.getCause().getMessage());
+            throw new ApplicationException("Problem z odczytem z bazy danych");
+        }
+    }
 
 }

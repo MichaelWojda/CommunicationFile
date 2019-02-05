@@ -6,6 +6,7 @@ import com.j256.ormlite.table.TableUtils;
 import mainDirectory.database.model.Person;
 import mainDirectory.database.model.Status;
 import mainDirectory.database.model.Ticket;
+import mainDirectory.database.model.Ticket_History;
 import mainDirectory.utils.Exceptions.ApplicationException;
 
 import java.io.IOException;
@@ -45,11 +46,13 @@ public class dbManager {
 
     public static void innitDB() throws ApplicationException, SQLException {
         createConnectionSource();
-        //TableUtils.dropTable(connectionSource,Ticket.class, true);
-        //TableUtils.dropTable(connectionSource, Person.class, true);
-        //TableUtils.dropTable(connectionSource, Status.class, true);
+        TableUtils.dropTable(connectionSource, Ticket.class, true);
+        TableUtils.dropTable(connectionSource, Person.class, true);
+        TableUtils.dropTable(connectionSource, Status.class, true);
+        TableUtils.dropTable(connectionSource, Ticket_History.class, true);
         try {
             TableUtils.createTableIfNotExists(connectionSource, Ticket.class);
+            TableUtils.createTableIfNotExists(connectionSource, Ticket_History.class);
             TableUtils.createTableIfNotExists(connectionSource, Person.class);
             TableUtils.createTableIfNotExists(connectionSource, Status.class);
         } catch (SQLException e) {

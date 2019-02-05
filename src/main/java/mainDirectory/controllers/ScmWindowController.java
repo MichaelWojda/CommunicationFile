@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import mainDirectory.Converters.PersonConverter;
 import mainDirectory.database.model.Person;
 import mainDirectory.database.model.Ticket;
 import mainDirectory.dialogs.Dialogs;
@@ -20,6 +21,7 @@ import mainDirectory.utils.Exceptions.ApplicationException;
 import mainDirectory.utils.fxmlUtils;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 public class ScmWindowController {
@@ -107,6 +109,9 @@ public class ScmWindowController {
 
     @FXML
     private ComboBox<PersonFX> myTicketComboBox;
+
+    @FXML
+    private Button searchButton;
 
     private TicketPlanningModel ticketPlanningModel;
 
@@ -231,41 +236,60 @@ public class ScmWindowController {
 
     @FXML
     void addTicketButtonOnClick() {
+        try {
+            this.ticketPlanningModel.createTicketInDB();
+        } catch (ApplicationException e) {
+            Dialogs.alertMessage(e.getMessage());
+        }
+        this.materialNameField.clear();
 
     }
 
     @FXML
     void clearButtonOnClick() {
-
+        this.chooseScmAuthorBox.setValue(null);
+        this.materialNameField.clear();
+        this.materialDescField.clear();
+        this.projectNameField.clear();
+        this.notesField.clear();
+        this.planComboBox.setValue(null);
+        this.purComboBox.setValue(null);
+        this.statusComboBox.setValue(null);
     }
 
     @FXML
     void filterbySCMOnSelection() {
-
+        this.ticketPlanningModel.filterByScm();
     }
 
     @FXML
     void myTicketOnSelectionComboBox() {
-
+        this.ticketPlanningModel.filterByAuthor();
     }
 
     @FXML
     void onSelectionAuthorBox() {
+        this.ticketPlanningModel.getTicketFXObjectProperty().setAuthorFXProperty(this.chooseScmAuthorBox.getSelectionModel().getSelectedItem());
+        this.ticketPlanningModel.getTicketFXObjectProperty().setScmerFXProperty(this.chooseScmAuthorBox.getSelectionModel().getSelectedItem());
+        this.filterBySCMComboBox.setValue(this.chooseScmAuthorBox.getSelectionModel().getSelectedItem());
+        this.ticketPlanningModel.filterByScm();
 
     }
 
     @FXML
     void planBoxOnSelection() {
-
+        this.ticketPlanningModel.getTicketFXObjectProperty().setPlannerFXProperty(this.planComboBox.getSelectionModel().getSelectedItem());
     }
 
     @FXML
     void purBoxOnSelection() {
+        this.ticketPlanningModel.getTicketFXObjectProperty().setBuyerFXProperty(this.purComboBox.getSelectionModel().getSelectedItem());
 
     }
 
     @FXML
     void statusBoxOnSelection() {
+        this.ticketPlanningModel.getTicketFXObjectProperty().setStatusProperty(this.statusComboBox.getSelectionModel().getSelectedItem());
 
     }
     public Button createButton(String path) {
@@ -285,6 +309,25 @@ public class ScmWindowController {
                                                 .or(planComboBox.valueProperty().isNull().
                                                         or(purComboBox.valueProperty().isNull()
                                                                 .or(statusComboBox.valueProperty().isNull()))))))));
+        this.searchButton.disableProperty().bind(materialNameField.textProperty().isEmpty());
+    }
+    public void searchForMaterial() {
+        String searchedMaterial = this.materialNameField.textProperty().getValue();
+        try {
+            List<Ticket> list = ticketPlanningModel.searchForMaterial(searchedMaterial);
+            if(list.isEmpty()){
+                Dialogs.alertMessage("Nie znaleziono materiału");
+            }
+            else{
+                Ticket ticket = list.get(0);
+                this.materialDescField.setText(ticket.getMaterialDescription());
+                this.projectNameField.setText(ticket.getProject());
+                this.planComboBox.setValue(PersonConverter.convertToPersonFX(ticket.getPlanner()));
+                this.purComboBox.setValue(PersonConverter.convertToPersonFX(ticket.getScmer()));
+            }
+        } catch (ApplicationException e) {
+            Dialogs.alertMessage(e.getMessage());
+        }
 
     }
 

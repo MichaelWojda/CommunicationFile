@@ -10,6 +10,7 @@ public class PersonConverter {
         personFX.setName(person.getName());
         personFX.setSurname(person.getSurname());
         personFX.setDepartament(person.getDepartament());
+        personFX.setEmailFX(person.getEmail());
         return personFX;
     }
 
@@ -19,6 +20,7 @@ public class PersonConverter {
         person.setName(personFX.getName());
         person.setSurname(personFX.getSurname());
         person.setDepartament(personFX.getDepartament());
+        person.setEmail(personFX.getEmailFX());
         return person;
     }
 }

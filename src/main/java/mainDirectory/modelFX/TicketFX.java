@@ -8,7 +8,6 @@ import javafx.beans.property.SimpleStringProperty;
 public class TicketFX {
 
     SimpleIntegerProperty idProperty = new SimpleIntegerProperty();
-    SimpleIntegerProperty id_ticketProperty = new SimpleIntegerProperty();
     SimpleStringProperty materialNameProperty = new SimpleStringProperty();
     SimpleStringProperty materialDescriptionProperty = new SimpleStringProperty();
     SimpleStringProperty notesProperty = new SimpleStringProperty();
@@ -31,18 +30,6 @@ public class TicketFX {
 
     public void setIdProperty(int idProperty) {
         this.idProperty.set(idProperty);
-    }
-
-    public int getId_ticketProperty() {
-        return id_ticketProperty.get();
-    }
-
-    public SimpleIntegerProperty id_ticketPropertyProperty() {
-        return id_ticketProperty;
-    }
-
-    public void setId_ticketProperty(int id_ticketProperty) {
-        this.id_ticketProperty.set(id_ticketProperty);
     }
 
     public String getMaterialNameProperty() {

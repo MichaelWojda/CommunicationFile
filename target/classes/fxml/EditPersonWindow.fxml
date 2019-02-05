@@ -6,15 +6,16 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="296.0" prefWidth="256.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainDirectory.controllers.EditPersonWindowController">
    <children>
-      <Label layoutX="24.0" layoutY="55.0" prefHeight="10.0" prefWidth="23.0" text="Imię" />
-      <Label layoutX="10.0" layoutY="123.0" text="Nazwisko" />
+      <Label layoutX="24.0" layoutY="23.0" prefHeight="10.0" prefWidth="23.0" text="Imię" />
+      <Label layoutX="10.0" layoutY="81.0" text="Nazwisko" />
       <Label layoutX="22.0" layoutY="183.0" text="Dział" />
       <Button fx:id="editSaveButton" layoutX="103.0" layoutY="232.0" mnemonicParsing="false" onAction="#saveEdit" text="Zapisz" />
-      <TextField fx:id="editNameField" layoutX="101.0" layoutY="51.0" />
-      <TextField fx:id="editSurnameField" layoutX="101.0" layoutY="119.0" />
+      <TextField fx:id="editNameField" layoutX="78.0" layoutY="19.0" />
+      <TextField fx:id="editSurnameField" layoutX="78.0" layoutY="77.0" />
       <ComboBox fx:id="editDeptComboBox" layoutX="100.0" layoutY="179.0" onAction="#onSelectionEditComboBox" prefWidth="150.0" />
+      <Label layoutX="22.0" layoutY="140.0" text="Email" />
+      <TextField fx:id="editEmailField" layoutX="78.0" layoutY="136.0" />
    </children>
 </Pane>

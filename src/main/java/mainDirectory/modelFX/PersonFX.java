@@ -10,6 +10,7 @@ public class PersonFX {
     SimpleStringProperty name = new SimpleStringProperty();
     SimpleStringProperty surname = new SimpleStringProperty();
     SimpleStringProperty departament = new SimpleStringProperty();
+    SimpleStringProperty emailFX = new SimpleStringProperty();
 
 
     public int getId() {
@@ -58,6 +59,18 @@ public class PersonFX {
 
     public void setDepartament(String departament) {
         this.departament.set(departament);
+    }
+
+    public String getEmailFX() {
+        return emailFX.get();
+    }
+
+    public SimpleStringProperty emailFXProperty() {
+        return emailFX;
+    }
+
+    public void setEmailFX(String emailFX) {
+        this.emailFX.set(emailFX);
     }
 
     @Override

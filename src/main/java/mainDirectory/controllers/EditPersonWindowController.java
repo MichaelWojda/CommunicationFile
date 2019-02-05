@@ -26,6 +26,9 @@ public class EditPersonWindowController {
     @FXML
     private Button editSaveButton;
 
+    @FXML
+    private TextField editEmailField;
+
     PersonModel personModel;
 
     @FXML
@@ -39,6 +42,7 @@ public class EditPersonWindowController {
     public void bindings() {
         this.editNameField.textProperty().bindBidirectional(this.personModel.getPersonFXSimpleObjectProperty().nameProperty());
         this.editSurnameField.textProperty().bindBidirectional(this.personModel.getPersonFXSimpleObjectProperty().surnameProperty());
+        this.editEmailField.textProperty().bindBidirectional(this.personModel.getPersonFXSimpleObjectProperty().emailFXProperty());
         this.editDeptComboBox.valueProperty().bindBidirectional(this.personModel.getPersonFXSimpleObjectProperty().departamentProperty());
         this.editSaveButton.disableProperty().bind(this.editNameField.textProperty().isEmpty().or(this.editSurnameField.textProperty().isEmpty().or(this.editDeptComboBox.valueProperty().isNull())));
     }

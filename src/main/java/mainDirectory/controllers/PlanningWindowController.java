@@ -9,6 +9,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import mainDirectory.Converters.PersonConverter;
+import mainDirectory.database.model.Ticket;
 import mainDirectory.dialogs.Dialogs;
 import mainDirectory.modelFX.TicketPlanningModel;
 import mainDirectory.modelFX.PersonFX;
@@ -18,6 +20,7 @@ import mainDirectory.utils.Exceptions.ApplicationException;
 import mainDirectory.utils.fxmlUtils;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 public class PlanningWindowController {
@@ -102,6 +105,9 @@ public class PlanningWindowController {
 
     @FXML
     private ComboBox<PersonFX> myTicketComboBox;
+
+    @FXML
+    private Button searchButton;
 
 
 
@@ -248,7 +254,7 @@ public class PlanningWindowController {
                                                 .or(purComboBox.valueProperty().isNull().
                                                         or(scmComboBox.valueProperty().isNull()
                                                                 .or(statusComboBox.valueProperty().isNull()))))))));
-
+        this.searchButton.disableProperty().bind(materialNameField.textProperty().isEmpty());
     }
 
     @FXML
@@ -292,7 +298,7 @@ public class PlanningWindowController {
 
     public void addTicketButtonOnClick() {
         try {
-            this.ticketPlanningModel.saveTicketInDB();
+            this.ticketPlanningModel.createTicketInDB();
         } catch (ApplicationException e) {
             Dialogs.alertMessage(e.getMessage());
         }
@@ -316,6 +322,25 @@ public class PlanningWindowController {
         button.setGraphic(imageView);
         return button;
 
+
+    }
+    public void searchForMaterial() {
+        String searchedMaterial = this.materialNameField.textProperty().getValue();
+        try {
+            List<Ticket> list = ticketPlanningModel.searchForMaterial(searchedMaterial);
+            if(list.isEmpty()){
+                Dialogs.alertMessage("Nie znaleziono materiału");
+            }
+            else{
+                Ticket ticket = list.get(0);
+                this.materialDescField.setText(ticket.getMaterialDescription());
+                this.projectNameField.setText(ticket.getProject());
+                this.purComboBox.setValue(PersonConverter.convertToPersonFX(ticket.getPlanner()));
+                this.scmComboBox.setValue(PersonConverter.convertToPersonFX(ticket.getScmer()));
+            }
+        } catch (ApplicationException e) {
+            Dialogs.alertMessage(e.getMessage());
+        }
 
     }
 

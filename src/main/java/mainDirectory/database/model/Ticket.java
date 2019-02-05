@@ -15,9 +15,6 @@ public class Ticket implements BaseModel {
     @DatabaseField(generatedId = true)
     int id;
 
-    @DatabaseField(columnName ="ID_TICKET", canBeNull = false)
-    int id_ticket;
-
     @DatabaseField (columnName = "MATERIALNAME", canBeNull = false)
     String materialName;
 
@@ -55,14 +52,6 @@ public class Ticket implements BaseModel {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getId_ticket() {
-        return id_ticket;
-    }
-
-    public void setId_ticket(int id_ticket) {
-        this.id_ticket = id_ticket;
     }
 
     public String getMaterialName() {

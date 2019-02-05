@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="466.0" prefWidth="631.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainDirectory.controllers.ViewTicketWindowController">
+   <children>
+      <Label layoutX="14.0" layoutY="14.0" text="ID: ">
+         <font>
+            <Font name="ABBvoice Arabic Bold" size="19.0" />
+         </font>
+      </Label>
+      <Button fx:id="okButton" layoutX="490.0" layoutY="390.0" mnemonicParsing="false" onAction="#okClick" prefHeight="50.0" prefWidth="104.0" text="               OK" />
+      <Label layoutX="81.0" layoutY="42.0" text="Materiał" />
+      <Label layoutX="299.0" layoutY="42.0" text="Opis" />
+      <Label layoutX="506.0" layoutY="42.0" text="Projekt" />
+      <Label layoutX="297.0" layoutY="121.0" text="Notatki" />
+      <Label layoutX="51.0" layoutY="290.0" text="Planowanie" />
+      <Label layoutX="281.0" layoutY="290.0" text="Zaopatrzenie" />
+      <Label layoutX="530.0" layoutY="290.0" text="SCM" />
+      <Label layoutX="62.0" layoutY="389.0" text="Status" />
+      <Label layoutX="229.0" layoutY="389.0" text="Data" />
+      <Label layoutX="234.0" layoutY="14.0" text="Autor:">
+         <font>
+            <Font name="ABBvoice Arabic Bold" size="19.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="37.0" fitWidth="50.0" layoutX="506.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icons/ok.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="394.0" layoutY="389.0" text="Active" />
+      <TextField fx:id="idText" editable="false" layoutX="50.0" layoutY="14.0" prefHeight="25.0" prefWidth="57.0" />
+      <TextField fx:id="authorText" editable="false" layoutX="308.0" layoutY="14.0" />
+      <TextField fx:id="matText" editable="false" layoutX="29.0" layoutY="70.0" />
+      <TextField fx:id="descText" editable="false" layoutX="242.0" layoutY="70.0" />
+      <TextField fx:id="projectText" editable="false" layoutX="456.0" layoutY="70.0" />
+      <TextArea fx:id="notesText" editable="false" layoutX="43.0" layoutY="146.0" prefHeight="137.0" prefWidth="542.0" />
+      <TextField fx:id="planText" editable="false" layoutX="19.0" layoutY="321.0" />
+      <TextField fx:id="purText" editable="false" layoutX="241.0" layoutY="321.0" />
+      <TextField fx:id="scmText" editable="false" layoutX="468.0" layoutY="321.0" />
+      <TextField fx:id="statusText" editable="false" layoutX="7.0" layoutY="415.0" />
+      <TextField fx:id="dataText" editable="false" layoutX="168.0" layoutY="415.0" />
+      <TextField fx:id="activeText" editable="false" layoutX="336.0" layoutY="415.0" />
+   </children>
+</Pane>

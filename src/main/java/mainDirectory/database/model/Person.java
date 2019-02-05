@@ -24,6 +24,9 @@ public class Person implements BaseModel {
     @DatabaseField(columnName = "DEPARTAMENT", canBeNull = false)
     private String departament;
 
+    @DatabaseField(columnName = "EMAIL", canBeNull = false)
+    private String email;
+
 
 
     @ForeignCollectionField
@@ -69,6 +72,14 @@ public class Person implements BaseModel {
         this.departament = departament;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
@@ -76,6 +87,7 @@ public class Person implements BaseModel {
                 ", name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", departament='" + departament + '\'' +
+                ", email='" + email + '\'' +
                 ", tickets=" + tickets +
                 '}';
     }
