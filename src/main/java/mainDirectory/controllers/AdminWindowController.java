@@ -121,6 +121,12 @@ public class AdminWindowController {
     @FXML
     private TextField emailField;
 
+    @FXML
+    private TextField searchField;
+
+    @FXML
+    private Button searchButton;
+
 
 
     private PersonModel personModel;
@@ -144,7 +150,7 @@ public class AdminWindowController {
         initComboBox();
         checkFields();
         personBindings();
-
+        this.searchField.textProperty().bindBidirectional(this.ticketPlanningModel.searchedNameProperty());
         this.AuthorComboBox.setItems(this.personModel.getPersonFXObservableList());
         this.StatusComboBox.setItems(this.ticketPlanningModel.getStatusFXObservableList());
         this.allTicketsTable.setItems(this.ticketPlanningModel.getTicketFX_history());
@@ -338,6 +344,7 @@ public class AdminWindowController {
     private void checkFields() {
         this.addStatusButton.disableProperty().bind(this.statusNameField.textProperty().isEmpty().or(this.statusDeptComboBox.valueProperty().isNull()));
         this.addPersonButton.disableProperty().bind(this.nameField.textProperty().isEmpty().or(this.surnameField.textProperty().isEmpty().or(this.deptComboBox.valueProperty().isNull().or(this.emailField.textProperty().isEmpty()))));
+        this.searchButton.disableProperty().bind(this.searchField.textProperty().isEmpty());
     }
 
     public static ObservableList<String> initComboBox() {
@@ -410,6 +417,17 @@ public class AdminWindowController {
 
     public void resetStatusFilter() {
         StatusComboBox.setValue(null);
+
+    }
+
+    public void searchInHistory() {
+        this.ticketPlanningModel.filterHistory();
+    }
+
+    public void resetSearchByName() {
+        this.searchField.clear();
+        this.searchField.textProperty().setValue(null);
+        this.ticketPlanningModel.filterHistory();
 
     }
 }

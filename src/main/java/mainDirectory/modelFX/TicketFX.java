@@ -18,6 +18,7 @@ public class TicketFX {
     SimpleObjectProperty<PersonFX> buyerFXProperty = new SimpleObjectProperty<>();
     SimpleObjectProperty<StatusFX> statusProperty = new SimpleObjectProperty<>();
     SimpleBooleanProperty activeProperty = new SimpleBooleanProperty();
+    SimpleStringProperty data = new SimpleStringProperty();
 
 
     public int getIdProperty() {
@@ -152,5 +153,15 @@ public class TicketFX {
         this.activeProperty.set(activeProperty);
     }
 
+    public String getData() {
+        return data.get();
+    }
 
+    public SimpleStringProperty dataProperty() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data.set(data);
+    }
 }

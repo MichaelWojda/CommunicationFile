@@ -1,6 +1,7 @@
 package mainDirectory.controllers;
 
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -18,12 +19,16 @@ import mainDirectory.modelFX.StatusFX;
 import mainDirectory.modelFX.TicketFX;
 import mainDirectory.utils.Exceptions.ApplicationException;
 import mainDirectory.utils.fxmlUtils;
+import mainDirectory.utils.mailSender;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
 public class PlanningWindowController {
+
+    @FXML
+    private Button importButton;
 
     @FXML
     private Button addTicketButton;
@@ -107,6 +112,12 @@ public class PlanningWindowController {
     private ComboBox<PersonFX> myTicketComboBox;
 
     @FXML
+    private TableColumn<TicketFX, String> myDataColumn;
+
+    @FXML
+    private TableColumn<TicketFX, String> dateColumn;
+
+    @FXML
     private Button searchButton;
 
 
@@ -128,6 +139,7 @@ public class PlanningWindowController {
         this.myTicketsPurColumn.setCellValueFactory(c->c.getValue().buyerFXPropertyProperty());
         this.myTicketsScmColumn.setCellValueFactory(c->c.getValue().scmerFXPropertyProperty());
         this.myTicketsMatStatus.setCellValueFactory(c->c.getValue().statusPropertyProperty());
+        this.myDataColumn.setCellValueFactory(c->c.getValue().dataProperty());
         this.closeTicketColumn.setCellValueFactory(c->new SimpleObjectProperty<>(c.getValue()));
         this.closeTicketColumn.setCellFactory(c->new TableCell<TicketFX, TicketFX>(){
             Button button = createButton("/icons/racing.png");
@@ -170,6 +182,7 @@ public class PlanningWindowController {
                     setGraphic(button);
                 }
                 button.setOnAction(event->{
+                    mailSender.sendEmail("michal.wojda@pl.abb.com");
 
                 });
             }
@@ -191,6 +204,7 @@ public class PlanningWindowController {
         this.ticketMatDescColumn.setCellValueFactory(c->c.getValue().materialDescriptionPropertyProperty());
         this.ticketStatusColumn.setCellValueFactory(c->c.getValue().statusPropertyProperty());
         this.ticketAuthorColumn.setCellValueFactory(c->c.getValue().authorFXPropertyProperty());
+        this.dateColumn.setCellValueFactory(c->c.getValue().dataProperty());
         this.receiveColumn.setCellValueFactory(c->new SimpleObjectProperty<>(c.getValue()));
         this.receiveColumn.setCellFactory(c->new TableCell<TicketFX,TicketFX>(){
             Button button = createButton("/icons/mail.png");
@@ -335,7 +349,7 @@ public class PlanningWindowController {
                 Ticket ticket = list.get(0);
                 this.materialDescField.setText(ticket.getMaterialDescription());
                 this.projectNameField.setText(ticket.getProject());
-                this.purComboBox.setValue(PersonConverter.convertToPersonFX(ticket.getPlanner()));
+                this.purComboBox.setValue(PersonConverter.convertToPersonFX(ticket.getBuyer()));
                 this.scmComboBox.setValue(PersonConverter.convertToPersonFX(ticket.getScmer()));
             }
         } catch (ApplicationException e) {
@@ -345,6 +359,8 @@ public class PlanningWindowController {
     }
 
 
+    public void importFromExcel() {
+    }
 }
 
 

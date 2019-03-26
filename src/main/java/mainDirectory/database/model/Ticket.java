@@ -5,6 +5,8 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 
+import java.util.Date;
+
 @DatabaseTable(tableName="Ticket_Table")
 public class Ticket implements BaseModel {
 
@@ -41,6 +43,9 @@ public class Ticket implements BaseModel {
 
     @DatabaseField(columnName = "BUYER_ID", foreign = true ,foreignAutoCreate = true, foreignAutoRefresh = true, canBeNull = false)
     Person buyer;
+
+    @DatabaseField(columnName = "DATE")
+    Date data;
 
     @DatabaseField(columnName = "ACTIVE")
     Boolean active;
@@ -132,5 +137,13 @@ public class Ticket implements BaseModel {
 
     public void setActive(Boolean active) {
         this.active = active;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public void setData(Date data) {
+        this.data = data;
     }
 }

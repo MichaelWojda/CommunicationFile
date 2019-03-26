@@ -14,7 +14,7 @@ import java.sql.SQLException;
 
 public class dbManager {
 
-    public static final String LAN_DATABASE_ADDRESS = "jdbc:h2:file://pllod-v-dfsprn1.pl.abb.com/pllod_06/06 PLPES/320 Dział Zaopatrzenia/Zaopatrzenie baza/TEST";
+    public static final String LAN_DATABASE_ADDRESS="";
     public static final String RANDOM_DB = "jdbc:h2:file:/C:/Users/plmiwoj4/Desktop/Temp/randomDB";
     static ConnectionSource connectionSource;
 

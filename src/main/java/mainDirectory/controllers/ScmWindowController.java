@@ -113,6 +113,12 @@ public class ScmWindowController {
     @FXML
     private Button searchButton;
 
+    @FXML
+    private TableColumn<TicketFX, String> myDataColumn;
+
+    @FXML
+    private TableColumn<TicketFX, String> dateColumn;
+
     private TicketPlanningModel ticketPlanningModel;
 
     @FXML
@@ -140,6 +146,7 @@ public class ScmWindowController {
         this.ticketMatNameColumn.setCellValueFactory(c->c.getValue().materialNamePropertyProperty());
         this.ticketMatDescColumn.setCellValueFactory(c->c.getValue().materialDescriptionPropertyProperty());
         this.ticketStatusColumn.setCellValueFactory(c->c.getValue().statusPropertyProperty());
+        this.dateColumn.setCellValueFactory(c->c.getValue().dataProperty());
         this.ticketAuthorColumn.setCellValueFactory(c->c.getValue().authorFXPropertyProperty());
         this.receiveColumn.setCellValueFactory(c->new SimpleObjectProperty<>(c.getValue()));
         this.receiveColumn.setCellFactory(c->new TableCell<TicketFX,TicketFX>(){
@@ -185,6 +192,7 @@ public class ScmWindowController {
         this.myTicketsPlanColumn.setCellValueFactory(c->c.getValue().plannerFXPropertyProperty());
         this.myTicketsPurColumn.setCellValueFactory(c->c.getValue().buyerFXPropertyProperty());
         this.myTicketsMatStatus.setCellValueFactory(c->c.getValue().statusPropertyProperty());
+        this.myDataColumn.setCellValueFactory(c->c.getValue().dataProperty());
         this.closeTicketColumn.setCellValueFactory(c->new SimpleObjectProperty<>(c.getValue()));
         this.closeTicketColumn.setCellFactory(c->new TableCell<TicketFX, TicketFX>(){
             Button button = createButton("/icons/racing.png");

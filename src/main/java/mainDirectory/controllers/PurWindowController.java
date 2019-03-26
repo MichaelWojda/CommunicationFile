@@ -114,6 +114,12 @@ public class PurWindowController {
     @FXML
     private Button searchButton;
 
+    @FXML
+    private TableColumn<TicketFX, String> myDataColumn;
+
+    @FXML
+    private TableColumn<TicketFX, String> dateColumn;
+
     private TicketPlanningModel ticketPlanningModel;
 
     @FXML
@@ -141,6 +147,7 @@ public class PurWindowController {
         this.ticketMatNameColumn.setCellValueFactory(c->c.getValue().materialNamePropertyProperty());
         this.ticketMatDescColumn.setCellValueFactory(c->c.getValue().materialDescriptionPropertyProperty());
         this.ticketStatusColumn.setCellValueFactory(c->c.getValue().statusPropertyProperty());
+        this.dateColumn.setCellValueFactory(c->c.getValue().dataProperty());
         this.ticketAuthorColumn.setCellValueFactory(c->c.getValue().authorFXPropertyProperty());
         this.receiveColumn.setCellValueFactory(c->new SimpleObjectProperty<>(c.getValue()));
         this.receiveColumn.setCellFactory(c->new TableCell<TicketFX,TicketFX>(){
@@ -183,6 +190,7 @@ public class PurWindowController {
         this.myTicketsId.setCellValueFactory(c->c.getValue().idPropertyProperty());
         this.myTicketsMatNum.setCellValueFactory(c->c.getValue().materialNamePropertyProperty());
         this.myTicketsMatDesc.setCellValueFactory(c->c.getValue().materialDescriptionPropertyProperty());
+        this.myDataColumn.setCellValueFactory(c->c.getValue().dataProperty());
         this.myTicketsPlanColumn.setCellValueFactory(c->c.getValue().plannerFXPropertyProperty());
         this.myTicketsScmColumn.setCellValueFactory(c->c.getValue().scmerFXPropertyProperty());
         this.myTicketsMatStatus.setCellValueFactory(c->c.getValue().statusPropertyProperty());

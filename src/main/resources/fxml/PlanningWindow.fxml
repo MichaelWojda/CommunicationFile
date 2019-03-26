@@ -14,11 +14,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainDirectory.controllers.PlanningWindowController">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="950.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="mainDirectory.controllers.PlanningWindowController">
   <tabs>
     <Tab text="Utwórz Ticket">
          <content>
-            <Pane prefHeight="200.0" prefWidth="200.0">
+            <Pane prefHeight="600.0" prefWidth="950.0">
                <children>
                   <TextField fx:id="materialNameField" layoutX="131.0" layoutY="132.0" />
                   <TextField fx:id="materialDescField" layoutX="338.0" layoutY="132.0" />
@@ -28,7 +28,7 @@
                   <ComboBox fx:id="purComboBox" layoutX="109.0" layoutY="390.0" onAction="#purBoxOnSelection" prefWidth="150.0" />
                   <ComboBox fx:id="statusComboBox" layoutX="593.0" layoutY="390.0" onAction="#statusBoxOnSelection" prefWidth="150.0" />
                   <ComboBox fx:id="choosePlanAuthorBox" layoutX="325.0" layoutY="46.0" onAction="#onSelectionAuthorBox" prefWidth="150.0" />
-                  <Button fx:id="searchButton" layoutX="109.0" layoutY="449.0" mnemonicParsing="false" onAction="#searchForMaterial" prefHeight="50.0" prefWidth="150.0" text="Wyszukaj materiał">
+                  <Button fx:id="searchButton" layoutX="34.0" layoutY="449.0" mnemonicParsing="false" onAction="#searchForMaterial" prefHeight="50.0" prefWidth="150.0" text="Wyszukaj materiał">
                      <graphic>
                         <ImageView fitHeight="32.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -37,7 +37,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="clearButton" layoutX="343.0" layoutY="449.0" mnemonicParsing="false" onAction="#clearButtonOnClick" prefHeight="50.0" prefWidth="150.0" text="Wyczyść dane">
+                  <Button fx:id="clearButton" layoutX="235.0" layoutY="449.0" mnemonicParsing="false" onAction="#clearButtonOnClick" prefHeight="50.0" prefWidth="150.0" text="Wyczyść dane">
                      <graphic>
                         <ImageView fitHeight="35.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -46,7 +46,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="addTicketButton" layoutX="592.0" layoutY="449.0" mnemonicParsing="false" onAction="#addTicketButtonOnClick" prefHeight="50.0" prefWidth="150.0" text="Dodaj Ticket">
+                  <Button fx:id="addTicketButton" layoutX="443.0" layoutY="449.0" mnemonicParsing="false" onAction="#addTicketButtonOnClick" prefHeight="50.0" prefWidth="150.0" text="Dodaj Ticket">
                      <graphic>
                         <ImageView fitHeight="40.0" fitWidth="78.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -63,21 +63,28 @@
                   <Label layoutX="153.0" layoutY="340.0" text="Zaoptrzenie" />
                   <Label layoutX="400.0" layoutY="340.0" text="SCM" />
                   <Label layoutX="651.0" layoutY="340.0" text="Status" />
+                  <Button fx:id="importButton" layoutX="651.0" layoutY="449.0" mnemonicParsing="false" onAction="#importFromExcel" prefHeight="50.0" prefWidth="150.0" text="               Import z Excela" />
+                  <ImageView fitHeight="33.0" fitWidth="41.0" layoutX="653.0" layoutY="458.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/Excel.png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
          </content>
     </Tab>
     <Tab text="Mój Inbox">
          <content>
-            <Pane prefHeight="200.0" prefWidth="200.0">
+            <Pane prefHeight="600.0" prefWidth="950.0">
                <children>
                   <ComboBox fx:id="filterByPlannerComboBox" layoutX="227.0" layoutY="14.0" onAction="#filterbyPlannerOnSelection" prefWidth="150.0" />
-                  <TableView fx:id="ticketTableView" layoutY="53.0" prefHeight="518.0" prefWidth="800.0">
+                  <TableView fx:id="ticketTableView" layoutY="53.0" prefHeight="560.0" prefWidth="950.0">
                     <columns>
                       <TableColumn fx:id="ticketIdColumn" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="ID" />
                       <TableColumn fx:id="ticketMatNameColumn" prefWidth="75.0" text="Kod Materiału" />
                         <TableColumn fx:id="ticketMatDescColumn" prefWidth="75.0" text="Opis" />
                         <TableColumn fx:id="ticketStatusColumn" prefWidth="75.0" text="Status" />
+                        <TableColumn fx:id="dateColumn" prefWidth="75.0" text="Data" />
                         <TableColumn fx:id="ticketAuthorColumn" prefWidth="75.0" text="Autor" />
                         <TableColumn fx:id="receiveColumn" maxWidth="64.0" minWidth="64.0" prefWidth="64.0" text="Odbierz" />
                     </columns>
@@ -92,9 +99,9 @@
     </Tab>
       <Tab text="Moje Tickety">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="950.0">
                <children>
-                  <TableView fx:id="myTicketsTable" layoutY="44.0" prefHeight="527.0" prefWidth="800.0">
+                  <TableView fx:id="myTicketsTable" layoutY="44.0" prefHeight="577.0" prefWidth="950.0">
                     <columns>
                       <TableColumn fx:id="myTicketsId" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="ID" />
                       <TableColumn fx:id="myTicketsMatNum" minWidth="0.0" prefWidth="0.0" text="Materiał" />
@@ -102,8 +109,9 @@
                         <TableColumn fx:id="myTicketsMatStatus" prefWidth="75.0" text="Status" />
                         <TableColumn fx:id="myTicketsPurColumn" prefWidth="85.0" text="Zaopatrzenie" />
                         <TableColumn fx:id="myTicketsScmColumn" prefWidth="76.0" text="SCM" />
+                        <TableColumn fx:id="myDataColumn" prefWidth="75.0" text="Data" />
                         <TableColumn fx:id="alertColumn" maxWidth="64.0" minWidth="64.0" prefWidth="64.0" text="Alert" />
-                        <TableColumn fx:id="closeTicketColumn" maxWidth="64.0" minWidth="64.0" prefWidth="64.0" text="Zamknij" />
+                        <TableColumn fx:id="closeTicketColumn" maxWidth="65.0" minWidth="64.0" prefWidth="65.0" text="Zamknij" />
                     </columns>
                      <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

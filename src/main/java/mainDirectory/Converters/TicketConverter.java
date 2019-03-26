@@ -41,6 +41,8 @@ public class TicketConverter {
         ticketFX.setScmerFXProperty(PersonConverter.convertToPersonFX(ticket.getScmer()));
         ticketFX.setStatusProperty(StatusConverter.convertToStatusFX(ticket.getStatus()));
         ticketFX.setActiveProperty(ticket.getActive());
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy kk:mm", Locale.ENGLISH);
+        ticketFX.setData(dateFormat.format(ticket.getData()));
         return ticketFX;
 
     }

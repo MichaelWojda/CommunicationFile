@@ -1,8 +1,10 @@
 package mainDirectory.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import mainDirectory.modelFX.TicketPlanningModel;
 
 public class ViewTicketWindowController {
@@ -43,6 +45,9 @@ public class ViewTicketWindowController {
     @FXML
     private TextField activeText;
 
+    @FXML
+    private Button okButton;
+
 
     TicketPlanningModel ticketPlanningModel;
 
@@ -72,7 +77,9 @@ public class ViewTicketWindowController {
 
     @FXML
     void okClick() {
-        System.out.println(this.ticketPlanningModel.getTicketHistoryObject().getAuthorFXProperty().nameProperty());
+        Stage stage = ((Stage)this.okButton.getScene().getWindow());
+        stage.close();
+
 
     }
 

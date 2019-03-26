@@ -20,6 +20,7 @@ public class Main extends Application {
         Scene scene = new Scene(fxmlUtils.loadFXML(MAIN_WINDOW_FXML));
         primaryStage.setScene(scene);
         primaryStage.setTitle("Plik komunikacji");
+        primaryStage.setResizable(false);
         primaryStage.show();
         dbManager.innitDB();
 

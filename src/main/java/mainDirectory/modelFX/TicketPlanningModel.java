@@ -2,6 +2,7 @@ package mainDirectory.modelFX;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import mainDirectory.Converters.PersonConverter;
@@ -32,6 +33,7 @@ public class TicketPlanningModel {
     private ObjectProperty<PersonFX> PurFX = new SimpleObjectProperty<>(new PersonFX());
     private ObjectProperty<PersonFX> ScmFX = new SimpleObjectProperty<>(new PersonFX());
     private ObjectProperty<PersonFX> authorFX = new SimpleObjectProperty<>(new PersonFX());
+    private SimpleStringProperty searchedName = new SimpleStringProperty();
     private ObjectProperty<StatusFX> statusFX = new SimpleObjectProperty<>(new StatusFX());
     private ObservableList<PersonFX> planningFXList = FXCollections.observableArrayList();
     private ObservableList<StatusFX> statusFXObservableList = FXCollections.observableArrayList();
@@ -56,7 +58,7 @@ public class TicketPlanningModel {
         dbManager.closeConnection();
     }
 
-    private void innitTicketLists() throws ApplicationException {
+    public void innitTicketLists() throws ApplicationException {
         ticketFXRandomListPlanning.clear();
         ticketFXRandomListPur.clear();
         ticketFXRandomListSCM.clear();
@@ -84,10 +86,12 @@ public class TicketPlanningModel {
             }
 
         });
-        ticketFXObservableListPlanning.setAll(ticketFXRandomListPlanning);
-        ticketFXObservableListPur.setAll(ticketFXRandomListPur);
-        ticketFXObservableListSCM.setAll(ticketFXRandomListSCM);
-        ticketFXMyTicketList.setAll(ticketFXMyTicketRandomList);
+
+        List<TicketFX> emptylist = new ArrayList<>();
+        ticketFXObservableListPlanning.setAll(emptylist);
+        ticketFXObservableListPur.setAll(emptylist);
+        ticketFXObservableListSCM.setAll(emptylist);
+        ticketFXMyTicketList.setAll(emptylist);
 
     }
 
@@ -171,6 +175,10 @@ public class TicketPlanningModel {
         return ticketFX -> ticketFX.getStatusProperty().getId()==this.getStatusFX().getId();
     }
 
+    private Predicate<TicketFX> materialPredicate(){
+        return ticketFX -> ticketFX.getMaterialNameProperty().equals(this.getSearchedName());
+    }
+
     /*private Predicate<TicketFX> statusFXPredicate(String departament){
         return ticketFX -> ticketFX.getStatusProperty().getDepartamentFX().equals(departament);
 
@@ -188,6 +196,7 @@ public class TicketPlanningModel {
         TicketDao ticketDao = new TicketDao();
         Ticket ticket = TicketConverter.convertToTicket(this.getTicketFXObjectProperty());
         Ticket_History ticket_history = TicketConverter.convertToHistoryTicket(ticket);
+        ticket.setData(new Date());
         ticketDao.createOrUpdate(ticket);
         int i = (int)ticketDao.countAll(Ticket.class);
         ticket_history.setId_ticket(i);
@@ -201,6 +210,7 @@ public class TicketPlanningModel {
         TicketDao ticketDao = new TicketDao();
         Ticket ticket = TicketConverter.convertToTicket(this.getTicketFXObjectProperty());
         Ticket_History ticket_history = TicketConverter.convertToHistoryTicket(ticket);
+        ticket.setData(new Date());
         ticketDao.createOrUpdate(ticket);
         ticketDao.createOrUpdate(ticket_history);
         innitTicketLists();
@@ -211,10 +221,6 @@ public class TicketPlanningModel {
         if(this.getPlannerFX()!=null){
             List<TicketFX> newList = ticketFXRandomListPlanning.stream().filter(plannerPredicate()).collect(Collectors.toList());
             this.ticketFXObservableListPlanning.setAll(newList);
-        }
-        if(this.getPlannerFX()==null){
-            this.ticketFXObservableListPlanning.setAll(ticketFXRandomListPlanning);
-
         }
 
     }
@@ -228,9 +234,6 @@ public class TicketPlanningModel {
             List<TicketFX> newList2 = ticketFXMyTicketRandomList.stream().filter(authorPredicate()).collect(Collectors.toList());
             this.ticketFXMyTicketList.setAll(newList2);
         }
-        else {
-            ticketFXMyTicketList.setAll(ticketFXMyTicketRandomList);
-        }
 
     }
     public void filterByPur() {
@@ -238,35 +241,55 @@ public class TicketPlanningModel {
             List<TicketFX> newList = ticketFXRandomListPur.stream().filter(purPredicate()).collect(Collectors.toList());
             this.ticketFXObservableListPur.setAll(newList);
         }
-        if(this.getPurFX()==null){
-            this.ticketFXObservableListPur.setAll(ticketFXRandomListPur);
-        }
+
     }
     public void filterByScm() {
         if(this.getScmFX()!=null){
             List<TicketFX> newList = ticketFXRandomListSCM.stream().filter(scmPredicate()).collect(Collectors.toList());
             this.ticketFXObservableListSCM.setAll(newList);
         }
-        if(this.getPurFX()==null){
-            this.ticketFXObservableListSCM.setAll(ticketFXRandomListSCM);
+
+    }
+    public void filterByName(){
+        if(this.getSearchedName()!=null){
+            List<TicketFX_History> newList = ticketHistoryRandomList.stream().filter(materialPredicate()).collect(Collectors.toList());
+            ticketFX_history.setAll(newList);
         }
     }
+
     public void filterHistory(){
-        if(this.getAuthorFX()==null && this.getStatusFX()!=null){
+        if(this.getAuthorFX()==null && this.getStatusFX()!=null && this.getSearchedName()==null){
             List<TicketFX_History> newList = ticketHistoryRandomList.stream().filter(statusPredicate()).collect(Collectors.toList());
             ticketFX_history.setAll(newList);
         }
-        if(this.getAuthorFX()!=null && this.getStatusFX()==null){
+        if(this.getAuthorFX()!=null && this.getStatusFX()==null && this.getSearchedName()==null){
             List<TicketFX_History> newList = ticketHistoryRandomList.stream().filter(authorPredicate()).collect(Collectors.toList());
             ticketFX_history.setAll(newList);
         }
-        if(this.getAuthorFX()!=null && this.getStatusFX()!=null){
+        if(this.getAuthorFX()!=null && this.getStatusFX()!=null && this.getSearchedName()==null){
             List<TicketFX_History> newList = ticketHistoryRandomList.stream().filter(authorPredicate().and(statusPredicate())).collect(Collectors.toList());
             ticketFX_history.setAll(newList);
         }
-        if(this.getAuthorFX()==null && this.getStatusFX()==null){
+        if(this.getAuthorFX()==null && this.getStatusFX()==null && this.getSearchedName()==null){
             ticketFX_history.setAll(ticketHistoryRandomList);
         }
+        if(this.getAuthorFX()==null && this.getStatusFX()!=null && this.getSearchedName()!=null){
+            List<TicketFX_History> newList = ticketHistoryRandomList.stream().filter(statusPredicate().and(materialPredicate())).collect(Collectors.toList());
+            ticketFX_history.setAll(newList);
+        }
+        if(this.getAuthorFX()!=null && this.getStatusFX()==null && this.getSearchedName()!=null){
+            List<TicketFX_History> newList = ticketHistoryRandomList.stream().filter(authorPredicate().and(materialPredicate())).collect(Collectors.toList());
+            ticketFX_history.setAll(newList);
+        }
+        if(this.getAuthorFX()!=null && this.getStatusFX()!=null && this.getSearchedName()!=null){
+            List<TicketFX_History> newList = ticketHistoryRandomList.stream().filter(authorPredicate().and(statusPredicate().and(materialPredicate()))).collect(Collectors.toList());
+            ticketFX_history.setAll(newList);
+        }
+        if(this.getAuthorFX()==null && this.getStatusFX()==null && this.getSearchedName()!=null){
+            filterByName();
+        }
+
+
 
     }
 
@@ -275,8 +298,11 @@ public class TicketPlanningModel {
         TicketDao ticketDao = new TicketDao();
         try {
             Ticket temp = ticketDao.findById(Ticket.class, item.getIdProperty());
+            Ticket temphist = TicketConverter.convertToTicket(item);
+            Ticket_History ticket_history = TicketConverter.convertToHistoryTicket(temphist);
             temp.setActive(item.getActiveProperty());
             ticketDao.createOrUpdate(temp);
+            ticketDao.createOrUpdate(ticket_history);
         } catch (ApplicationException e) {
             e.printStackTrace();
         }
@@ -452,5 +478,17 @@ public class TicketPlanningModel {
         TicketDao ticketDao = new TicketDao();
         List<Ticket> list = ticketDao.queryForOneCondition(Ticket.class, "MATERIALNAME", searchedMaterial);
         return list;
+    }
+
+    public String getSearchedName() {
+        return searchedName.get();
+    }
+
+    public SimpleStringProperty searchedNameProperty() {
+        return searchedName;
+    }
+
+    public void setSearchedName(String searchedName) {
+        this.searchedName.set(searchedName);
     }
 }
