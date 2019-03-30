@@ -8,11 +8,11 @@ import javafx.beans.property.SimpleStringProperty;
 public class TicketFX {
 
     SimpleIntegerProperty idProperty = new SimpleIntegerProperty();
-    SimpleStringProperty materialNameProperty = new SimpleStringProperty();
-    SimpleStringProperty materialDescriptionProperty = new SimpleStringProperty();
-    SimpleStringProperty notesProperty = new SimpleStringProperty();
-    SimpleStringProperty projectProperty = new SimpleStringProperty();
-    SimpleObjectProperty<PersonFX> authorFXProperty = new SimpleObjectProperty<>();
+    public SimpleStringProperty materialNameProperty = new SimpleStringProperty();
+    public SimpleStringProperty materialDescriptionProperty = new SimpleStringProperty();
+    public SimpleStringProperty notesProperty = new SimpleStringProperty();
+    public SimpleStringProperty projectProperty = new SimpleStringProperty();
+    public SimpleObjectProperty<PersonFX> authorFXProperty = new SimpleObjectProperty<>();
     SimpleObjectProperty<PersonFX> plannerFXProperty = new SimpleObjectProperty<>();
     SimpleObjectProperty<PersonFX> scmerFXProperty = new SimpleObjectProperty<>();
     SimpleObjectProperty<PersonFX> buyerFXProperty = new SimpleObjectProperty<>();

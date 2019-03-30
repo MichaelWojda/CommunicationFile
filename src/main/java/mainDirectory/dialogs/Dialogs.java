@@ -57,4 +57,11 @@ public class Dialogs {
         return alert.showAndWait();
     }
 
+    public static void informationDialog(String error) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Informacja");
+        alert.setHeaderText("Informacja");
+        alert.setContentText(error);
+        alert.showAndWait();
+    }
 }

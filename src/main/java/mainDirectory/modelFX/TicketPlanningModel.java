@@ -5,6 +5,9 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.stage.FileChooser;
+import jxl.Workbook;
+import jxl.write.*;
 import mainDirectory.Converters.PersonConverter;
 import mainDirectory.Converters.StatusConverter;
 import mainDirectory.Converters.TicketConverter;
@@ -19,6 +22,8 @@ import mainDirectory.database.model.Ticket_History;
 import mainDirectory.dialogs.Dialogs;
 import mainDirectory.utils.Exceptions.ApplicationException;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -292,7 +297,6 @@ public class TicketPlanningModel {
 
 
     }
-
 
     public void updateTicketInDB(TicketFX item) throws ApplicationException {
         TicketDao ticketDao = new TicketDao();

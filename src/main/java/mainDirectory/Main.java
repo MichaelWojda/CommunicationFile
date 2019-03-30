@@ -7,12 +7,14 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import mainDirectory.database.dbutils.dbManager;
 import mainDirectory.utils.fxmlUtils;
+import org.apache.log4j.BasicConfigurator;
 
 public class Main extends Application {
 
     public static final String MAIN_WINDOW_FXML = "/fxml/MainWindow.fxml";
 
     public static void main(String[] args) {
+        BasicConfigurator.configure();
         launch();
     }
     @Override

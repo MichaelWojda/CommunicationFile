@@ -2,60 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de0aba4c-3f98-4b55-bdab-bb04500763f1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/Converters/TicketConverter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/Converters/TicketConverter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/AdminWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/AdminWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/MainWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/MainWindowController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/PlanningWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/PlanningWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/PurWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/PurWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/ScmWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/ScmWindowController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/TopMenuButtonsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/TopMenuButtonsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/ViewTicketWindowController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/ViewTicketWindowController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/database/dbutils/dbManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/database/dbutils/dbManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/database/model/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/database/model/Ticket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/dialogs/Dialogs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/dialogs/Dialogs.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/TicketFX.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/TicketFX.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/TicketPlanningModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/TicketPlanningModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/AdminWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/AdminWindow.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/mainDirectory/utils/excelUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/mainDirectory/utils/excelUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/PlanningWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/PlanningWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/PurchasingWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/PurchasingWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/ScmWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/ScmWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CommunicationFile-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/CommunicationFile-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fxml/AdminWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/AdminWindow.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/fxml/PlanningWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/PlanningWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fxml/PurchasingWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/PurchasingWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fxml/ScmWindow.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fxml/ScmWindow.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/Converters/TicketConverter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/Converters/TicketConverter.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/AdminWindowController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/AdminWindowController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/AdminWindowController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/AdminWindowController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/AdminWindowController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/AdminWindowController$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/AdminWindowController$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/AdminWindowController$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/AdminWindowController$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/AdminWindowController$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/AdminWindowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/AdminWindowController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/MainWindowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/MainWindowController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/PlanningWindowController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/PlanningWindowController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/PlanningWindowController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/PlanningWindowController$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/PlanningWindowController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/PlanningWindowController$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/PlanningWindowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/PlanningWindowController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/PurWindowController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/PurWindowController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/PurWindowController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/PurWindowController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/PurWindowController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/PurWindowController$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/PurWindowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/PurWindowController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/ScmWindowController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/ScmWindowController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/ScmWindowController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/ScmWindowController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/ScmWindowController$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/ScmWindowController$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/ScmWindowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/ScmWindowController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/TopMenuButtonsController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/TopMenuButtonsController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/ViewTicketWindowController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/controllers/ViewTicketWindowController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/database/dbutils/dbManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/database/dbutils/dbManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/database/model/Ticket.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/database/model/Ticket.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/modelFX/TicketFX.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/modelFX/TicketFX.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/mainDirectory/modelFX/TicketPlanningModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mainDirectory/modelFX/TicketPlanningModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/original-CommunicationFile-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/original-CommunicationFile-1.0-SNAPSHOT.jar" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -69,62 +33,65 @@
     <session id="-386301374">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="71" />
+          <entry key="project.closed" value="80" />
           <entry key="project.open.time.1" value="2" />
           <entry key="project.open.time.11" value="2" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.15" value="2" />
-          <entry key="project.open.time.16" value="6" />
+          <entry key="project.open.time.16" value="7" />
           <entry key="project.open.time.17" value="4" />
           <entry key="project.open.time.18" value="6" />
           <entry key="project.open.time.19" value="10" />
-          <entry key="project.open.time.2" value="2" />
+          <entry key="project.open.time.2" value="3" />
           <entry key="project.open.time.20" value="7" />
           <entry key="project.open.time.21" value="7" />
           <entry key="project.open.time.22" value="4" />
-          <entry key="project.open.time.23" value="8" />
+          <entry key="project.open.time.23" value="9" />
           <entry key="project.open.time.24" value="2" />
           <entry key="project.open.time.25" value="5" />
+          <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.27" value="1" />
           <entry key="project.open.time.28" value="7" />
           <entry key="project.open.time.29" value="1" />
+          <entry key="project.open.time.3" value="2" />
           <entry key="project.open.time.30" value="1" />
           <entry key="project.open.time.31" value="1" />
           <entry key="project.open.time.32" value="1" />
           <entry key="project.open.time.33" value="2" />
+          <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.49" value="1" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.open.time.7" value="1" />
-          <entry key="project.opened" value="85" />
+          <entry key="project.open.time.7" value="2" />
+          <entry key="project.opened" value="94" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="126" />
           <entry key="fxml" value="41" />
-          <entry key="java" value="27283" />
+          <entry key="java" value="29253" />
           <entry key="txt" value="55" />
           <entry key="xml" value="35" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="27283" />
+          <entry key="JAVA" value="29253" />
           <entry key="PLAIN_TEXT" value="181" />
           <entry key="XML" value="76" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="fxml" value="70" />
-          <entry key="java" value="312" />
-          <entry key="xml" value="3" />
+          <entry key="fxml" value="72" />
+          <entry key="java" value="319" />
+          <entry key="xml" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="312" />
-          <entry key="XML" value="73" />
+          <entry key="JAVA" value="319" />
+          <entry key="XML" value="77" />
         </counts>
       </usages-collector>
     </session>
@@ -163,47 +130,20 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/AdminWindowController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/TicketPlanningModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6783">
-              <caret line="425" selection-start-line="425" selection-end-line="425" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/TicketFX.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
+            <state relative-caret-position="4386">
+              <caret line="299" selection-start-line="299" selection-end-line="299" />
               <folding>
-                <element signature="e#4710#4711#0" expanded="true" />
-                <element signature="e#4743#4744#0" expanded="true" />
+                <element signature="e#19534#19535#0" expanded="true" />
+                <element signature="e#19582#19583#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/database/dbutils/dbManager.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="59" column="9" lean-forward="true" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/TicketPlanningModel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4573">
-              <caret line="292" selection-start-line="292" selection-end-line="292" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/database/dao/PersonDao.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/utils/Exceptions/ApplicationException.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="34">
               <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
@@ -212,19 +152,49 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/database/dao/CommonDao.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/utils/excelUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1462">
-              <caret line="103" column="79" selection-start-line="103" selection-start-column="79" selection-end-line="103" selection-end-column="79" />
+            <state relative-caret-position="986">
+              <caret line="69" column="58" lean-forward="true" selection-start-line="69" selection-start-column="58" selection-end-line="69" selection-end-column="58" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/TicketHistoryModel.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/dialogs/Dialogs.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="12" selection-start-line="12" selection-end-line="12" />
+            <state relative-caret-position="455">
+              <caret line="64" column="28" lean-forward="true" selection-start-line="64" selection-start-column="28" selection-end-line="64" selection-end-column="28" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/PlanningWindowController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="534">
+              <caret line="276" column="97" selection-start-line="276" selection-start-column="97" selection-end-line="276" selection-end-column="97" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/MainWindowController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="36" selection-start-line="36" selection-end-line="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1258">
+              <caret line="74" column="10" selection-start-line="74" selection-start-column="10" selection-end-line="74" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -293,6 +263,10 @@
       <find>statusfx</find>
       <find>view</find>
       <find>mail</find>
+      <find>expo</find>
+      <find>disa</find>
+      <find>exce</find>
+      <find>chec</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -316,7 +290,6 @@
         <option value="$PROJECT_DIR$/src/main/java/mainDirectory/database/dao/StatusDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/mainDirectory/database/dao/TicketDao.java" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/EditTicketWindow.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/mainDirectory/dialogs/Dialogs.java" />
         <option value="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/SCMWindowController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/PurchasingWindow.fxml" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/ScmWindow.fxml" />
@@ -337,21 +310,22 @@
         <option value="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/PurWindowController.java" />
         <option value="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/ScmWindowController.java" />
         <option value="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/EditTicketWindowController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mainDirectory/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/mainDirectory/utils/random.java" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/LoginWindow.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/MainWindowController.java" />
         <option value="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/TopMenuButtonsController.java" />
         <option value="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/LoginWindowController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/TicketPlanningModel.java" />
         <option value="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/ViewTicketWindowController.java" />
         <option value="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/AdminWindowController.java" />
         <option value="$PROJECT_DIR$/src/main/java/mainDirectory/utils/mailSender.java" />
         <option value="$PROJECT_DIR$/src/main/resources/fxml/PlanningWindow.fxml" />
-        <option value="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/PlanningWindowController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/mainDirectory/utils/excelUtils.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/mainDirectory/database/dbutils/dbManager.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/mainDirectory/Main.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/TicketPlanningModel.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mainDirectory/dialogs/Dialogs.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mainDirectory/utils/excelUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mainDirectory/controllers/PlanningWindowController.java" />
       </list>
     </option>
   </component>
@@ -393,9 +367,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -445,7 +417,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="mainDirectory" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="Converters" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Plik komunikacji re-load" type="b2602c69:ProjectViewProjectNode" />
@@ -455,7 +427,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="mainDirectory" type="462c0819:PsiDirectoryNode" />
               <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Plik komunikacji re-load" type="b2602c69:ProjectViewProjectNode" />
@@ -464,18 +435,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="mainDirectory" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="dbutils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Plik komunikacji re-load" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Plik komunikacji re-load" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="mainDirectory" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="model" type="462c0819:PsiDirectoryNode" />
+              <item name="dialogs" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Plik komunikacji re-load" type="b2602c69:ProjectViewProjectNode" />
@@ -513,58 +473,19 @@
             <path>
               <item name="Plik komunikacji re-load" type="b2602c69:ProjectViewProjectNode" />
               <item name="Plik komunikacji re-load" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Plik komunikacji re-load" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Plik komunikacji re-load" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="classes" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Plik komunikacji re-load" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Plik komunikacji re-load" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="generated-sources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Plik komunikacji re-load" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Plik komunikacji re-load" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="maven-status" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Plik komunikacji re-load" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Plik komunikacji re-load" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="maven-status" type="462c0819:PsiDirectoryNode" />
-              <item name="maven-compiler-plugin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Plik komunikacji re-load" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Plik komunikacji re-load" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="maven-status" type="462c0819:PsiDirectoryNode" />
-              <item name="maven-compiler-plugin" type="462c0819:PsiDirectoryNode" />
-              <item name="compile" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Plik komunikacji re-load" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Plik komunikacji re-load" type="462c0819:PsiDirectoryNode" />
-              <item name="target" type="462c0819:PsiDirectoryNode" />
-              <item name="maven-status" type="462c0819:PsiDirectoryNode" />
-              <item name="maven-compiler-plugin" type="462c0819:PsiDirectoryNode" />
-              <item name="compile" type="462c0819:PsiDirectoryNode" />
-              <item name="default-compile" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552675939175" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553938739446" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -665,8 +586,8 @@
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7486535" visible="true" weight="0.26799485" />
-      <window_info id="Structure" order="1" sideWeight="0.2513465" side_tool="true" visible="true" weight="0.26799485" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7360862" visible="true" weight="0.3014139" />
+      <window_info id="Structure" order="1" sideWeight="0.2639138" side_tool="true" visible="true" weight="0.3014139" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -674,7 +595,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3293011" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.25134408" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25134408" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39784947" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -713,13 +634,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="baza danych + menu górne i ładowanie formatek" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/Converters/StatusConverter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="18" column="69" selection-start-line="18" selection-start-column="69" selection-end-line="18" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/StatusFX.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="363">
@@ -841,25 +755,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/dialogs/Dialogs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="22" column="55" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/ScmWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="723">
           <caret line="200" column="69" selection-start-line="200" selection-start-column="69" selection-end-line="200" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/EditTicketWindow.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="694">
-          <caret line="51" selection-start-line="51" selection-end-line="51" />
         </state>
       </provider>
     </entry>
@@ -894,13 +793,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/MainWindowController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="27" column="63" selection-start-line="27" selection-start-column="63" selection-end-line="27" selection-end-column="63" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/EditTicketWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1105">
@@ -916,30 +808,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/TopMenuButtonsController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/EditPersonWindow.fxml">
       <provider editor-type-id="JavaFX-Scene-Builder" />
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/utils/excelUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/PlanningWindowController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/ViewTicketWindowController.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -963,14 +834,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/PlanningWindow.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="65" column="42" selection-start-line="65" selection-start-column="42" selection-end-line="65" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/utils/mailSender.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -978,24 +841,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/utils/fxmlUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="11" column="47" selection-start-line="11" selection-start-column="47" selection-end-line="11" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="32" column="27" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
         </state>
       </provider>
     </entry>
@@ -1014,10 +863,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/TicketPlanningModel.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/TicketFX.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4573">
-          <caret line="292" selection-start-line="292" selection-end-line="292" />
+        <state relative-caret-position="867">
+          <caret line="78" selection-start-line="78" selection-end-line="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/database/dbutils/dbManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="17" column="67" selection-start-line="17" selection-start-column="58" selection-end-line="17" selection-end-column="97" />
         </state>
       </provider>
     </entry>
@@ -1025,6 +881,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/EditTicketWindow.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
         </state>
       </provider>
     </entry>
@@ -1039,6 +903,45 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/fxml/PlanningWindow.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1615">
+          <caret line="95" column="95" selection-start-line="95" selection-start-column="95" selection-end-line="95" selection-end-column="95" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/TopMenuButtonsController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="867">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
+          <folding>
+            <element signature="e#1781#1782#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/MainWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1258">
+          <caret line="74" column="10" selection-start-line="74" selection-start-column="10" selection-end-line="74" selection-end-column="10" />
         </state>
       </provider>
     </entry>
@@ -1063,21 +966,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/TicketFX.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/utils/Exceptions/ApplicationException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="78" lean-forward="true" selection-start-line="78" selection-end-line="78" />
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/modelFX/TicketPlanningModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4386">
+          <caret line="299" selection-start-line="299" selection-end-line="299" />
           <folding>
-            <element signature="e#4710#4711#0" expanded="true" />
-            <element signature="e#4743#4744#0" expanded="true" />
+            <element signature="e#19534#19535#0" expanded="true" />
+            <element signature="e#19582#19583#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/database/dbutils/dbManager.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/dialogs/Dialogs.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="59" column="9" lean-forward="true" selection-start-line="59" selection-start-column="9" selection-end-line="59" selection-end-column="9" />
+        <state relative-caret-position="455">
+          <caret line="64" column="28" lean-forward="true" selection-start-line="64" selection-start-column="28" selection-end-line="64" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/utils/excelUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="986">
+          <caret line="69" column="58" lean-forward="true" selection-start-line="69" selection-start-column="58" selection-end-line="69" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mainDirectory/controllers/PlanningWindowController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="276" column="97" selection-start-line="276" selection-start-column="97" selection-end-line="276" selection-end-column="97" />
         </state>
       </provider>
     </entry>

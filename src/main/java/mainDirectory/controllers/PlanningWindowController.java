@@ -10,6 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import jxl.write.WriteException;
 import mainDirectory.Converters.PersonConverter;
 import mainDirectory.database.model.Ticket;
 import mainDirectory.dialogs.Dialogs;
@@ -18,6 +19,7 @@ import mainDirectory.modelFX.PersonFX;
 import mainDirectory.modelFX.StatusFX;
 import mainDirectory.modelFX.TicketFX;
 import mainDirectory.utils.Exceptions.ApplicationException;
+import mainDirectory.utils.excelUtils;
 import mainDirectory.utils.fxmlUtils;
 import mainDirectory.utils.mailSender;
 
@@ -26,6 +28,9 @@ import java.util.List;
 import java.util.Optional;
 
 public class PlanningWindowController {
+
+    @FXML
+    private Button exportButton;
 
     @FXML
     private Button importButton;
@@ -269,6 +274,7 @@ public class PlanningWindowController {
                                                         or(scmComboBox.valueProperty().isNull()
                                                                 .or(statusComboBox.valueProperty().isNull()))))))));
         this.searchButton.disableProperty().bind(materialNameField.textProperty().isEmpty());
+        this.exportButton.disableProperty().bind(filterByPlannerComboBox.valueProperty().isNull());
     }
 
     @FXML
@@ -361,6 +367,17 @@ public class PlanningWindowController {
 
     public void importFromExcel() {
     }
+
+   public void export() {
+       try {
+           excelUtils.exportToExcel(this.ticketPlanningModel.getTicketFXObservableListPlanning());
+       } catch (IOException e) {
+           Dialogs.alertMessage(e.getMessage());
+       } catch (WriteException e) {
+           Dialogs.alertMessage(e.getMessage());
+       }
+
+   }
 }
 
 
