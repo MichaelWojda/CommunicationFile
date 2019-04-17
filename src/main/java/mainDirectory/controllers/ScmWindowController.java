@@ -9,6 +9,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import jxl.write.WriteException;
 import mainDirectory.Converters.PersonConverter;
 import mainDirectory.database.model.Person;
 import mainDirectory.database.model.Ticket;
@@ -18,6 +19,8 @@ import mainDirectory.modelFX.StatusFX;
 import mainDirectory.modelFX.TicketFX;
 import mainDirectory.modelFX.TicketPlanningModel;
 import mainDirectory.utils.Exceptions.ApplicationException;
+import mainDirectory.utils.Other;
+import mainDirectory.utils.excelUtils;
 import mainDirectory.utils.fxmlUtils;
 
 import java.io.IOException;
@@ -118,6 +121,9 @@ public class ScmWindowController {
 
     @FXML
     private TableColumn<TicketFX, String> dateColumn;
+
+    @FXML
+    private Button exportButton;
 
     private TicketPlanningModel ticketPlanningModel;
 
@@ -235,6 +241,12 @@ public class ScmWindowController {
                     setGraphic(button);
                 }
                 button.setOnAction(event->{
+                    try {
+                        Other.sendEmail(item);
+                        button.disableProperty().set(true);
+                    } catch (IOException e) {
+                        Dialogs.alertMessage(e.getMessage());
+                    }
 
                 });
             }
@@ -318,6 +330,7 @@ public class ScmWindowController {
                                                         or(purComboBox.valueProperty().isNull()
                                                                 .or(statusComboBox.valueProperty().isNull()))))))));
         this.searchButton.disableProperty().bind(materialNameField.textProperty().isEmpty());
+        this.exportButton.disableProperty().bind(filterBySCMComboBox.valueProperty().isNull());
     }
     public void searchForMaterial() {
         String searchedMaterial = this.materialNameField.textProperty().getValue();
@@ -334,6 +347,17 @@ public class ScmWindowController {
                 this.purComboBox.setValue(PersonConverter.convertToPersonFX(ticket.getScmer()));
             }
         } catch (ApplicationException e) {
+            Dialogs.alertMessage(e.getMessage());
+        }
+
+    }
+
+    public void export() {
+        try {
+            excelUtils.exportToExcel(this.ticketPlanningModel.getTicketFXObservableListPlanning());
+        } catch (IOException e) {
+            Dialogs.alertMessage(e.getMessage());
+        } catch (WriteException e) {
             Dialogs.alertMessage(e.getMessage());
         }
 

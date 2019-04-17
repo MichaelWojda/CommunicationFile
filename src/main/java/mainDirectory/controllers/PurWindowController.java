@@ -4,12 +4,14 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import jxl.write.WriteException;
 import mainDirectory.Converters.PersonConverter;
 import mainDirectory.database.model.Ticket;
 import mainDirectory.dialogs.Dialogs;
@@ -18,6 +20,8 @@ import mainDirectory.modelFX.StatusFX;
 import mainDirectory.modelFX.TicketFX;
 import mainDirectory.modelFX.TicketPlanningModel;
 import mainDirectory.utils.Exceptions.ApplicationException;
+import mainDirectory.utils.Other;
+import mainDirectory.utils.excelUtils;
 import mainDirectory.utils.fxmlUtils;
 
 import java.io.IOException;
@@ -121,6 +125,9 @@ public class PurWindowController {
     private TableColumn<TicketFX, String> dateColumn;
 
     private TicketPlanningModel ticketPlanningModel;
+
+    @FXML
+    private Button exportButton;
 
     @FXML
     private void initialize(){
@@ -236,6 +243,12 @@ public class PurWindowController {
                     setGraphic(button);
                 }
                 button.setOnAction(event->{
+                    try {
+                        Other.sendEmail(item);
+                        button.disableProperty().set(true);
+                    } catch (IOException e) {
+                        Dialogs.alertMessage(e.getMessage());
+                    }
 
                 });
             }
@@ -314,6 +327,7 @@ public class PurWindowController {
                                                                 .or(statusComboBox.valueProperty().isNull()))))))));
 
         this.searchButton.disableProperty().bind(materialNameField.textProperty().isEmpty());
+        this.exportButton.disableProperty().bind(filterByPurComboBox.valueProperty().isNull());
 
 
 
@@ -343,6 +357,17 @@ public class PurWindowController {
                 this.scmComboBox.setValue(PersonConverter.convertToPersonFX(ticket.getScmer()));
             }
         } catch (ApplicationException e) {
+            Dialogs.alertMessage(e.getMessage());
+        }
+
+    }
+
+    public void export() {
+        try {
+            excelUtils.exportToExcel(this.ticketPlanningModel.getTicketFXObservableListPlanning());
+        } catch (IOException e) {
+            Dialogs.alertMessage(e.getMessage());
+        } catch (WriteException e) {
             Dialogs.alertMessage(e.getMessage());
         }
 

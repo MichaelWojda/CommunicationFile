@@ -1,7 +1,6 @@
 package mainDirectory.controllers;
 
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -19,9 +18,9 @@ import mainDirectory.modelFX.PersonFX;
 import mainDirectory.modelFX.StatusFX;
 import mainDirectory.modelFX.TicketFX;
 import mainDirectory.utils.Exceptions.ApplicationException;
+import mainDirectory.utils.Other;
 import mainDirectory.utils.excelUtils;
 import mainDirectory.utils.fxmlUtils;
-import mainDirectory.utils.mailSender;
 
 import java.io.IOException;
 import java.util.List;
@@ -187,7 +186,13 @@ public class PlanningWindowController {
                     setGraphic(button);
                 }
                 button.setOnAction(event->{
-                    mailSender.sendEmail("michal.wojda@pl.abb.com");
+                    try {
+                        Other.sendEmail(item);
+                        button.disableProperty().set(true);
+                    } catch (IOException e) {
+                        Dialogs.alertMessage(e.getMessage());
+                    }
+
 
                 });
             }
