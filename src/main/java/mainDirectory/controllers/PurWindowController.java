@@ -1,17 +1,14 @@
 package mainDirectory.controllers;
 
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import jxl.write.WriteException;
 import mainDirectory.Converters.PersonConverter;
 import mainDirectory.database.model.Ticket;
 import mainDirectory.dialogs.Dialogs;
@@ -19,15 +16,14 @@ import mainDirectory.modelFX.PersonFX;
 import mainDirectory.modelFX.StatusFX;
 import mainDirectory.modelFX.TicketFX;
 import mainDirectory.modelFX.TicketPlanningModel;
+import mainDirectory.utils.ExcelUtilsPOI;
 import mainDirectory.utils.Exceptions.ApplicationException;
 import mainDirectory.utils.Other;
-import mainDirectory.utils.excelUtils;
 import mainDirectory.utils.fxmlUtils;
 
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 public class PurWindowController {
 
@@ -149,6 +145,10 @@ public class PurWindowController {
         checkUpFields();
         this.filterByPurComboBox.setItems(this.ticketPlanningModel.getPurFXList());
         this.ticketPlanningModel.purFXProperty().bind(this.filterByPurComboBox.valueProperty());
+
+        TableView.TableViewSelectionModel<TicketFX> selectionModel = ticketTableView.getSelectionModel();
+        selectionModel.setSelectionMode(SelectionMode.MULTIPLE);
+
         this.ticketTableView.setItems(this.ticketPlanningModel.getTicketFXObservableListPur());
         this.ticketIdColumn.setCellValueFactory(c->c.getValue().idPropertyProperty());
         this.ticketMatNameColumn.setCellValueFactory(c->c.getValue().materialNamePropertyProperty());
@@ -179,6 +179,9 @@ public class PurWindowController {
                     }
                     EditTicketWindowController editTicketWindowController = loader.getController();
                     editTicketWindowController.ticketPlanningModel.setTicketFXObjectProperty(item);
+                    if(selectionModel.getSelectedItems().size()>1){
+                        editTicketWindowController.ticketPlanningModel.setMultipleTicketsList(selectionModel.getSelectedItems());
+                    }
                     editTicketWindowController.bindings();
                     Stage stage = new Stage();
                     stage.setScene(scene);
@@ -244,7 +247,10 @@ public class PurWindowController {
                 }
                 button.setOnAction(event->{
                     try {
-                        Other.sendEmail(item);
+                        Other.sendEmail(item,
+                                "PLIK KOMUNIKACJI PRZYPOMNIENIE TICKET NR",
+                                "Uwaga \n Powyższy ticket oczekuje na Twoje działanie od",
+                                true);
                         button.disableProperty().set(true);
                     } catch (IOException e) {
                         Dialogs.alertMessage(e.getMessage());
@@ -364,10 +370,9 @@ public class PurWindowController {
 
     public void export() {
         try {
-            excelUtils.exportToExcel(this.ticketPlanningModel.getTicketFXObservableListPlanning());
+            ExcelUtilsPOI excelUtilsPOI = new ExcelUtilsPOI();
+            excelUtilsPOI.exportToExcel(this.ticketPlanningModel.getTicketFXObservableListPur());
         } catch (IOException e) {
-            Dialogs.alertMessage(e.getMessage());
-        } catch (WriteException e) {
             Dialogs.alertMessage(e.getMessage());
         }
 

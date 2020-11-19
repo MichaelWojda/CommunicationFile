@@ -1,8 +1,6 @@
 package mainDirectory.database.model;
 
-import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
 
 import java.util.Date;
@@ -145,5 +143,23 @@ public class Ticket implements BaseModel {
 
     public void setData(Date data) {
         this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "id=" + id +
+                ", materialName='" + materialName + '\'' +
+                ", materialDescription='" + materialDescription + '\'' +
+                ", status=" + status +
+                ", notes='" + notes + '\'' +
+                ", project='" + project + '\'' +
+                ", author=" + author +
+                ", planner=" + planner +
+                ", scmer=" + scmer +
+                ", buyer=" + buyer +
+                ", data=" + data +
+                ", active=" + active +
+                '}';
     }
 }

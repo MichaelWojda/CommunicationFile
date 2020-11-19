@@ -6,11 +6,9 @@ import com.j256.ormlite.logger.Logger;
 import com.j256.ormlite.logger.LoggerFactory;
 import com.j256.ormlite.stmt.PreparedQuery;
 import com.j256.ormlite.stmt.QueryBuilder;
-import com.j256.ormlite.stmt.Where;
 import com.j256.ormlite.support.ConnectionSource;
 import mainDirectory.database.dbutils.dbManager;
 import mainDirectory.database.model.BaseModel;
-import mainDirectory.database.model.Ticket;
 import mainDirectory.utils.Exceptions.ApplicationException;
 
 import java.io.IOException;
@@ -50,7 +48,7 @@ public class CommonDao {
         try {
             dao.createOrUpdate((T) baseModel);
         } catch (SQLException e) {
-            logger.warn(e.getCause().getMessage());
+           // logger.warn(e.getCause().getMessage());
             throw new ApplicationException("Problem z zapisem do bazy danych");
 
         }
@@ -96,7 +94,7 @@ public class CommonDao {
             PreparedQuery<T> prepare = queryBuilder.prepare();
             return dao.query(prepare);
         } catch (SQLException e) {
-            logger.warn(e.getCause().getMessage());
+//            logger.warn(e.getCause().getMessage());
             throw new ApplicationException("Problem z odczytem danych z bazy");
         }
 

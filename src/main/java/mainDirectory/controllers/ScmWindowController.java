@@ -9,18 +9,16 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import jxl.write.WriteException;
 import mainDirectory.Converters.PersonConverter;
-import mainDirectory.database.model.Person;
 import mainDirectory.database.model.Ticket;
 import mainDirectory.dialogs.Dialogs;
 import mainDirectory.modelFX.PersonFX;
 import mainDirectory.modelFX.StatusFX;
 import mainDirectory.modelFX.TicketFX;
 import mainDirectory.modelFX.TicketPlanningModel;
+import mainDirectory.utils.ExcelUtilsPOI;
 import mainDirectory.utils.Exceptions.ApplicationException;
 import mainDirectory.utils.Other;
-import mainDirectory.utils.excelUtils;
 import mainDirectory.utils.fxmlUtils;
 
 import java.io.IOException;
@@ -147,6 +145,10 @@ public class ScmWindowController {
         checkUpFields();
         this.filterBySCMComboBox.setItems(this.ticketPlanningModel.getScMFXList());
         this.ticketPlanningModel.scmFXProperty().bind(this.filterBySCMComboBox.valueProperty());
+
+        TableView.TableViewSelectionModel<TicketFX> selectionModel = ticketTableView.getSelectionModel();
+        selectionModel.setSelectionMode(SelectionMode.MULTIPLE);
+
         this.ticketTableView.setItems(this.ticketPlanningModel.getTicketFXObservableListSCM());
         this.ticketIdColumn.setCellValueFactory(c->c.getValue().idPropertyProperty());
         this.ticketMatNameColumn.setCellValueFactory(c->c.getValue().materialNamePropertyProperty());
@@ -177,6 +179,9 @@ public class ScmWindowController {
                     }
                     EditTicketWindowController editTicketWindowController = loader.getController();
                     editTicketWindowController.ticketPlanningModel.setTicketFXObjectProperty(item);
+                    if(selectionModel.getSelectedItems().size()>1){
+                        editTicketWindowController.ticketPlanningModel.setMultipleTicketsList(selectionModel.getSelectedItems());
+                    }
                     editTicketWindowController.bindings();
                     Stage stage = new Stage();
                     stage.setScene(scene);
@@ -242,7 +247,10 @@ public class ScmWindowController {
                 }
                 button.setOnAction(event->{
                     try {
-                        Other.sendEmail(item);
+                        Other.sendEmail(item,
+                                "PLIK KOMUNIKACJI PRZYPOMNIENIE TICKET NR",
+                                "Uwaga \n Powyższy ticket oczekuje na Twoje działanie od",
+                                true);
                         button.disableProperty().set(true);
                     } catch (IOException e) {
                         Dialogs.alertMessage(e.getMessage());
@@ -354,10 +362,10 @@ public class ScmWindowController {
 
     public void export() {
         try {
-            excelUtils.exportToExcel(this.ticketPlanningModel.getTicketFXObservableListPlanning());
+            //excelUtils.exportToExcel(this.ticketPlanningModel.getTicketFXObservableListSCM());
+            ExcelUtilsPOI excelUtilsPOI = new ExcelUtilsPOI();
+            excelUtilsPOI.exportToExcel(this.ticketPlanningModel.getTicketFXObservableListSCM());
         } catch (IOException e) {
-            Dialogs.alertMessage(e.getMessage());
-        } catch (WriteException e) {
             Dialogs.alertMessage(e.getMessage());
         }
 

@@ -1,6 +1,7 @@
 package mainDirectory.controllers;
 
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -9,30 +10,35 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import jxl.write.WriteException;
 import mainDirectory.Converters.PersonConverter;
+import mainDirectory.Converters.StatusConverter;
 import mainDirectory.database.model.Ticket;
 import mainDirectory.dialogs.Dialogs;
-import mainDirectory.modelFX.TicketPlanningModel;
 import mainDirectory.modelFX.PersonFX;
 import mainDirectory.modelFX.StatusFX;
 import mainDirectory.modelFX.TicketFX;
+import mainDirectory.modelFX.TicketPlanningModel;
+import mainDirectory.utils.ExcelUtilsPOI;
 import mainDirectory.utils.Exceptions.ApplicationException;
 import mainDirectory.utils.Other;
-import mainDirectory.utils.excelUtils;
 import mainDirectory.utils.fxmlUtils;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 public class PlanningWindowController {
+
 
     @FXML
     private Button exportButton;
 
     @FXML
     private Button importButton;
+
+    @FXML
+    public Button createTemplateButton;
 
     @FXML
     private Button addTicketButton;
@@ -125,11 +131,10 @@ public class PlanningWindowController {
     private Button searchButton;
 
 
-
     private TicketPlanningModel ticketPlanningModel;
 
     @FXML
-    private void initialize(){
+    private void initialize() {
         ticketPlanningModel = new TicketPlanningModel();
         try {
             ticketPlanningModel.innit();
@@ -137,29 +142,29 @@ public class PlanningWindowController {
             Dialogs.alertMessage(e.getMessage());
         }
         this.myTicketsTable.setItems(this.ticketPlanningModel.getTicketFXMyTicketList());
-        this.myTicketsId.setCellValueFactory(c->c.getValue().idPropertyProperty());
-        this.myTicketsMatNum.setCellValueFactory(c->c.getValue().materialNamePropertyProperty());
-        this.myTicketsMatDesc.setCellValueFactory(c->c.getValue().materialDescriptionPropertyProperty());
-        this.myTicketsPurColumn.setCellValueFactory(c->c.getValue().buyerFXPropertyProperty());
-        this.myTicketsScmColumn.setCellValueFactory(c->c.getValue().scmerFXPropertyProperty());
-        this.myTicketsMatStatus.setCellValueFactory(c->c.getValue().statusPropertyProperty());
-        this.myDataColumn.setCellValueFactory(c->c.getValue().dataProperty());
-        this.closeTicketColumn.setCellValueFactory(c->new SimpleObjectProperty<>(c.getValue()));
-        this.closeTicketColumn.setCellFactory(c->new TableCell<TicketFX, TicketFX>(){
+        this.myTicketsId.setCellValueFactory(c -> c.getValue().idPropertyProperty());
+        this.myTicketsMatNum.setCellValueFactory(c -> c.getValue().materialNamePropertyProperty());
+        this.myTicketsMatDesc.setCellValueFactory(c -> c.getValue().materialDescriptionPropertyProperty());
+        this.myTicketsPurColumn.setCellValueFactory(c -> c.getValue().buyerFXPropertyProperty());
+        this.myTicketsScmColumn.setCellValueFactory(c -> c.getValue().scmerFXPropertyProperty());
+        this.myTicketsMatStatus.setCellValueFactory(c -> c.getValue().statusPropertyProperty());
+        this.myDataColumn.setCellValueFactory(c -> c.getValue().dataProperty());
+        this.closeTicketColumn.setCellValueFactory(c -> new SimpleObjectProperty<>(c.getValue()));
+        this.closeTicketColumn.setCellFactory(c -> new TableCell<TicketFX, TicketFX>() {
             Button button = createButton("/icons/racing.png");
 
             @Override
             protected void updateItem(TicketFX item, boolean empty) {
                 super.updateItem(item, empty);
-                if(empty){
+                if (empty) {
                     setGraphic(null);
                 }
-                if(!empty){
+                if (!empty) {
                     setGraphic(button);
                 }
-                button.setOnAction(event->{
+                button.setOnAction(event -> {
                     Optional<ButtonType> result = Dialogs.confirmFinished();
-                    if(result.get()==ButtonType.OK) {
+                    if (result.get() == ButtonType.OK) {
                         item.setActiveProperty(false);
                         try {
                             ticketPlanningModel.updateTicketInDB(item);
@@ -172,22 +177,25 @@ public class PlanningWindowController {
                 });
             }
         });
-        this.alertColumn.setCellValueFactory(c-> new SimpleObjectProperty<>(c.getValue()));
-        this.alertColumn.setCellFactory(c->new TableCell<TicketFX, TicketFX>(){
+        this.alertColumn.setCellValueFactory(c -> new SimpleObjectProperty<>(c.getValue()));
+        this.alertColumn.setCellFactory(c -> new TableCell<TicketFX, TicketFX>() {
             Button button = createButton("/icons/bell.png");
 
             @Override
             protected void updateItem(TicketFX item, boolean empty) {
                 super.updateItem(item, empty);
-                if(empty){
+                if (empty) {
                     setGraphic(null);
                 }
-                if(!empty){
+                if (!empty) {
                     setGraphic(button);
                 }
-                button.setOnAction(event->{
+                button.setOnAction(event -> {
                     try {
-                        Other.sendEmail(item);
+                        Other.sendEmail(item,
+                                "PLIK KOMUNIKACJI PRZYPOMNIENIE TICKET NR",
+                                "Uwaga \n Powyższy ticket oczekuje na Twoje działanie od",
+                                true);
                         button.disableProperty().set(true);
                     } catch (IOException e) {
                         Dialogs.alertMessage(e.getMessage());
@@ -204,31 +212,33 @@ public class PlanningWindowController {
         checkUpFields();
 
 
-
     }
 
     protected void editTicketColumnBindings() {
+        TableView.TableViewSelectionModel<TicketFX> selectionModel = ticketTableView.getSelectionModel();
+        selectionModel.setSelectionMode(SelectionMode.MULTIPLE);
+
         this.ticketTableView.setItems(this.ticketPlanningModel.getTicketFXObservableListPlanning());
-        this.ticketIdColumn.setCellValueFactory(c->c.getValue().idPropertyProperty());
-        this.ticketMatNameColumn.setCellValueFactory(c->c.getValue().materialNamePropertyProperty());
-        this.ticketMatDescColumn.setCellValueFactory(c->c.getValue().materialDescriptionPropertyProperty());
-        this.ticketStatusColumn.setCellValueFactory(c->c.getValue().statusPropertyProperty());
-        this.ticketAuthorColumn.setCellValueFactory(c->c.getValue().authorFXPropertyProperty());
-        this.dateColumn.setCellValueFactory(c->c.getValue().dataProperty());
-        this.receiveColumn.setCellValueFactory(c->new SimpleObjectProperty<>(c.getValue()));
-        this.receiveColumn.setCellFactory(c->new TableCell<TicketFX,TicketFX>(){
+        this.ticketIdColumn.setCellValueFactory(c -> c.getValue().idPropertyProperty());
+        this.ticketMatNameColumn.setCellValueFactory(c -> c.getValue().materialNamePropertyProperty());
+        this.ticketMatDescColumn.setCellValueFactory(c -> c.getValue().materialDescriptionPropertyProperty());
+        this.ticketStatusColumn.setCellValueFactory(c -> c.getValue().statusPropertyProperty());
+        this.ticketAuthorColumn.setCellValueFactory(c -> c.getValue().authorFXPropertyProperty());
+        this.dateColumn.setCellValueFactory(c -> c.getValue().dataProperty());
+        this.receiveColumn.setCellValueFactory(c -> new SimpleObjectProperty<>(c.getValue()));
+        this.receiveColumn.setCellFactory(c -> new TableCell<TicketFX, TicketFX>() {
             Button button = createButton("/icons/mail.png");
 
             @Override
             protected void updateItem(TicketFX item, boolean empty) {
                 super.updateItem(item, empty);
-                if(empty){
+                if (empty) {
                     setGraphic(null);
                 }
-                if(!empty){
+                if (!empty) {
                     setGraphic(button);
                 }
-                button.setOnAction(event->{
+                button.setOnAction(event -> {
                     FXMLLoader loader = fxmlUtils.returnLoader("/fxml/EditTicketWindow.fxml");
                     Scene scene = null;
                     try {
@@ -238,12 +248,20 @@ public class PlanningWindowController {
                     }
                     EditTicketWindowController editTicketWindowController = loader.getController();
                     editTicketWindowController.ticketPlanningModel.setTicketFXObjectProperty(item);
+                    if(selectionModel.getSelectedItems().size()>1){
+                        editTicketWindowController.ticketPlanningModel.setMultipleTicketsList(selectionModel.getSelectedItems());
+                    }
                     editTicketWindowController.bindings();
                     Stage stage = new Stage();
                     stage.setScene(scene);
                     stage.setTitle("Edycja ticketa");
                     stage.initModality(Modality.APPLICATION_MODAL);
+//                    stage.setOnCloseRequest(event1 -> {
+//                        ticketTableView.setItems(ticketPlanningModel.getTicketFXObservableListPlanning());
+//                    });
                     stage.showAndWait();
+
+
 
 
                 });
@@ -280,6 +298,7 @@ public class PlanningWindowController {
                                                                 .or(statusComboBox.valueProperty().isNull()))))))));
         this.searchButton.disableProperty().bind(materialNameField.textProperty().isEmpty());
         this.exportButton.disableProperty().bind(filterByPlannerComboBox.valueProperty().isNull());
+        this.createTemplateButton.disableProperty().bind(choosePlanAuthorBox.valueProperty().isNull());
     }
 
     @FXML
@@ -289,6 +308,7 @@ public class PlanningWindowController {
         this.filterByPlannerComboBox.setValue(this.choosePlanAuthorBox.getSelectionModel().getSelectedItem());
         this.ticketPlanningModel.filterByPlanner();
     }
+
     @FXML
     void purBoxOnSelection() {
         this.ticketPlanningModel.getTicketFXObjectProperty().setBuyerFXProperty(this.purComboBox.getSelectionModel().getSelectedItem());
@@ -304,6 +324,7 @@ public class PlanningWindowController {
         this.ticketPlanningModel.getTicketFXObjectProperty().setStatusProperty(this.statusComboBox.getSelectionModel().getSelectedItem());
 
     }
+
     @FXML
     void myTicketOnSelectionComboBox() {
         this.ticketPlanningModel.filterByAuthor();
@@ -349,14 +370,14 @@ public class PlanningWindowController {
 
 
     }
+
     public void searchForMaterial() {
         String searchedMaterial = this.materialNameField.textProperty().getValue();
         try {
             List<Ticket> list = ticketPlanningModel.searchForMaterial(searchedMaterial);
-            if(list.isEmpty()){
+            if (list.isEmpty()) {
                 Dialogs.alertMessage("Nie znaleziono materiału");
-            }
-            else{
+            } else {
                 Ticket ticket = list.get(0);
                 this.materialDescField.setText(ticket.getMaterialDescription());
                 this.projectNameField.setText(ticket.getProject());
@@ -371,18 +392,99 @@ public class PlanningWindowController {
 
 
     public void importFromExcel() {
+        boolean dataIsOk = true;
+        ExcelUtilsPOI excelUtilsPOI = new ExcelUtilsPOI();
+        List<Ticket> ticketList = new ArrayList<>();
+        try {
+            //ticketList = excelUtils.importFromExcel();
+            ticketList = excelUtilsPOI.importFromExcel();
+        } catch (IOException e) {
+           Dialogs.alertMessage("Błąd odczytu" + e.getMessage());
+        }
+
+        List<PersonFX> allPeople = new ArrayList<>();
+        allPeople.addAll(ticketPlanningModel.getScMFXList());
+        allPeople.addAll(ticketPlanningModel.getPurFXList());
+        allPeople.addAll(ticketPlanningModel.getPlanningFXList());
+
+        ticketList.forEach(t -> {
+            ticketPlanningModel.getScMFXList().forEach(scm -> {
+                if (t.getScmer().getName().equals(scm.getName() + " " + scm.getSurname())) {
+                    t.setScmer(PersonConverter.convertToPerson(scm));
+                }
+            });
+            ticketPlanningModel.getPurFXList().forEach(pur -> {
+                if (t.getBuyer().getName().equals(pur.getName() + " " + pur.getSurname())) {
+                    t.setBuyer(PersonConverter.convertToPerson(pur));
+                }
+
+            });
+            ticketPlanningModel.getPlanningFXList().forEach(plan -> {
+                if (t.getPlanner().getName().equals(plan.getName() + " " + plan.getSurname())) {
+                    t.setPlanner(PersonConverter.convertToPerson(plan));
+                }
+
+            });
+            ticketPlanningModel.getStatusFXObservableList().forEach(statusFX -> {
+                        if (statusFX.getNameFX().equals(t.getStatus().getStatusName())) {
+                            t.setStatus(StatusConverter.convertToStatus(statusFX));
+
+                        }
+
+                    }
+            );
+            allPeople.forEach(person -> {
+                if (t.getAuthor().getName().equals(person.getName() + " " + person.getSurname())) {
+                    t.setAuthor(PersonConverter.convertToPerson(person));
+                }
+            });
+
+
+        });
+        Optional<ButtonType> response = Dialogs.generalConfirmation("Czy napewno chcesz utworzyć " + ticketList.size() + " ticketów?");
+        if(response.get()==ButtonType.OK) {
+            ticketList.forEach(t -> {
+                try {
+                    this.ticketPlanningModel.createTicketInDB(t);
+                } catch (ApplicationException e) {
+                    Dialogs.alertMessage("Błąd zapisu do bazy danych");
+
+                }
+
+            });
+        }
+
     }
 
-   public void export() {
-       try {
-           excelUtils.exportToExcel(this.ticketPlanningModel.getTicketFXObservableListPlanning());
-       } catch (IOException e) {
-           Dialogs.alertMessage(e.getMessage());
-       } catch (WriteException e) {
-           Dialogs.alertMessage(e.getMessage());
-       }
+    public void export() {
+        try {
+            ExcelUtilsPOI excelUtilsPOI = new ExcelUtilsPOI();
+            excelUtilsPOI.exportToExcel(this.ticketPlanningModel.getTicketFXObservableListPlanning());
+        } catch (IOException e) {
+            Dialogs.alertMessage(e.getMessage());
+        }
 
-   }
+    }
+
+    public void createExcelTemplate(ActionEvent actionEvent) {
+        List<String> purNameList = PersonConverter.convertFXIntoSimpleNameSurname(this.ticketPlanningModel.getPurFXList());
+        List<String> planNameList = PersonConverter.convertFXIntoSimpleNameSurname(this.ticketPlanningModel.getPlanningFXList());
+        List<String> scmNameList = PersonConverter.convertFXIntoSimpleNameSurname(this.ticketPlanningModel.getScMFXList());
+        String authorName = this.ticketPlanningModel.getTicketFXObjectProperty().getAuthorFXProperty().getName()+" "+this.ticketPlanningModel.getTicketFXObjectProperty().getAuthorFXProperty().getSurname();
+        List<String> statusList = new ArrayList<>();
+        for(StatusFX statusFX : ticketPlanningModel.getStatusFXObservableList()){
+            statusList.add(statusFX.getNameFX());
+        }
+
+
+        //excelUtils.createExcelTemplate(purNameList,planNameList,scmNameList,authorName);
+        ExcelUtilsPOI excelUtilsPOI = new ExcelUtilsPOI();
+        try {
+            excelUtilsPOI.createTemplate(purNameList,planNameList,scmNameList,authorName,statusList);
+        } catch (IOException e) {
+            Dialogs.alertMessage(e.getMessage());
+        }
+    }
 }
 
 

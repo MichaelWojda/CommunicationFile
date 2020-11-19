@@ -43,4 +43,13 @@ public class Status implements BaseModel {
     public void setDepartamentDependency(String departamentDependency) {
         this.departamentDependency = departamentDependency;
     }
+
+    @Override
+    public String toString() {
+        return "Status{" +
+                "id=" + id +
+                ", statusName='" + statusName + '\'' +
+                ", departamentDependency='" + departamentDependency + '\'' +
+                '}';
+    }
 }

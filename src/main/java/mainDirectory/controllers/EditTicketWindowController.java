@@ -1,18 +1,17 @@
 package mainDirectory.controllers;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import mainDirectory.dialogs.Dialogs;
 import mainDirectory.modelFX.PersonFX;
 import mainDirectory.modelFX.StatusFX;
 import mainDirectory.modelFX.TicketPlanningModel;
 import mainDirectory.utils.Exceptions.ApplicationException;
+import mainDirectory.utils.Other;
+
+import java.io.IOException;
+import java.util.Optional;
 
 public class EditTicketWindowController {
 
@@ -63,15 +62,27 @@ public class EditTicketWindowController {
 
         bindings();
 
+        
+
 
     }
+
+
 
     public void bindings() {
         this.editTicketStatusComboBox.setItems(this.ticketPlanningModel.getStatusFXObservableList());
         this.editTicketScmComboBox.setItems(this.ticketPlanningModel.getScMFXList());
         this.editTicketPurComboBox.setItems(this.ticketPlanningModel.getPurFXList());
         this.editTicketPlanComboBox.setItems(this.ticketPlanningModel.getPlanningFXList());
-        this.idNumberLabel.setText(this.ticketPlanningModel.getTicketFXObjectProperty().idPropertyProperty().getValue().toString());
+        if(this.ticketPlanningModel.getMultipleTicketsList().size()>1){
+            this.idNumberLabel.setText("ZMIANA WIELU TICKETÓW");
+            this.editTicketMatNumber.disableProperty().setValue(true);
+            this.editTicketMatDesc.disableProperty().setValue(true);
+            this.editTicketProject.disableProperty().setValue(true);
+        }
+        else{
+            this.idNumberLabel.setText(this.ticketPlanningModel.getTicketFXObjectProperty().idPropertyProperty().getValue().toString());
+        }
         this.editTicketMatNumber.textProperty().bindBidirectional(this.ticketPlanningModel.getTicketFXObjectProperty().materialNamePropertyProperty());
         this.editTicketMatDesc.textProperty().bindBidirectional(this.ticketPlanningModel.getTicketFXObjectProperty().materialDescriptionPropertyProperty());
         this.editTicketProject.textProperty().bindBidirectional(this.ticketPlanningModel.getTicketFXObjectProperty().projectPropertyProperty());
@@ -99,12 +110,41 @@ public class EditTicketWindowController {
 
     @FXML
     void saveChangesButtonOnClick() {
-        try {
-            this.ticketPlanningModel.saveTicketInDB();
-        } catch (ApplicationException e) {
-            Dialogs.alertMessage(e.getMessage());
+        int size =this.ticketPlanningModel.getMultipleTicketsList().size();
+        if(size>1){
+            Optional<ButtonType> result = Dialogs.generalConfirmation("Czy chcesz wprowadzić zmiany dla " + size + " indeksów?");
+            if(result.get()==ButtonType.OK){
+                this.ticketPlanningModel.saveMultipleTickets(this.ticketPlanningModel.getMultipleTicketsList());
+                Optional<ButtonType> confResult = Dialogs.generalConfirmation("Czy chcesz poinforować osobę o utworzonej akcji?");
+                if(confResult.get()==ButtonType.OK){
+                    try {
+                        Other.sendMultipleEmail(this.ticketPlanningModel.getMultipleTicketsList(),
+                                "Masz nowe zadania w pliku komunikacji",
+                                "Witaj \n przydzielone zostało Ci nowe zadania w pliku komunikacji",
+                                false);
+                    } catch (IOException e) {
+                        Dialogs.alertMessage(e.getMessage());
+                    }
+
+                }
+            }
         }
-        this.ticketPlanningModel.filterByPlanner();
+        else {
+            try {
+                this.ticketPlanningModel.saveTicketInDB();
+                Optional<ButtonType> result = Dialogs.generalConfirmation("Czy chcesz poinforować osobę o utworzonej akcji?");
+                if(result.get()==ButtonType.OK){
+                    Other.sendEmail(this.ticketPlanningModel.getTicketFXObjectProperty(),
+                            "Masz nowe zadanie w pliku komunikacji",
+                            "Witaj \n przydzielone zostało Ci nowe zadanie w pliku komunikacji",
+                            false);
+
+                }
+            } catch (ApplicationException | IOException e) {
+                Dialogs.alertMessage(e.getMessage());
+            }
+        }
+        //this.ticketPlanningModel.filterByPlanner();
         Stage stage =(Stage) this.saveChangesButton.getScene().getWindow();
         stage.close();
 
@@ -138,4 +178,6 @@ public class EditTicketWindowController {
     public void setPlanningWindowController(PlanningWindowController planningWindowController) {
         this.planningWindowController = planningWindowController;
     }
+
+
 }

@@ -57,6 +57,14 @@ public class Dialogs {
         return alert.showAndWait();
     }
 
+    public static Optional<ButtonType> generalConfirmation(String string){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Uwaga");
+        alert.setHeaderText("Uwaga");
+        alert.setContentText(string);
+        return alert.showAndWait();
+    }
+
     public static void informationDialog(String error) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Informacja");

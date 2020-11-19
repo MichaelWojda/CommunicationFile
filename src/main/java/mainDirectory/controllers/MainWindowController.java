@@ -4,7 +4,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.BorderPane;
-import mainDirectory.utils.fxmlUtils;
 
 import java.io.IOException;
 
@@ -40,5 +39,6 @@ public class MainWindowController {
         }
         this.mainBorderPane.setCenter(parent);
     }
+
 
 }

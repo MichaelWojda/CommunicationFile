@@ -1,7 +1,11 @@
 package mainDirectory.Converters;
 
+import javafx.collections.ObservableList;
 import mainDirectory.database.model.Person;
 import mainDirectory.modelFX.PersonFX;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PersonConverter {
     public static PersonFX convertToPersonFX(Person person){
@@ -22,5 +26,15 @@ public class PersonConverter {
         person.setDepartament(personFX.getDepartament());
         person.setEmail(personFX.getEmailFX());
         return person;
+    }
+
+    public static List<String> convertFXIntoSimpleNameSurname(ObservableList<PersonFX> personFXList) {
+        List<String> list = new ArrayList<>();
+        personFXList.forEach(p->{
+            list.add(p.getName()+" "+p.getSurname());
+
+        });
+
+        return list;
     }
 }
