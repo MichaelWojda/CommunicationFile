@@ -8,7 +8,7 @@
     <plugins>
       <plugin>
         <artifactId>maven-shade-plugin</artifactId>
-        <version>3.2.1</version>
+        <version>3.6.1</version>
         <executions>
           <execution>
             <phase>package</phase>
@@ -27,7 +27,7 @@
       </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.8.0</version>
+        <version>3.14.0</version>
         <configuration>
           <source>11</source>
           <target>11</target>
@@ -39,30 +39,14 @@
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-controls</artifactId>
-      <version>13</version>
+      <version>21.0.5</version>
       <scope>provided</scope>
-      <exclusions>
-        <exclusion>
-          <artifactId>javafx-controls</artifactId>
-          <groupId>org.openjfx</groupId>
-        </exclusion>
-        <exclusion>
-          <artifactId>javafx-graphics</artifactId>
-          <groupId>org.openjfx</groupId>
-        </exclusion>
-      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.openjfx</groupId>
       <artifactId>javafx-fxml</artifactId>
-      <version>13</version>
+      <version>21.0.5</version>
       <scope>provided</scope>
-      <exclusions>
-        <exclusion>
-          <artifactId>javafx-fxml</artifactId>
-          <groupId>org.openjfx</groupId>
-        </exclusion>
-      </exclusions>
     </dependency>
   </dependencies>
   <properties>
