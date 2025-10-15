@@ -11,7 +11,6 @@ import mainDirectory.database.dbutils.dbManager;
 import mainDirectory.database.model.BaseModel;
 import mainDirectory.utils.Exceptions.ApplicationException;
 
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -27,8 +26,8 @@ public class CommonDao {
     public void closeDbConnection() throws ApplicationException {
         try {
             this.connectionSource.close();
-        } catch (IOException e) {
-            logger.warn(e.getCause().getMessage());
+        } catch (Exception e) {
+            logger.warn(e.getMessage());
             throw new ApplicationException("Problem z zamknięciem bazy danych");
         }
     }

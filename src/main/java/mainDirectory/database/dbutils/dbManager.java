@@ -9,7 +9,6 @@ import mainDirectory.database.model.Ticket;
 import mainDirectory.database.model.Ticket_History;
 import mainDirectory.utils.Exceptions.ApplicationException;
 
-import java.io.IOException;
 import java.sql.SQLException;
 
 public class dbManager {
@@ -38,7 +37,7 @@ public class dbManager {
     public static void closeConnection() throws ApplicationException {
         try {
             connectionSource.close();
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new ApplicationException("Problem z połączeniem z bazą danych");
         }
     }
